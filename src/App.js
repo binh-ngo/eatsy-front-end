@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import Header from "./components/Header/index"
+// import Header from "./components/Header/index"
+import Profile from "./components/Profile/index"
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
   return (
-      <Header loggedIn = {loggedIn} setLoggedIn={setLoggedIn}/>
+    <div className='App'>
+      {/* <Header loggedIn = {loggedIn} setLoggedIn={setLoggedIn}/> */}
+      <Profile />
+    </div>
   );
 }
 
