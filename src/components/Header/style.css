@@ -1,0 +1,30 @@
+nav {
+    background-color: #00b4d8;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.logoName {
+    justify-content: space-between;
+}
+.navbar-brand {
+    margin-left: 2%;
+}
+
+.nav-link:hover {
+    background-color: #caf0f8
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+    margin-left: 3%;
+}
+
+li {
+    margin-left: 7%;
+}
+
+.navbar-toggler {
+    margin-right: 3%;
+}
