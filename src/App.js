@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from 'react';
+import Header from "./components/Header/index"
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <div className="App">
-
-    </div>
+      <Header loggedIn = {loggedIn} setLoggedIn={setLoggedIn}/>
   );
 }
 
