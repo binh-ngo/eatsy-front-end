@@ -26,6 +26,11 @@ function Header({ loggedIn, setLoggedIn }) {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto list-inline">
               <li className= "nav-item active list-inline-item">
+                <a className="nav-link" href="/profile">
+                  Profile
+                </a>
+              </li>
+              <li className= "nav-item active list-inline-item">
                 <a className="nav-link" href="/">
                   Sign Out
                 </a>
