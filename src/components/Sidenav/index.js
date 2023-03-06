@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import "bootstrap/dist/css/bootstrap.min.css";
  
-const Sidenav = ({ cartArr, setCartArr }) => {
+function Sidenav({ cartArr, setCartArr }) {
   // function that creates a div with info for each dish
   const arrayMap = cartArr.map(companyObj => {
     <div>

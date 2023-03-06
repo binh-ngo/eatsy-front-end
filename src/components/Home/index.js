@@ -1,10 +1,12 @@
 import React from 'react'
 import "./style.css"
 
-function Profile() {
+function Home() {
   return (
-    <div>Profile</div>
+    <div>
+
+    </div>
   )
 }
 
-export default Profile
+export default Home;

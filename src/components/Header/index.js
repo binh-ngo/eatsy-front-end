@@ -2,14 +2,14 @@ import React from "react";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Header = ({ loggedIn, setLoggedIn }) => {
+function Header({ loggedIn, setLoggedIn }) {
   return (
     <div>
       {/* If user is logged in, generate this html for the header
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <h1><a className="navbar-brand brand" href="#">
+          <h1><a className="navbar-brand brand" href="/">
             Eatsy
           </a></h1>
           <button
@@ -25,13 +25,8 @@ const Header = ({ loggedIn, setLoggedIn }) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto list-inline">
-              <li className="nav-item active list-inline-item">
-                <a className="nav-link" href="#">
-                  Cart 
-                </a>
-              </li>
               <li className= "nav-item active list-inline-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                   Sign Out
                 </a>
               </li>
@@ -41,7 +36,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
       ) : (
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
-          <a className="navbar-brand col-sm-5" href="#">
+          <a className="navbar-brand col-sm-5" href="/">
             Eatsy
           </a>
           <button
@@ -57,18 +52,13 @@ const Header = ({ loggedIn, setLoggedIn }) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto list-inline col-sm-5">
-              <li className="nav-item active list-inline-item">
-                <a className="nav-link" href="#">
-                  Cart 
-                </a>
-              </li>
               <li className= "nav-item active list-inline-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/signin">
                   Log In 
                 </a>
               </li>
               <li className= "nav-item active list-inline-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/signup">
                   Sign Up 
                 </a>
               </li>
