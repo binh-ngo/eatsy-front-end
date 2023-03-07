@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-const ItemCards = () => {
+function ItemCards() {
   return (
     <div>ItemCards</div>
   )
