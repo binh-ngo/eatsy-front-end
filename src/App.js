@@ -5,6 +5,7 @@ import Profile from "./components/Profile/index"
 import Signup from "./components/Signup/index"
 import Home from "./components/Home/index.js"
 import Stores from "./components/Stores/index"
+import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,
   Route,
@@ -38,7 +39,7 @@ function App() {
         <Route path="/profile" element={<Profile />}/>  {/*  User Profile */}
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
     </Router>
   );
