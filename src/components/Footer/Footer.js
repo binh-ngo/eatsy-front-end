@@ -8,19 +8,15 @@ function Footer() {
     return (
       <Container fluid className="footer">
         <Row>
-          <Col sm="2"  lg="2" className="footer-copywright justify-content-center">
-            <h3>Designed and Developed by </h3>
-                </Col>
-                <Col sm="8" lg="8">
-                <ul className='justify-content-center'>
+          <Col>
+                <ul className='justify-content-space-around'>
+                <li>Designed and Developed by </li>
                 <li><a href="https://www.linkedin.com/in/binh-nguyen-ngo/"> Binh-Nguyen Ngo</a></li>
                 <li><a href="https://www.linkedin.com/in/lukas-macmillen-03b2681b2/">Lukas MacMillen</a></li>
-                <li><a href="https://www.linkedin.com/in/binh-nguyen-ngo/">Bram Gibson</a></li>
-                <li><a href="https://www.linkedin.com/in/binh-nguyen-ngo/">Jason Nguyen</a></li>
+                <li><a href="https://www.linkedin.com/in/bram-g/">Bram Gibson</a></li>
+                <li><a href="https://www.linkedin.com/in/jhnwoo">Jason Nguyen</a></li>
+                <li>Copyright © {year}</li>
                 </ul>
-          </Col>
-          <Col sm="2" lg="2" className="footer-copywright ">
-            <h3>Copyright © {year}</h3>
           </Col>
         </Row>
       </Container>

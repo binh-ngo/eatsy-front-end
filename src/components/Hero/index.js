@@ -1,23 +1,35 @@
-import React from 'react'
-import './style.css'
+import React from 'react';
+import './style.css';
+import {Row, Col, Container} from 'react-bootstrap'
 
-function Hero() {
+function Hero(props) {
   return (
-    <div className='row'>
-      <div className='col-sm-8'>
-        <img className="hero"src={url}/> {/* allow user to upload their own picture and assign it as their profile picture  */}
-        <h1>{companyObj.name}</h1>
-        <img className="profile" src={url}/> {/* profile picture */}
-        <div>
-          <p>{companyObj.tags}</p>
-          <p>{companyObj.ratings}</p>
-          <p>{data.price}</p>
-          <p>{companyObj.phoneNumber}</p>
-          <p>{companyObj.address}</p>
-          <p>{data.distance}</p>
+    <Container className="hero">
+      <Row>
+      <Col sm="12">
+        {/* <img className="heroImg" 
+              // src={props.heroImg} 
+              // alt={props.heroImg.alt}
+              /> */}
+        {/* <img className="userImg" 
+              src={props.userImg} 
+              alt={props.userImg.alt}
+              /> */}
+      </Col>
+      <Col sm="12">
+        <h1>{props.name}</h1>
+        <ul className='descriptors'>
+          <li>{props.address}</li>
+          <li>Phone: {props.phoneNumber}</li>
+          <li>Rating: {props.ratings}</li>
+        <div className='tagArr'>
+          <li>{props.tags+' '}</li>
         </div>
-      </div>
-    </div>
+          {/* <p>{props.distance}</p> */}
+        </ul>
+      </Col>
+      </Row>
+    </Container>
   )
 }
 

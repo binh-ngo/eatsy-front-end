@@ -1,0 +1,13 @@
+.hero ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.hero li {
+    margin-left: 2em;
+}
+
+.hero .tagArr li {
+    margin-left: 2em;
+}
