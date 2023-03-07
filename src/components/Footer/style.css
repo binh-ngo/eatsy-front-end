@@ -1,0 +1,33 @@
+.footer a {
+    color: black;
+    text-decoration: none;
+
+}
+
+.footer ul {
+    margin-bottom: -3em ;
+    list-style-type: none;
+}
+
+.footer {
+    background-color: #00b4d8;
+    bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 8px !important ;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    position: fixed;
+
+}
+
+@media (max-width: 767px) {
+    .footer-copywright {
+    text-align: center !important;
+  }
+}
+  
+  .footer h3 {
+    font-size: 1em;
+    color: black;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+  }
