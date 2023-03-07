@@ -7,18 +7,18 @@ function Hero(props) {
     <Container className="hero">
       <Row>
       <Col sm="12">
-        {/* <img className="heroImg" 
-              // src={props.heroImg} 
-              // alt={props.heroImg.alt}
-              /> */}
-        {/* <img className="userImg" 
+         <img className="heroImg" 
+              src={props.heroImg} 
+              alt={props.heroImgAlt}
+              /> 
+         <img className="userImg" 
               src={props.userImg} 
-              alt={props.userImg.alt}
-              /> */}
+              alt={props.userImgAlt}
+              /> 
       </Col>
-      <Col sm="12">
+      <Col sm="12" className="descriptors">
         <h1>{props.name}</h1>
-        <ul className='descriptors'>
+        <ul>
           <li>{props.address}</li>
           <li>Phone: {props.phoneNumber}</li>
           <li>Rating: {props.ratings}</li>
