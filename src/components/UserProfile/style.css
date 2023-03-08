@@ -1,0 +1,8 @@
+.userProfileUnderline {
+    border-bottom: 2px solid black;
+    margin-bottom: 2%;
+}
+
+.userProfileUnderline p {
+    font-size: 1.5rem;
+}
