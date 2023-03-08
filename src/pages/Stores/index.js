@@ -3,8 +3,26 @@ import './style.css'
 import Hero from "../../components/Hero/index"
 import heroImg from "./assets/heroImg.jpg"
 import userImg from "./assets/userImg.jpg"
+import taco from "./assets/taco.jpg";
+import ItemCards from "../ItemCards/index";
 
 function Stores() {
+    const cardArray = [
+      {
+        name: "taco",
+        id:"223",
+        allergens: ["Fish", "Dairy"],
+        description: "Fish Taco with all the fixins",
+        img: taco,
+      },
+      {
+        name: "taco",
+        id:"224",
+        allergens: ["Fish", "Dairy"],
+        description: "Fish Taco with all the fixins",
+        img: taco,
+      },
+    ];
 
   const storeObj =
     {
@@ -30,6 +48,7 @@ function Stores() {
 
 return (
   <div> 
+    <div>
       <Hero 
         name={storeObj.name}
         ratings={storeObj.ratings}
@@ -42,7 +61,25 @@ return (
         userImgAlt={storeObj.userImg.alt}
       />
     </div>
-  )
-}
+
+    {/* Brams Bottom ;) */}
+    <div>MENU</div>
+    <div id="itemCardsContainer">
+      <div id="bottomCardHalf" className="row">
+        {cardArray.map((item) => (
+          <ItemCards
+          key={item.id}
+            name={item.name}
+            allergens={[item.allergens]}
+            description={item.description}
+            img={item.img}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+};
+
 
 export default Stores

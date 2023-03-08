@@ -1,0 +1,11 @@
+
+#itemCardsContainer{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+#bottomCardHalf{
+    justify-content: center;
+    width: 80%;
+}
