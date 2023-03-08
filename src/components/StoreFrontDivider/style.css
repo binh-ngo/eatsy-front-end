@@ -1,0 +1,14 @@
+.storeFrontDivider h3 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.storeFrontDivider button {
+    margin-bottom: .2rem;
+}
+
+.storeFrontDivider .divider {
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: row;
+}
+

@@ -4,7 +4,8 @@ import Hero from "../../components/Hero/index"
 import heroImg from "./assets/heroImg.jpg"
 import userImg from "./assets/userImg.jpg"
 import taco from "./assets/taco.jpg";
-import ItemCards from "../ItemCards/index";
+import ItemCards from "../../components/ItemCards/index";
+import StoreFrontDivider from "../../components/StoreFrontDivider/index"
 
 function Stores() {
     const cardArray = [
@@ -54,16 +55,19 @@ return (
         ratings={storeObj.ratings}
         address={storeObj.address}
         phoneNumber={storeObj.phoneNumber}
-        tags={[storeObj.tags]}
+        tags={storeObj.tags}
         heroImg={storeObj.heroImg.src}
         heroImgAlt={storeObj.heroImg.alt}
         userImg={storeObj.userImg.src}
         userImgAlt={storeObj.userImg.alt}
       />
     </div>
-
+    <div className='divider'>
+    <StoreFrontDivider 
+          tags = {storeObj.tags}
+        />
+    </div>
     {/* Brams Bottom ;) */}
-    <div>MENU</div>
     <div id="itemCardsContainer">
       <div id="bottomCardHalf" className="row">
         {cardArray.map((item) => (

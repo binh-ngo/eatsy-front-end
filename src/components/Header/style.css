@@ -1,6 +1,7 @@
 nav {
     background-color: #00b4d8;
     font-family: 'Barlow Semi Condensed', sans-serif;
+    position: fixed;
 }
 
 .logoName {
