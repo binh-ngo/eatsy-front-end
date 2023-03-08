@@ -32,4 +32,38 @@
     padding-left: 2%;
     margin-top: -49%;
     color: white;
+    text-shadow: -1px -1px 0 black;
 }
+
+@media screen and (max-width: 1199px) {
+    .descriptors{
+        margin-top: -52%;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .descriptors{
+        margin-top: -56%;
+        margin-left: 2%;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .descriptors{
+        margin-top: -48%;
+        margin-left: 16%;
+    }
+    .descriptors h1 {
+        color: black;
+    }
+
+    .descriptors ul{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 530px) {
+    .descriptors{
+        margin-top: -48%;
+        margin-left: 18%;
+    }
+  }
