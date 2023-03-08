@@ -1,0 +1,31 @@
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style-type: none;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+.footer li {
+  margin-top: .5em;
+}
+
+.footer {
+    background-color: #00b4d8;
+    bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 8px !important ;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    position: fixed;
+
+}
+
+@media (max-width: 767px) {
+    .footer-copywright {
+    text-align: center !important;
+  }
+}
+  

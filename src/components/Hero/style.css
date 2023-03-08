@@ -1,0 +1,35 @@
+.hero ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.hero li {
+    margin-left: 2em;
+}
+
+.hero .tagArr li {
+    margin-left: 2em;
+}
+
+.heroImg {
+    margin-top: 2%;
+    width:100%;
+    height: 30%;
+    border: 2px solid white;
+}
+
+.userImg {
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: -4%;
+    margin-left: -3%;
+    border: 2px solid white;
+}
+
+.descriptors {
+    padding-left: 2%;
+    margin-top: -49%;
+    color: white;
+}
