@@ -26,8 +26,9 @@ function Profile() {
     }
   
 }
+
   return (
-    <div> 
+    <div className='profile'> 
     <Hero 
       name={storeObj.name}
       ratings={storeObj.ratings}
@@ -40,6 +41,7 @@ function Profile() {
       userImgAlt={storeObj.userImg.alt}
     />
   </div>
+
   )
 }
 

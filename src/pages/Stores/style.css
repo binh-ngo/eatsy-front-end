@@ -1,3 +1,6 @@
+.divider {
+    margin-top: -27%;
+}
 
 #itemCardsContainer{
     display: flex;
