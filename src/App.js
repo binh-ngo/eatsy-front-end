@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header/index"
-import SignIn from "./components/Signin/index"
-import Profile from "./components/Profile/index"
-import Signup from "./components/Signup/index"
-import Home from "./components/Home/index.js"
-import Stores from "./components/Stores/index"
+import SignIn from "./pages/Signin/index"
+import Profile from "./pages/Profile/index"
+import Signup from "./pages/Signup/index"
+import Home from "./pages/Home/index.js"
+import Stores from "./pages/Stores/index.js"
 import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,

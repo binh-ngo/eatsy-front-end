@@ -14,14 +14,14 @@ nav {
     background-color: #caf0f8
 }
 
-ul {
+.header ul {
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
     margin-left: 3%;
 }
 
-li {
+.header li {
     margin-left: 7%;
 }
 
