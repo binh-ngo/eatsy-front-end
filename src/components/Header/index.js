@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Header({ loggedIn, setLoggedIn }) {
   return (
-    <div>
+    <div className="header">
       {/* If user is logged in, generate this html for the header
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
