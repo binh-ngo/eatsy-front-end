@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -9,7 +9,9 @@ import HighlightCreation from "../../components/HighlightCreation";
 import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 
+
 function Profile() {
+
   const cardArray = [
     {
       name: "taco",
@@ -44,6 +46,25 @@ function Profile() {
     },
   };
 
+  const [buttonText, setButtonText] = useState("Company Profile");
+  const [variant, setVariant] = useState("danger")
+  const [highlightState, setHighlightState] = useState("contentHidden")
+  const [profileState, setProfileState] = useState("contentVisible")
+
+  function switchButton() {
+    if (buttonText === "Company Profile") {
+      setButtonText("User Profile");
+      setVariant("primary");
+      setProfileState("contentHidden")
+      setHighlightState("contentVisible")
+    } else {
+      setButtonText("Company Profile")
+      setVariant("danger")
+      setProfileState("contentVisible")
+      setHighlightState("contentHidden")
+    }
+  }
+
   return (
     <div className="profile">
       <Container>
@@ -60,19 +81,19 @@ function Profile() {
         userImgAlt={storeObj.userImg.alt}
         />
         </Row>
-        {/* TODO: On click, changes own name to User Profile with a variant of Primary */}
-              {/* And changes userProfileComponent to display:none while changing highlightCreationComponent to display visible */}
-      <Button className="companyProfileBtn" variant="danger">Company Profile</Button>{' '}
-      <div className="userProfileComponent">
+      <Button onClick={switchButton}
+              className="companyProfileBtn" 
+              variant={variant}>
+              {buttonText}</Button>{' '}
+      <div className="userProfileComponent" id={profileState}>
         <UserProfile
           name={storeObj.name}
           email={storeObj.email}
           address={storeObj.address}
           />
       </div>
-      <div className="highlightCreationComponent">
-        <HighlightCreation 
-          tags={storeObj.tags}/>
+      <div className="highlightCreationComponent" id={highlightState}>
+        <HighlightCreation />
               <div id="itemCardsContainer">
       <div id="bottomCardHalf" className="row">
         {cardArray.map((item) => (

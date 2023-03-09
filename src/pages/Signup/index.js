@@ -4,7 +4,10 @@ import { Container, Row, Form, Button } from 'react-bootstrap'
 
 function Signup() {
   function signUpHandler() {
-    // insert js here :)
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [address, setAddress] = useState('')
+// TODO:
   }
 
   return (

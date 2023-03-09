@@ -8,7 +8,7 @@ function StoreFrontDivider(props) {
     <Container className="storeFrontDivider">
       <Row className="divider">
         <Col>
-          <Dropdown>
+          <Dropdown sm="10">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Menu
             </Dropdown.Toggle>
@@ -21,10 +21,10 @@ function StoreFrontDivider(props) {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-        <Col sm="3">
+        <Col sm="1">
           <Button variant="danger">Contact</Button>{" "}
         </Col>
-        <Col sm="3">
+        <Col sm="1">
           <Button variant="success">Edit</Button>{" "}
         </Col>
       </Row>
