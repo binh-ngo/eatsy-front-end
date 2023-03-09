@@ -17,7 +17,7 @@ function Signin() {
     <div>
       <Container fluid>
         <Row className="justify-content-center">
-        <h1>Log In</h1>
+        <h1>Sign In</h1>
       <Form className='signin'>
       <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Username</Form.Label>
