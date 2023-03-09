@@ -71,7 +71,6 @@ return (
     </div>
 
     {/* Brams Bottom ;) */}
-    <div>MENU</div>
     <div id="itemCardsContainer">
       <div id="bottomCardHalf" className="row">
         {cardArray.map((item) => (

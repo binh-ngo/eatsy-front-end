@@ -3,10 +3,10 @@ import './style.css'
 import { Container, Row, Form, Button } from 'react-bootstrap'
 
 function Signup() {
-  function signUpHandler() {
   // const [name, setName] = useState('')
   // const [email, setEmail] = useState('')
   // const [address, setAddress] = useState('')
+  function signUpHandler() {
 // TODO:
   }
 
