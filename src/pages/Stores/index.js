@@ -5,7 +5,8 @@ import heroImg from "./assets/heroImg.jpg";
 import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
-import StoreFrontDivider from "../../components/StoreFrontDivider/index"
+import StoreFrontDivider from "../../components/StoreFrontDivider/index";
+import {Container, Row, Button} from "react-bootstrap";
 
 function Stores() {
   const cardArray = [
@@ -50,8 +51,8 @@ function Stores() {
 }
 
 return (
-  <div> 
-    <div>
+    <Container className="stores">
+    <Row>
       <Hero 
         name={storeObj.name}
         ratings={storeObj.ratings}
@@ -62,17 +63,17 @@ return (
         heroImgAlt={storeObj.heroImg.alt}
         userImg={storeObj.userImg.src}
         userImgAlt={storeObj.userImg.alt}
-      />
-    </div>
-    <div className='divider'>
+        />
+    </Row>
+      <Button className="contactBtn" variant="info">Contact</Button>{' '}
+    <Row className='divider'>
     <StoreFrontDivider 
           tags = {storeObj.tags}
-        />
-    </div>
-
+          />
+    </Row>
     {/* Brams Bottom ;) */}
-    <div id="itemCardsContainer">
-      <div id="bottomCardHalf" className="row">
+    <Container id="itemCardsContainer">
+      <Row id="bottomCardHalf">
         {cardArray.map((item) => (
           <ItemCards
           key={item.id}
@@ -81,11 +82,11 @@ return (
             allergens={[item.allergens]}
             description={item.description}
             img={item.img}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
+            />
+            ))}
+      </Row>
+    </Container>
+    </Container>
 );
 };
 

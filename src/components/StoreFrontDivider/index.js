@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Button, Col} from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import './style.css'
 
 function StoreFrontDivider() {
@@ -7,7 +7,7 @@ function StoreFrontDivider() {
     <Container className="storeFrontDivider">
       <Row className="divider">
         <Col sm="1">
-        <Button variant="danger">Contact</Button>{" "}
+          <h2>Menu</h2>
         </Col>
       </Row>
     </Container>
