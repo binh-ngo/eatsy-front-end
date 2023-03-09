@@ -1,6 +1,5 @@
 .userProfileComponent {
     margin-top: -34%;
-    /* display: none; */
 }
 
 .companyProfileBtn {
@@ -10,8 +9,14 @@
 
 .highlightCreationComponent {
     margin-top: -36%;
-    display: none;
+}
 
+#contentHidden {
+    display: none;
+}
+
+#contentVisible {
+    display: visible;
 }
 
 @media screen and (max-width: 1199px) {

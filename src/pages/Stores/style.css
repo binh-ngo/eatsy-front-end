@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 
 .divider {
-    margin-top: -27%;
+    margin-top: -16%;
+    margin-bottom: -10%;
+}
+
+.contactBtn {
+    width: 20%;
+    margin-top: -81%;
+    margin-left: 5%;
 }
 
 #itemCardsContainer{
@@ -14,3 +21,36 @@
     justify-content: center;
     width: 80%;
 }
+@media screen and (max-width: 1400px) {
+    .contactBtn{
+        margin-top: -82.5%;
+        margin-left: 6.5%;
+    }
+  }
+@media screen and (max-width: 1200px) {
+    .contactBtn{
+        margin-top: -85%;
+        margin-left: 8%;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .contactBtn{
+        margin-top: -89.5%;
+        margin-left: 12%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .contactBtn{
+        margin-top: -97%;
+        margin-left: 50%;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .contactBtn{
+        margin-top: -99%;
+        margin-left: 50%;
+    }
+  }

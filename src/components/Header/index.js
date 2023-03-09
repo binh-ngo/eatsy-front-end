@@ -59,7 +59,7 @@ function Header({ loggedIn, setLoggedIn }) {
             <ul className="navbar-nav mr-auto list-inline col-sm-5">
               <li className= "nav-item active list-inline-item">
                 <a className="nav-link" href="/signin">
-                  Log In 
+                  Sign In 
                 </a>
               </li>
               <li className= "nav-item active list-inline-item">
