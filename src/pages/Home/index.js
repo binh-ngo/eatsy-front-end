@@ -1,12 +1,17 @@
-import React from 'react'
-import "./style.css"
+import React from "react";
+import "./style.css";
 
 function Home() {
   return (
     <div>
-      Home
+      <div>
+        <div>TYPE ADDRESS HERE</div>
+      </div>
+      <div id="homeStoreView" className="container">
+
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home;
