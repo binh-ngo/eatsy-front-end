@@ -66,7 +66,7 @@ const API = {
 
 
 /* Example how to GET DAT all data (useres and companies)*/
-API.getAllData().then(res => console.log(res[0].company.menu))
+// API.getAllData().then(res => console.log(res))
 
 /* Example user CREATE*/
 // const userObj = {

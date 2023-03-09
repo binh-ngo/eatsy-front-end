@@ -1,28 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
 #itemCard{
     margin: 2rem;
     width: 25rem;
+    height: 23rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: all .3s ease-in-out ;
+    overflow: hidden;
+    position:relative;
+    background: linear-gradient(359.56deg, #CCDCD1 -15.28%, rgba(255, 255, 255, 0) 40.16%);
 }
 #itemCard:hover{
     transform: scale(1.02);
+}
+#itemInfoDiv{
+    background: transparent;
+    height: 23rem;
+    position: relative;
+    transition: .4s ease-in-out;
+}
+#itemCard:hover #itemInfoDiv{
+    transform: translateY(-100%);
+
+}
+#itemCard:hover #cardImg{
+    transform: translateY(-100%);
 }
 #imgContainer{
     display: flex;
     justify-content: center;
 
-    
 }
-/* #itemTitle, #itemDesc, #itemAllergens{
- justify-content: center;
- display:flex
-} */
 #cardImg{
     width: 25rem;
     background-color: gray;
-    opacity: .5;
-    transition: all .3s ease-in-out ;
+    transition: all .4s ease-in-out ;
 }
-#cardImg:hover{
-    opacity: 1.0;
+#itemTitle {
+    color: #4D2D20;
+    font-family: 'Bowlby One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 177.5%;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
+#itemSubTitle{
+    color: #7C7C7C;
+    font-family: 'Bowlby One';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+padding: 5px;
+
+}
+.itemText{
+    color: #4D2D2091;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+padding: 5px;
+
+}
+/* TODO: add Tag styling */
+
