@@ -48,11 +48,8 @@ function UserProfile(props) {
   return (
     <Container className="userProfile">
       <Row className="userProfileUnderline">
-        <Col sm="11">
+        <Col sm="12">
           <p>User Info</p>
-        </Col>
-        <Col sm="1">
-          {/* TODO this btn should append the child btn to the form. Not submit! */}
         </Col>
       </Row>
       <Row>
