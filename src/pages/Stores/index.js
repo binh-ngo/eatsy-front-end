@@ -90,6 +90,7 @@ return (
     <Container className="stores">
     <Row>
     <Hero 
+        // TODO remove rating, and phoneNumber here and in the hero itself
         name={userData.username}
         ratings={storeObj.ratings}
         address={userData.address}
@@ -110,6 +111,7 @@ return (
     <Container id="itemCardsContainer">
       <Row id="bottomCardHalf">
         {imgData.map((item) => (
+          // TODO remove ingredients, ADD allergens to db
           <ItemCards
           key={item.id}
             name={item.name}
