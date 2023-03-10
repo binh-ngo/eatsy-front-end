@@ -3,10 +3,6 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import './style.css'
 
 function UserProfile(props) {
-// TODO: Handle the user profile update functionality
-  // const newName = document.getElementById("formBasicUsername")
-  // const newEmail = document.getElementById("formBasicEmail")
-  // const newAddress = document.getElementById("formBasicAddress")
   const [name, setName] = useState(props.name)
   const [placeholder, setPlaceholder] = useState(props.name)
   const [email, setEmail] = useState(props.email)
@@ -30,13 +26,7 @@ function UserProfile(props) {
     setEmail('');
     setAddress('');
   }
-// TODO: WIP
-  // function changeInfo() {
-  //   setName(newName.value)
-  //   setEmail(newEmail.value)
-  //   setAddress(newAddress.value)
-  //   window.location.reload();
-  // }
+
 // TODO: WIP
   function editUserInfo(event) {
     event.preventDefault();
