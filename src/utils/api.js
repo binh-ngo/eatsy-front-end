@@ -8,8 +8,8 @@ const API = {
                 return  fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
         },
 
-        createUser : async (userObj) => {
-                return await fetch(`${URL_PREFIX}/api/users`, {
+        createUser :  (userObj) => {
+                return  fetch(`${URL_PREFIX}/api/users`, {
                         method: "POST",
                         body: JSON.stringify(userObj),
                         headers: {
@@ -19,13 +19,13 @@ const API = {
         },
 
         // Use this for profile pages (for editing AND storefront views)
-        getSingleUser : async (username) => {
-                return await fetch(`${URL_PREFIX}/api/users/${username}`).then(res => res.json());
+        getSingleUser :  (username) => {
+                return  fetch(`${URL_PREFIX}/api/users/${username}`).then(res => res.json());
         },
 
         // Use this when a user wants to update their profile
-        updateUser : async (username, userObj) => {
-                return await fetch(`${URL_PREFIX}/api/users/${username}`, {
+        updateUser :  (username, userObj) => {
+                return  fetch(`${URL_PREFIX}/api/users/${username}`, {
                         method: "PUT",
                         body: JSON.stringify(userObj),
                         headers: {
@@ -34,16 +34,16 @@ const API = {
                 }).then(res => res.json());
         },
 
-        deleteUser : async (username) => {
-                return await fetch(`${URL_PREFIX}/api/users/${username}`, {
+        deleteUser :  (username) => {
+                return  fetch(`${URL_PREFIX}/api/users/${username}`, {
                         method: "DELETE"
                 }).then(res => res.json());
         },
 
         // TODO make login/logout, follow/unfollow functions
 
-        createCompany : async (companyObj) => {
-                return await fetch(`${URL_PREFIX}/api/companies`, {
+        createCompany :  (companyObj) => {
+                return  fetch(`${URL_PREFIX}/api/companies`, {
                         method: "POST",
                         body: JSON.stringify(companyObj),
                         headers: {
@@ -52,8 +52,8 @@ const API = {
                 }).then(res => res.json())
         },
 
-        updateCompany : async (companyId, companyObj) => {
-                return await fetch(`${URL_PREFIX}/api/companies/${companyId}`, {
+        updateCompany :  (companyId, companyObj) => {
+                return  fetch(`${URL_PREFIX}/api/companies/${companyId}`, {
                         method: "PUT",
                         body: JSON.stringify(companyObj),
                         headers: {

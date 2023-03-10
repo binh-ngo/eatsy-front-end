@@ -104,7 +104,7 @@ function Stores() {
           userImgAlt={storeObj.userImg.alt}
         />
       </Row>
-      <Button className="contactBtn" variant="info">Contact</Button>{' '}
+      <MessageModal />
       <Row className='divider'>
         <StoreFrontDivider
         />
@@ -124,26 +124,6 @@ function Stores() {
             />
           ))}
         </Row>
-        <MessageModal />
-        <Row className='divider'>
-          <StoreFrontDivider
-          />
-        </Row>
-        {/* Brams Bottom ;) */}
-        <Container id="itemCardsContainer">
-          <Row id="bottomCardHalf">
-            {cardArray.map((item) => (
-              <ItemCards
-                key={item.id}
-                name={item.name}
-                ingredients={item.ingredients}
-                allergens={[item.allergens]}
-                description={item.description}
-                img={item.img}
-              />
-            ))}
-          </Row>
-        </Container>
       </Container>
     </Container>
   );
