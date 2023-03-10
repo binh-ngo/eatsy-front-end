@@ -6,7 +6,8 @@ import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
-import {Container, Row, Button} from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
+import MessageModal from "../../components/MessageModal";
 
 function Stores() {
   const cardArray = [
@@ -29,64 +30,68 @@ function Stores() {
   ];
 
   const storeObj =
+  {
+    name: "Mcdonalds",
+    phoneNumber: "8888888",
+    email: "mcdonalds@email.com",
+    address: "123 Mcdonalds St",
+    tags: ["vegan", "spicy", "asian"],
+    ratings: ["5"],
+    heroImg:
     {
-      name:"Mcdonalds",
-      phoneNumber:"8888888",
-      email:"mcdonalds@email.com",
-      address:"123 Mcdonalds St",
-      tags: ["vegan", "spicy", "asian"],
-      ratings: ["5"],
-      heroImg: 
-        {
-          src: heroImg,
-          alt: "hero img",
-        }
-      ,
-      userImg: 
-        {
-          src:  userImg,
-          alt: 'user img'
-        }
-      
-}
+      src: heroImg,
+      alt: "hero img",
+    }
+    ,
+    userImg:
+    {
+      src: userImg,
+      alt: 'user img'
+    }
+  }
 
-return (
+  const handleContact = () => {
+    console.log("hi lukas")
+  }
+
+  return (
     <Container className="stores">
-    <Row>
-      <Hero 
-        name={storeObj.name}
-        ratings={storeObj.ratings}
-        address={storeObj.address}
-        phoneNumber={storeObj.phoneNumber}
-        tags={[storeObj.tags]}
-        heroImg={storeObj.heroImg.src}
-        heroImgAlt={storeObj.heroImg.alt}
-        userImg={storeObj.userImg.src}
-        userImgAlt={storeObj.userImg.alt}
+
+      <Row>
+        <Hero
+          name={storeObj.name}
+          ratings={storeObj.ratings}
+          address={storeObj.address}
+          phoneNumber={storeObj.phoneNumber}
+          tags={[storeObj.tags]}
+          heroImg={storeObj.heroImg.src}
+          heroImgAlt={storeObj.heroImg.alt}
+          userImg={storeObj.userImg.src}
+          userImgAlt={storeObj.userImg.alt}
         />
-    </Row>
-      <Button className="contactBtn" variant="info">Contact</Button>{' '}
-    <Row className='divider'>
-    <StoreFrontDivider 
-          />
-    </Row>
-    {/* Brams Bottom ;) */}
-    <Container id="itemCardsContainer">
-      <Row id="bottomCardHalf">
-        {cardArray.map((item) => (
-          <ItemCards
-          key={item.id}
-            name={item.name}
-            ingredients={item.ingredients}
-            allergens={[item.allergens]}
-            description={item.description}
-            img={item.img}
-            />
-            ))}
       </Row>
+      <MessageModal />
+      <Row className='divider'>
+        <StoreFrontDivider
+        />
+      </Row>
+      {/* Brams Bottom ;) */}
+      <Container id="itemCardsContainer">
+        <Row id="bottomCardHalf">
+          {cardArray.map((item) => (
+            <ItemCards
+              key={item.id}
+              name={item.name}
+              ingredients={item.ingredients}
+              allergens={[item.allergens]}
+              description={item.description}
+              img={item.img}
+            />
+          ))}
+        </Row>
+      </Container>
     </Container>
-    </Container>
-);
+  );
 };
 
 export default Stores;
