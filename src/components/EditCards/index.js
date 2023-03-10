@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import "./style.css";
-import {Card,Form, Button} from 'react-bootstrap'
+import {Card,Form, Button, Row, Col} from 'react-bootstrap'
 
 export default function EditCards(props) {
     const [name, setName] = useState(props.name)
@@ -30,7 +30,7 @@ export default function EditCards(props) {
     <Card id="editCard" className="card col-5">
       <div id="imgContainer">
         <a href={props.link}>
-          <Card.Img id="cardImg" src={props.img}alt={props.alt}></Card.Img>
+          <Card.Img id="editCardImg" src={props.img}alt={props.alt}></Card.Img>
         </a>
       </div>
       <div id="editItemInfoDiv">
@@ -49,9 +49,18 @@ export default function EditCards(props) {
             <Form.Label className="editCardLabel">Allergens</Form.Label>
             <Form.Control value={allergens} name="address" onChange={handleInputChange} type="email" placeholder={allergens} />
           </Form.Group>
+          <Row>
+          <Col sm="5">
           <Button className="editCardBtn" variant="primary" onSubmit={handleFormSubmit}>
-            Submit
+            Update
           </Button>
+          </Col>
+          <Col sm="6">
+          <Button className="editCardBtn" variant="danger">
+            Delete
+          </Button>
+          </Col>
+          </Row>
           </Form>
       </div>
     </Card>

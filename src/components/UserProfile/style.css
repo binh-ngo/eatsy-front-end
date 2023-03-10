@@ -6,3 +6,7 @@
 .userProfileUnderline p {
     font-size: 1.5rem;
 }
+
+.noShow {
+    display: none;
+}

@@ -45,7 +45,6 @@ function UserProfile(props) {
     window.location.reload()
   }
 
-
   return (
     <Container className="userProfile">
       <Row className="userProfileUnderline">
@@ -54,7 +53,6 @@ function UserProfile(props) {
         </Col>
         <Col sm="1">
           {/* TODO this btn should append the child btn to the form. Not submit! */}
-          <Button onClick={editUserInfo} variant="success">Edit</Button>{" "}
         </Col>
       </Row>
       <Row>

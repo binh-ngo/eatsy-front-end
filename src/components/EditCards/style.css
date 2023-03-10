@@ -32,7 +32,7 @@
     transform: translateY(-90%);
 
 }
-#editCard:hover #cardImg{
+#editCard:hover #editCardImg{
     transform: translateY(-90%);
 }
 #imgContainer{
@@ -40,10 +40,12 @@
     justify-content: center;
 
 }
-#cardImg{
+
+#editCardImg{
     width: 25rem;
     background-color: gray;
     transition: all .4s ease-in-out ;
+    opacity: 0.2;
 }
 #itemTitle {
     color: #4D2D20;
