@@ -7,6 +7,7 @@ import UserProfile from "../../components/UserProfile";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
+import EditCards from "../../components/EditCards";
 
 function Profile() {
   const cardArray = [
@@ -26,6 +27,13 @@ function Profile() {
     },
   ];
 
+  const editCardObj = {
+    name: "taco",
+    id: "224",
+    allergens: ["Fish", "Dairy"],
+    description: "Fish Taco with all the fixins",
+    img: taco,
+  }
   const storeObj = {
     name: "Mcdonalds",
     phoneNumber: "8888888",
@@ -114,6 +122,15 @@ function Profile() {
               </Button>{" "}
             </Col>
           </Row>
+          <div className="editMenu">
+            <EditCards 
+                  key={editCardObj.id}
+                  name={editCardObj.name}
+                  allergens={[editCardObj.allergens]}
+                  description={editCardObj.description}
+                  img={editCardObj.img}
+            />
+          </div>
           <div id="itemCardsContainer">
             <div id="bottomCardHalf" className="row">
               {cardArray.map((item) => (
