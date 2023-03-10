@@ -7,8 +7,44 @@ import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
 import {Container, Row, Button} from "react-bootstrap";
+import {useState, useEffect} from "react";
+import API from "../../utils/api"
 
 function Stores() {
+  // fetch data
+  const [userData, setUserData] = useState([]);
+  const [companyData, setCompanyData] = useState([])
+  const [menuData, setMenuData] = useState([])
+  const [imgData, setImgData] = useState([])
+
+  useEffect(() => {
+    API.getAllData().then(res => {
+      setUserData(res[0])
+      setCompanyData(res[0].company)
+      setMenuData(res[0].company.menu)
+      // setImgData(res[0].company.menu[0].img.image.data.data)
+
+      const imgDataArr = []
+      let count = 0
+
+      res[0].company.menu.map(item => {
+        const base64String = btoa(
+          String.fromCharCode(...new Uint8Array(item.img.image.data.data))
+        )
+        // console.log(item.name)
+        const obj = {src:`${base64String}`}
+        imgDataArr.push({
+          ...res[0].company.menu[count],
+          ...obj})
+          count ++
+        setImgData(imgDataArr)
+      })
+
+    })
+    .catch(err => console.log(err))
+  }, [])
+
+  // hard coded data
   const cardArray = [
     {
       name: "taco",
@@ -53,12 +89,12 @@ function Stores() {
 return (
     <Container className="stores">
     <Row>
-      <Hero 
-        name={storeObj.name}
+    <Hero 
+        name={userData.username}
         ratings={storeObj.ratings}
-        address={storeObj.address}
+        address={userData.address}
         phoneNumber={storeObj.phoneNumber}
-        tags={[storeObj.tags]}
+        tags={companyData.tags}
         heroImg={storeObj.heroImg.src}
         heroImgAlt={storeObj.heroImg.alt}
         userImg={storeObj.userImg.src}
@@ -73,14 +109,14 @@ return (
     {/* Brams Bottom ;) */}
     <Container id="itemCardsContainer">
       <Row id="bottomCardHalf">
-        {cardArray.map((item) => (
+        {imgData.map((item) => (
           <ItemCards
           key={item.id}
             name={item.name}
             ingredients={item.ingredients}
-            allergens={[item.allergens]}
+            // allergens={[item.allergens]}
             description={item.description}
-            img={item.img}
+            img={item.src}
             />
             ))}
       </Row>

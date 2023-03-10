@@ -4,8 +4,8 @@ const URL_PREFIX = "http://localhost:3001"
 
 const API = {
         // use this for the homepage (to show all the user profiles optional)
-        getAllData : async () => {
-                return await fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
+        getAllData :  () => {
+                return  fetch(`${URL_PREFIX}/api/users`).then(res => res.json())
         },
 
         createUser : async (userObj) => {
@@ -63,6 +63,8 @@ const API = {
         },
 
 }
+
+export default API
 
 
 /* Example how to GET DAT all data (useres and companies)*/
