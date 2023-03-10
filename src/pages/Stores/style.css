@@ -11,6 +11,18 @@
     margin-left: 5%;
 }
 
+.highlightCreationUnderline {
+    border-bottom: 2px solid black;
+}
+
+.highlightCreationUnderline button {
+    margin-bottom: 2%;
+}
+
+.highlightCreationUnderlineButton {
+    margin-bottom: 2%;
+}
+
 #itemCardsContainer{
     display: flex;
     justify-content: center;
