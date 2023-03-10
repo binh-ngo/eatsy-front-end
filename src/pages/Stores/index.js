@@ -6,8 +6,9 @@ import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
-import {Container, Row, Button} from "react-bootstrap";
-import {useState, useEffect} from "react";
+import { Container, Row, Button } from "react-bootstrap";
+import MessageModal from "../../components/MessageModal";
+import { useState, useEffect } from "react";
 import API from "../../utils/api"
 
 function Stores() {
@@ -32,16 +33,17 @@ function Stores() {
           String.fromCharCode(...new Uint8Array(item.img.image.data.data))
         )
         // console.log(item.name)
-        const obj = {src:`${base64String}`}
+        const obj = { src: `${base64String}` }
         imgDataArr.push({
           ...res[0].company.menu[count],
-          ...obj})
-          count ++
+          ...obj
+        })
+        count++
         setImgData(imgDataArr)
       })
 
     })
-    .catch(err => console.log(err))
+      .catch(err => console.log(err))
   }, [])
 
   // hard coded data
@@ -65,66 +67,66 @@ function Stores() {
   ];
 
   const storeObj =
+  {
+    name: "Mcdonalds",
+    phoneNumber: "8888888",
+    email: "mcdonalds@email.com",
+    address: "123 Mcdonalds St",
+    tags: ["vegan", "spicy", "asian"],
+    ratings: ["5"],
+    heroImg:
     {
-      name:"Mcdonalds",
-      phoneNumber:"8888888",
-      email:"mcdonalds@email.com",
-      address:"123 Mcdonalds St",
-      tags: ["vegan", "spicy", "asian"],
-      ratings: ["5"],
-      heroImg: 
-        {
-          src: heroImg,
-          alt: "hero img",
-        }
-      ,
-      userImg: 
-        {
-          src:  userImg,
-          alt: 'user img'
-        }
-      
-}
+      src: heroImg,
+      alt: "hero img",
+    }
+    ,
+    userImg:
+    {
+      src: userImg,
+      alt: 'user img'
+    }
+  }
 
-return (
+  return (
     <Container className="stores">
-    <Row>
-    <Hero 
-        // TODO remove rating, and phoneNumber here and in the hero itself
-        name={userData.username}
-        ratings={storeObj.ratings}
-        address={userData.address}
-        phoneNumber={storeObj.phoneNumber}
-        tags={companyData.tags}
-        heroImg={storeObj.heroImg.src}
-        heroImgAlt={storeObj.heroImg.alt}
-        userImg={storeObj.userImg.src}
-        userImgAlt={storeObj.userImg.alt}
+
+      <Row>
+        <Hero
+          // TODO remove rating, and phoneNumber here and in the hero itself
+          name={userData.username}
+          ratings={storeObj.ratings}
+          address={userData.address}
+          phoneNumber={storeObj.phoneNumber}
+          tags={companyData.tags}
+          heroImg={storeObj.heroImg.src}
+          heroImgAlt={storeObj.heroImg.alt}
+          userImg={storeObj.userImg.src}
+          userImgAlt={storeObj.userImg.alt}
         />
-    </Row>
-      <Button className="contactBtn" variant="info">Contact</Button>{' '}
-    <Row className='divider'>
-    <StoreFrontDivider 
-          />
-    </Row>
-    {/* Brams Bottom ;) */}
-    <Container id="itemCardsContainer">
-      <Row id="bottomCardHalf">
-        {imgData.map((item) => (
-          // TODO remove ingredients, ADD allergens to db
-          <ItemCards
-          key={item.id}
-            name={item.name}
-            ingredients={item.ingredients}
-            // allergens={[item.allergens]}
-            description={item.description}
-            img={item.src}
-            />
-            ))}
       </Row>
+      <MessageModal />
+      <Row className='divider'>
+        <StoreFrontDivider
+        />
+      </Row>
+      {/* Brams Bottom ;) */}
+      <Container id="itemCardsContainer">
+        <Row id="bottomCardHalf">
+          {imgData.map((item) => (
+            // TODO remove ingredients, ADD allergens to db
+            <ItemCards
+              key={item.id}
+              name={item.name}
+              ingredients={item.ingredients}
+              // allergens={[item.allergens]}
+              description={item.description}
+              img={item.src}
+            />
+          ))}
+        </Row>
+      </Container>
     </Container>
-    </Container>
-);
+  );
 };
 
 export default Stores;
