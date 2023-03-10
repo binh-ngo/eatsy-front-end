@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -8,8 +8,44 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import EditCards from "../../components/EditCards";
+import API from "../../utils/api"
 
 function Profile() {
+  // fetch data
+  const [userData, setUserData] = useState([]);
+  const [companyData, setCompanyData] = useState([])
+  const [menuData, setMenuData] = useState([])
+  const [imgData, setImgData] = useState([])
+
+  useEffect(() => {
+    API.getAllData().then(res => {
+      console.log(res[0])
+      setUserData(res[0])
+      setCompanyData(res[0].company)
+      setMenuData(res[0].company.menu)
+      // setImgData(res[0].company.menu[0].img.image.data.data)
+
+      const imgDataArr = []
+      let count = 0
+
+      res[0].company.menu.map(item => {
+        const base64String = btoa(
+          String.fromCharCode(...new Uint8Array(item.img.image.data.data))
+        )
+        // console.log(item.name)
+        const obj = {src:`${base64String}`}
+        imgDataArr.push({
+          ...res[0].company.menu[count],
+          ...obj})
+          count ++
+        setImgData(imgDataArr)
+      })
+
+    })
+    .catch(err => console.log(err))
+  }, [])
+
+  // HARD CODED
   const cardArray = [
     {
       name: "taco",
@@ -103,10 +139,11 @@ function Profile() {
           {buttonText}
         </Button>{" "}
         <div className="userProfileComponent" id={profileState}>
+          {/* TODO make user profile edit functionality */}
           <UserProfile
-            name={storeObj.name}
-            email={storeObj.email}
-            address={storeObj.address}
+            name={userData.username}
+            email={userData.email}
+            address={userData.address}
           />
         </div>
         <div className="highlightCreationComponent" id={highlightState}>
