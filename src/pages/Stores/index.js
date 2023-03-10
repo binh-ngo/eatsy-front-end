@@ -68,7 +68,6 @@ return (
       <Button className="contactBtn" variant="info">Contact</Button>{' '}
     <Row className='divider'>
     <StoreFrontDivider 
-          tags = {storeObj.tags}
           />
     </Row>
     {/* Brams Bottom ;) */}

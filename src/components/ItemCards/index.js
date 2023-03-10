@@ -7,7 +7,7 @@ export default function ItemCards(props) {
     <Card id="itemCard" className="card col-5">
       <div id="imgContainer">
         <a href={props.link}>
-          <Card.Img id="cardImg" src={props.img} alt={props.alt}></Card.Img>
+          <Card.Img id="cardImg" src={props.img}alt={props.alt}></Card.Img>
         </a>
       </div>
       
