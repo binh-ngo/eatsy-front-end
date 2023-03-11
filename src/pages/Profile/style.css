@@ -30,7 +30,6 @@
     margin-top: -34%;
 }
 
-<<<<<<< HEAD
 .msgModal {
     margin-right: 5px;
 }
@@ -38,25 +37,19 @@
 /* .companyProfileBtn {
     margin-top: -80%;
     margin-left: 6%;
-} */
-=======
-.companyProfileBtn {
-    margin-top: -81.6%;
-    margin-left: 6%;
     width:20%;
     margin-right: -5%;
-}
+} */
 
 .highlightCreationEditButton {
     width: 200%;
     margin-left: -86%;
 }
->>>>>>> dev
 
 .highlightCreationComponent {
     margin-top: -36%;
 }
-/* for highlight/userprofile */
+
 #contentHidden {
     display: none;
 }
@@ -66,14 +59,15 @@
 }
 #testDiv {
     position: relative;
+    border: solid saddlebrown;
 }
 
 #profileBtnDiv {
     display: inline;
     position: absolute;
     top: 0;
-    left: 5%;
-    transform: translateY(720%);
+    left: 10%;
+    transform: translateY(870%);
 }
 
 /* for edit Button */

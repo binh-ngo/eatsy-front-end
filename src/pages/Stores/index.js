@@ -6,12 +6,8 @@ import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
-<<<<<<< HEAD
 import { Container, Row, Button } from "react-bootstrap";
 import MessageModal from "../../components/ViewMessageModal";
-=======
-import { Container, Row } from "react-bootstrap";
->>>>>>> dev
 import { useState, useEffect } from "react";
 import API from "../../utils/api"
 
@@ -20,56 +16,17 @@ function Stores() {
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([])
   const [menuData, setMenuData] = useState([])
-  const [imgData, setImgData] = useState([])
 
   useEffect(() => {
     API.getAllData().then(res => {
       setUserData(res[0])
       setCompanyData(res[0].company)
       setMenuData(res[0].company.menu)
-      // setImgData(res[0].company.menu[0].img.image.data.data)
-
-      const imgDataArr = []
-      let count = 0
-
-      res[0].company.menu.map(item => {
-        const base64String = btoa(
-          String.fromCharCode(...new Uint8Array(item.img.image.data.data))
-        )
-        // console.log(item.name)
-        const obj = { src: `${base64String}` }
-        imgDataArr.push({
-          ...res[0].company.menu[count],
-          ...obj
-        })
-        count++
-        setImgData(imgDataArr)
-      })
-
     })
       .catch(err => console.log(err))
   }, [])
 
   // hard coded data
-  const cardArray = [
-    {
-      name: "taco",
-      id: "223",
-      allergens: ["Fish", "Dairy"],
-      ingredients: "Beer Battered Cod, Corn, Tortilla, Cabbage, Raddish, lime",
-      description: "Fish Taco with all the fixins",
-      img: taco,
-    },
-    {
-      name: "taco",
-      id: "224",
-      allergens: ["Fish", "Dairy"],
-      ingredients: "Beer Battered Cod, Corn, Tortilla, Cabbage, Raddish, lime",
-      description: "Fish Taco with all the fixins",
-      img: taco,
-    },
-  ];
-
   const storeObj =
   {
     name: "Mcdonalds",
@@ -98,9 +55,6 @@ function Stores() {
         <Hero
           // TODO remove rating, and phoneNumber here and in the hero itself
           name={userData.username}
-          ratings={storeObj.ratings}
-          address={userData.address}
-          phoneNumber={storeObj.phoneNumber}
           tags={companyData.tags}
           heroImg={storeObj.heroImg.src}
           heroImgAlt={storeObj.heroImg.alt}
@@ -115,15 +69,14 @@ function Stores() {
       {/* Brams Bottom ;) */}
       <Container id="itemCardsContainer">
         <Row id="bottomCardHalf">
-          {imgData.map((item) => (
+          {menuData.map((item) => (
             // TODO remove ingredients, ADD allergens to db
             <ItemCards
               key={item.id}
               name={item.name}
-              ingredients={item.ingredients}
-              // allergens={[item.allergens]}
+              allergens={[item.allergens]}
               description={item.description}
-              img={item.src}
+              src={item.src}
             />
           ))}
         </Row>

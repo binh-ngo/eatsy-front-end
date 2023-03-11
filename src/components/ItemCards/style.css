@@ -30,7 +30,6 @@
 #imgContainer{
     display: flex;
     justify-content: center;
-
 }
 #cardImg{
     width: 25rem;

@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import "./style.css";
 import {Card,Form, Button, Row, Col} from 'react-bootstrap'
+import placeholder from "../../utils/placeholder.js"
 
 export default function EditCards(props) {
     const [name, setName] = useState(props.name)
@@ -30,7 +31,7 @@ export default function EditCards(props) {
     <Card id="editCard" className="card col-5">
       <div id="imgContainer">
         <a href={props.link}>
-          <Card.Img id="editCardImg" src={props.img}alt={props.alt}></Card.Img>
+          <Card.Img id="editCardImg" src={props.src || placeholder}alt={props.alt}></Card.Img>
         </a>
       </div>
       <div id="editItemInfoDiv">
