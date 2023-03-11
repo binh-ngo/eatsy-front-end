@@ -55,14 +55,20 @@
 
   @media screen and (max-width: 768px) {
     .contactBtn{
-        margin-top: -97%;
-        margin-left: 50%;
+        margin-top: -91.7%;
+        margin-left: 53%;
     }
   }
 
   @media screen and (max-width: 520px) {
     .contactBtn{
-        margin-top: -99%;
-        margin-left: 50%;
+        margin-top: -89.6%;
+        margin-left: 59.5%;
+    }
+  }
+  @media screen and (max-width: 554px) and (min-width:520px) {
+    .contactBtn{
+        margin-top: -89.5%;
+        margin-left: 58%;
     }
   }

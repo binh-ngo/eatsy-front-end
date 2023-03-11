@@ -6,8 +6,12 @@ import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
+<<<<<<< HEAD
 import { Container, Row, Button } from "react-bootstrap";
 import MessageModal from "../../components/ViewMessageModal";
+=======
+import { Container, Row } from "react-bootstrap";
+>>>>>>> dev
 import { useState, useEffect } from "react";
 import API from "../../utils/api"
 
@@ -104,7 +108,6 @@ function Stores() {
           userImgAlt={storeObj.userImg.alt}
         />
       </Row>
-      <MessageModal />
       <Row className='divider'>
         <StoreFrontDivider
         />

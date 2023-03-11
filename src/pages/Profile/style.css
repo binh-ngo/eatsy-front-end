@@ -1,7 +1,36 @@
+.addDishBtn {
+    margin-top: 6%;
+}
+#addDishText {
+    margin-top: 4%;
+    font-size: 3rem;
+}
+
+.addDishCardLabel {
+    margin-left: 2%;
+}
+#addDishPlus {
+    margin-top: -35%;
+    font-size: 20em;
+}
+
+#addDishCard{
+    width: 25rem;
+    height: 23rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all .3s ease-in-out ;
+    overflow: hidden;
+    position:relative;
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));}
+
+#addDishCard:hover{
+    transform: scale(1.02);
+}
 .userProfileComponent {
     margin-top: -34%;
 }
 
+<<<<<<< HEAD
 .msgModal {
     margin-right: 5px;
 }
@@ -10,11 +39,24 @@
     margin-top: -80%;
     margin-left: 6%;
 } */
+=======
+.companyProfileBtn {
+    margin-top: -81.6%;
+    margin-left: 6%;
+    width:20%;
+    margin-right: -5%;
+}
+
+.highlightCreationEditButton {
+    width: 200%;
+    margin-left: -86%;
+}
+>>>>>>> dev
 
 .highlightCreationComponent {
     margin-top: -36%;
 }
-
+/* for highlight/userprofile */
 #contentHidden {
     display: none;
 }
@@ -34,27 +76,107 @@
     transform: translateY(720%);
 }
 
+/* for edit Button */
+.contentHidden {
+    display: none;
+}
+
+.contentVisible {
+    display: visible;
+}
+
+@media screen and (max-width: 1399px) {
+    .companyProfileBtn{
+        margin-top: -83.2%;
+        margin-left: 6.5%;
+        margin-right: -6.5%
+    }
+    .highlightCreationEditButton {
+        width: 211%;
+        margin-left: -95%;
+    }
+  }
 @media screen and (max-width: 1199px) {
     .companyProfileBtn{
-        margin-top: -83%;
-        margin-left: 9%;
+        margin-top: -85.9%;
+        margin-left: 8%;
+        margin-right: -8%;
+    }
+    .addDishBtn {
+        margin-left:-15%
+    }
+    .highlightCreationEditButton {
+        width: 268%;
+        margin-left: -145%;
     }
   }
 @media screen and (max-width: 991px) {
     .companyProfileBtn{
-        margin-top: -88%;
-        margin-left: 13%;
+        margin-top: -90.7%;
+        margin-left: 12%;
+        margin-right: -12%;
+        width: 185px;
+    }
+    .addDishBtn {
+        margin-left:-43%
+    }
+    .highlightCreationEditButton {
+        width: 416%;
+        margin-left: -280%;
     }
   }
 @media screen and (max-width: 767px) {
     .companyProfileBtn{
-        margin-top: -82%;
+        margin-top: -84%;
         margin-left: 17%;
     }
+    .addDishBtn {
+        margin-left:-85%
+    }
+    .highlightCreationEditButton {
+        width: 713%;
+        margin-left: -555%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .highlightCreationEditButton {
+        width: 28%;
+        margin-left: 70%;
+    }
+    .addDishBtn {
+        margin-left:-10%
+    }
   }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 573px) {
+    .highlightCreationEditButton {
+        width: 30%;
+        margin-left: 70%;
+    }
+  }
+@media screen and (max-width: 537px) {
+    .highlightCreationEditButton {
+        width: 31%;
+        margin-left: 70%;
+    }
+  }
+@media screen and (max-width: 521px) {
     .companyProfileBtn{
         margin-top: -81%;
         margin-left: 19%;
     }
+    .highlightCreationEditButton {
+        width: 32%;
+        margin-left: 68%;
+    }
   }
+@media screen and (max-width: 521px) {
+    .highlightCreationEditButton {
+        width: 33%;
+        margin-left: 66%;
+    }
+    .addDishBtn {
+        margin-left:-24%
+    }
+  }
+
