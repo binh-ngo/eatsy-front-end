@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+.editCardBtn {
+    margin-left: 40%;
+}
+
+.editCardLabel {
+    margin-left: 2%;
+}
+
+#editCard{
+    margin: 2rem;
+    width: 25rem;
+    height: 23rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all .3s ease-in-out ;
+    overflow: hidden;
+    position:relative;
+    background: linear-gradient(359.56deg, #CCDCD1 -15.28%, rgba(255, 255, 255, 0) 40.16%);
+}
+#editCard:hover{
+    transform: scale(1.02);
+}
+#editItemInfoDiv{
+    background: transparent;
+    height: 23rem;
+    position: relative;
+    transition: .4s ease-in-out;
+}
+#editCard:hover #editItemInfoDiv{
+    transform: translateY(-90%);
+
+}
+#editCard:hover #editCardImg{
+    transform: translateY(-90%);
+}
+#imgContainer{
+    display: flex;
+    justify-content: center;
+
+}
+
+#editCardImg{
+    width: 25rem;
+    background-color: gray;
+    transition: all .4s ease-in-out ;
+    opacity: 0.2;
+}
+#itemTitle {
+    color: #4D2D20;
+    font-family: 'Bowlby One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 177.5%;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+#itemSubTitle{
+    color: #7C7C7C;
+    font-family: 'Bowlby One';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+padding: 5px;
+
+}
+.itemText{
+    color: #4D2D2091;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+padding: 5px;
+
+}
+/* TODO: add Tag styling */
+

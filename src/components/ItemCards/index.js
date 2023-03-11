@@ -4,10 +4,10 @@ import Card from 'react-bootstrap/Card'
 
 export default function ItemCards(props) {
   return (
-    <Card id="itemCard" className="card col-5">
+    <Card id="itemCard" className="card col-5" key={props.key}>
       <div id="imgContainer">
         <a href={props.link}>
-          <Card.Img id="cardImg" src={props.img} alt={props.alt}></Card.Img>
+        <Card.Img id="cardImg" src={`data:image/png;base64,${props.img}`} alt={props.alt}></Card.Img>
         </a>
       </div>
       
