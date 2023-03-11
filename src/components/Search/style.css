@@ -1,0 +1,39 @@
+#homeFilterDiv{
+    justify-content: center;
+    margin: 1rem 0 5rem 0;
+}
+
+#homeFilterTitle{
+
+    display: flex;
+position: relative;
+left: 15rem;
+    font-family: 'Bowlby One';
+font-style: normal;
+font-weight: 400;
+font-size: 3.4rem;
+line-height: 150%;
+color: #D97758;
+
+}
+#mainBarTag{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: rgba(77, 45, 32, 0.44);
+}
+
+#homeFilterBar{
+    left: 15rem;
+    position: relative;
+
+
+    display: flex;
+    /* justify-content: center; */
+}
+#homeSearchBar{
+    width: 35rem;
+    height: 3rem;
+}

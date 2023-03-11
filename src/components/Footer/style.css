@@ -4,7 +4,7 @@ body{
 }
 
 .footer a {
-    color: black;
+    color: #4D2D20;
     text-decoration: none;
 }
 
@@ -19,13 +19,13 @@ body{
 }
 
 .footer {
-    background-color: #00b4d8;
+  border-top: 5px solid #D97758;
+    background-color: #CCDCD1;
     bottom: 0 !important;
     padding-top: 10px !important;
     padding-bottom: 8px !important ;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    position: fixed;
-
+color: #4D2D20;
 }
 
 @media (max-width: 767px) {
