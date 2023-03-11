@@ -1,4 +1,7 @@
+
 #homeStoreView{
     display: flex;
-    border: solid 2px black;
+    flex-wrap: wrap;
 }
+
+

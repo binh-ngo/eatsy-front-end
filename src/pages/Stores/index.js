@@ -6,7 +6,6 @@ import userImg from "./assets/userImg.jpg";
 import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index"
-
 function Stores() {
   const cardArray = [
     {

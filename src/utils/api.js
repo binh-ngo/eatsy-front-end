@@ -64,6 +64,8 @@ const API = {
 
 }
 
+export default API
+
 
 /* Example how to GET DAT all data (useres and companies)*/
 // API.getAllData().then(res => console.log(res))

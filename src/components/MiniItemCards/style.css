@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+#miniItemCard {
+  margin: 4rem 2rem;
+  width: 15rem;
+  height: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    359.56deg,
+    #ccdcd1 -15.28%,
+    rgba(255, 255, 255, 0) 40.16%
+  );
+}
+#miniItemCard:hover {
+  transform: scale(1.02);
+}
+#miniItemInfoDiv {
+  background: transparent;
+  height: 23rem;
+  /* display: flex; */
+  position: relative;
+  transition: 0.4s ease-in-out;
+}
+/* #miniItemCard:hover #miniItemInfoDiv {
+  transform: translateY(-100%);
+}
+#miniItemCard:hover #miniCardImg {
+  transform: translateY(-100%);
+} */
+#miniImgContainer {
+  display: flex;
+  justify-content: center;
+}
+#miniCardImg {
+    height: 10rem;
+    width: 15rem;
+  max-width: 15rem;
+  max-height: 14rem;
+  background-color: gray;
+  transition: all 0.4s ease-in-out;
+}
+#miniItemTitle {
+  color: #D97758;
+  font-family: "Bowlby One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 177.5%;
+  text-transform: uppercase;
+  margin: 10px 0px 0px 10px;
+
+}
+#miniItemSubTitle {
+  color: #7c7c7c;
+  font-family: "Bowlby One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.5rem;
+  padding: 5px;
+}
+.miniItemText {
+  color: #4d2d2091;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  padding: 5px;
+  margin-left: 5px;
+}
+/* TODO: add Tag styling */
