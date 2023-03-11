@@ -62,6 +62,16 @@ const API = {
                 }).then(res => res.json())
         },
 
+        sendMessage : (msgObj) => {
+                return fetch(`${URL_PREFIX}/api/users/message`, {
+                        method: "POST",
+                        body: JSON.stringify(msgObj),
+                        headers: {
+                                "Content-Type":"application/json"
+                        }
+                })
+        }
+
 }
 
 export default API

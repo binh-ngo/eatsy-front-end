@@ -9,6 +9,7 @@ import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import EditCards from "../../components/EditCards";
 import API from "../../utils/api"
+import MessageModal from "../../components/ViewMessageModal";
 
 function Profile() {
   // fetch data
@@ -118,6 +119,7 @@ function Profile() {
   return (
     <div className="profile">
       <Container>
+      <div id="testDiv">
         <Row>
           <Hero
             name={storeObj.name}
@@ -131,6 +133,8 @@ function Profile() {
             userImgAlt={storeObj.userImg.alt}
           />
         </Row>
+      <div id="profileBtnDiv">
+        <MessageModal />
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
@@ -138,6 +142,8 @@ function Profile() {
         >
           {buttonText}
         </Button>{" "}
+      </div>
+    </div>
         <div className="userProfileComponent" id={profileState}>
           {/* TODO make user profile edit functionality */}
           <UserProfile

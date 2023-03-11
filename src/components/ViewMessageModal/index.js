@@ -1,24 +1,31 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
 import MessageCard from "../MessageCard";
 import "./style.css";
+import API from "../../utils/api"
 
 function MessageModal() {
 
     const values = [true];
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
+    const [msgData, setMsgData] = useState([]);
 
     function handleShow(breakpoint) {
         setFullscreen(breakpoint);
         setShow(true);
     }
 
+    useEffect(() => {
+        // TODO make this call the user based on localstorage login.
+        API.getSingleUser("Lukas").then(res => setMsgData(res.messages))
+    }, [])
+
     return (
         <>
             {values.map((v, idx) => (
-                <Button key={idx} className="contactBtn me-2 mb-2" onClick={() => handleShow(v)}>
-                    Contact
+                <Button key={idx} className="msgModal" onClick={() => handleShow(v)}>
+                    View Messages
                     {typeof v === 'string' && `below ${v.split('-')[0]}`}
                 </Button>
             ))}
@@ -28,7 +35,13 @@ function MessageModal() {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <MessageCard />
+                    {/* TODO make a function that maps and outputs message cards */}
+                    {msgData.map(msg => {
+                        return <MessageCard
+                        text = {msg.text}
+                        from = {msg.from}
+                        />
+                    })}
 
                 </Modal.Body>
             </Modal>

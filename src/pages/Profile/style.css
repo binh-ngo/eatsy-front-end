@@ -2,10 +2,14 @@
     margin-top: -34%;
 }
 
-.companyProfileBtn {
+.msgModal {
+    margin-right: 5px;
+}
+
+/* .companyProfileBtn {
     margin-top: -80%;
     margin-left: 6%;
-}
+} */
 
 .highlightCreationComponent {
     margin-top: -36%;
@@ -17,6 +21,17 @@
 
 #contentVisible {
     display: visible;
+}
+#testDiv {
+    position: relative;
+}
+
+#profileBtnDiv {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    transform: translateY(720%);
 }
 
 @media screen and (max-width: 1199px) {

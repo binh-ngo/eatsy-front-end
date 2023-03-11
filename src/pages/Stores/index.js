@@ -7,7 +7,7 @@ import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
 import { Container, Row, Button } from "react-bootstrap";
-import MessageModal from "../../components/MessageModal";
+import MessageModal from "../../components/ViewMessageModal";
 import { useState, useEffect } from "react";
 import API from "../../utils/api"
 

@@ -5,11 +5,11 @@ export default function MessageCard(props) {
     return (
         <Card id="messageCard" className="card">
             <div id="messageInfoDiv">
-                <Card.Title id="messageFrom">LukasTwilight</Card.Title>
-                <Card.Body className="numMessages">1</Card.Body>
+                <Card.Title id="messageFrom">{props.from}</Card.Title>
+                {/* <Card.Body className="numMessages">1</Card.Body> */}
             </div>
             <div id="messageContents">
-                <Card.Body id="messageText">That was garbage</Card.Body>
+                <Card.Body id="messageText">{props.text}</Card.Body>
             </div>
         </Card>
     )
