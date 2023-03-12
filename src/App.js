@@ -10,7 +10,9 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
+  Link, 
+  useParams
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Preloader from './components/Preloader';
@@ -35,8 +37,8 @@ function App() {
         <Route path="/" element={<Home />}/> {/* Gallery */}
         <Route path="/signin" element={<SignIn />}/>
         <Route path="/signup" element={<Signup />}/>
-        <Route path="/stores" element={<Stores />}/>  {/* Storefront View */}
-        <Route path="/profile" element={<Profile />}/>  {/*  User Profile */}
+        <Route path="/users/:username" element={<Stores />}/>  {/* Storefront View */}
+        <Route path="/profile/:username" element={<Profile />}/>  {/*  User Profile */}
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
       <Footer />

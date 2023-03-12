@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -12,6 +13,12 @@ import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
 function Profile() {
+  // get username param
+  const params = useParams();
+  console.log("----------------")
+  console.log(params.username)
+  console.log("----------------")
+
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
@@ -20,12 +27,12 @@ function Profile() {
 
   // Get user dara and set data for use
   useEffect(() => {
-    API.getAllData()
+    API.getSingleUser(params.username)
       .then((res) => {
         console.log(res);
-        setUserData(res[0]);
-        setCompanyData(res[0].company);
-        setMenuData(res[0].company.menu);
+        setUserData(res);
+        setCompanyData(res.company);
+        setMenuData(res.company.menu);
       })
       .catch((err) => console.log(err));
   }, []);

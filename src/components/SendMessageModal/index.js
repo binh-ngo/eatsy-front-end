@@ -4,13 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import API from "../../utils/api"
 
-export default function SendMessage() {
+export default function SendMessage(props) {
   const [show, setShow] = useState(false);
 
   const handleFormSubmit = async () => {
     const msgObj = {
-      username: "Lukas",
-      from: "Snickerdoodle",
+      username: props.userTo,
+      from: props.userFrom,
       text: document.querySelector("#msgText").value
     }
     // console.log(msgObj)
@@ -23,8 +23,8 @@ export default function SendMessage() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button variant="primary" onClick={handleShow} id={"sendMessage"}>
+        Send Message
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -36,10 +36,10 @@ export default function SendMessage() {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>To</Form.Label>
               <Form.Control
-                type="email"
-                // TODO update this placeholder to be the user youre sending to
-                placeholder="name@example.com"
+                type="text"
+                placeholder= {props.userTo}
                 autoFocus
+                readOnly
               />
             </Form.Group>
             <Form.Group
@@ -53,11 +53,11 @@ export default function SendMessage() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           {/* TODO add a function on click that fetches the send message api route, and then handles close afterwards (with a banner that says your message was successfully sent) */}
           <Button variant="primary" onClick={handleFormSubmit}>
-            Save Changes
+            Send
           </Button>
         </Modal.Footer>
       </Modal>

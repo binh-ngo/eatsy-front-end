@@ -1,27 +1,30 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "./assets/heroImg.jpg";
 import userImg from "./assets/userImg.jpg";
-import taco from "./assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import StoreFrontDivider from "../../components/StoreFrontDivider/index";
 import { Container, Row, Button } from "react-bootstrap";
-import MessageModal from "../../components/ViewMessageModal";
+import SendMessageModal from "../../components/SendMessageModal";
 import { useState, useEffect } from "react";
 import API from "../../utils/api"
 
 function Stores() {
+  // get username param
+  const params = useParams();
+  
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([])
   const [menuData, setMenuData] = useState([])
 
   useEffect(() => {
-    API.getAllData().then(res => {
-      setUserData(res[0])
-      setCompanyData(res[0].company)
-      setMenuData(res[0].company.menu)
+    API.getSingleUser(params.username).then(res => {
+      setUserData(res)
+      setCompanyData(res.company)
+      setMenuData(res.company.menu)
     })
       .catch(err => console.log(err))
   }, [])
@@ -51,7 +54,7 @@ function Stores() {
   return (
     <Container className="stores">
 
-      <Row>
+      <Row id="storeHero">
         <Hero
           // TODO remove rating, and phoneNumber here and in the hero itself
           name={userData.username}
@@ -60,7 +63,12 @@ function Stores() {
           heroImgAlt={storeObj.heroImg.alt}
           userImg={storeObj.userImg.src}
           userImgAlt={storeObj.userImg.alt}
-        />
+          />
+          {/* TODO edit when JWT token is accessable */}
+          <SendMessageModal 
+          userTo = {params.username}
+          userFrom = {"TEST USER"}
+          />
       </Row>
       <Row className='divider'>
         <StoreFrontDivider
