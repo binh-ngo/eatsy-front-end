@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import './style.css'
-import API from "../../utils/api"
+import API from "../../utils/api" 
 
 function UserProfile(props) {
   const [name, setName] = useState([])
@@ -56,7 +56,7 @@ function UserProfile(props) {
         <Form controlId="userInfoForm">
           <Form.Group className="mb-3" controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
-            <Form.Control value={name} name="name" onChange={handleInputChange} type="text" placeholder={pName} />
+            <Form.Control type="text" placeholder={pName} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">

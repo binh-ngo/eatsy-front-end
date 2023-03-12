@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -8,70 +9,35 @@ import { Container, Col, Row, Button, Card, Modal, Form } from "react-bootstrap"
 import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import EditCards from "../../components/EditCards";
-import API from "../../utils/api";
-import MessageModal from "../../components/MessageModal";
+import API from "../../utils/api"
+import MessageModal from "../../components/ViewMessageModal";
 
 function Profile() {
+  // get username param
+  const params = useParams();
+  console.log("----------------")
+  console.log(params.username)
+  console.log("----------------")
+
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
   const [imgData, setImgData] = useState([]);
 
+  // Get user dara and set data for use
   useEffect(() => {
-    API.getAllData()
+    API.getSingleUser(params.username)
       .then((res) => {
-        console.log(res[0]);
-        setUserData(res[0]);
-        setCompanyData(res[0].company);
-        setMenuData(res[0].company.menu);
-        // setImgData(res[0].company.menu[0].img.image.data.data)
-
-        const imgDataArr = [];
-        let count = 0;
-
-        res[0].company.menu.map((item) => {
-          const base64String = btoa(
-            String.fromCharCode(...new Uint8Array(item.img.image.data.data))
-          );
-          // console.log(item.name)
-          const obj = { src: `${base64String}` };
-          imgDataArr.push({
-            ...res[0].company.menu[count],
-            ...obj,
-          });
-          count++;
-          setImgData(imgDataArr);
-        });
+        console.log(res);
+        setUserData(res);
+        setCompanyData(res.company);
+        setMenuData(res.company.menu);
       })
       .catch((err) => console.log(err));
   }, []);
 
   // HARD CODED
-  const cardArray = [
-    {
-      name: "taco",
-      id: "223",
-      allergens: ["Fish", "Dairy"],
-      description: "Fish Taco with all the fixins",
-      img: taco,
-    },
-    {
-      name: "taco",
-      id: "224",
-      allergens: ["Fish", "Dairy"],
-      description: "Fish Taco with all the fixins",
-      img: taco,
-    },
-  ];
-
-  const editCardObj = {
-    name: "taco",
-    id: "224",
-    allergens: ["Fish", "Dairy"],
-    description: "Fish Taco with all the fixins",
-    img: taco,
-  };
   const storeObj = {
     name: "Mcdonalds",
     phoneNumber: "8888888",
@@ -107,7 +73,7 @@ function Profile() {
       setHighlightState("contentHidden");
     }
   }
-  //
+
   const [editCard, setEditCard] = useState("contentHidden");
   const [itemCard, setItemCard] = useState("contentVisible");
   const [editBtnText, setEditBtnText] = useState("Edit Menu");
@@ -124,27 +90,57 @@ function Profile() {
     }
   }
 
+  // open and close the edit card modal
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // show modal also adds an event listener for when a user decides to upload and image for new items
+  const handleShow = async () => {
+    await setShow(true);
+
+    const fileInput = await document.getElementById("fileInput")
+  
+    fileInput.addEventListener("change", e => {
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+  
+      reader.addEventListener("load", () => {
+        setImgData(reader.result);
+      });
+  
+      reader.readAsDataURL(file);
+    })
+  }
+  
+  const createNewItem = async () => {
+
+    const itemObj = {
+      companyId: "640ce8d8b959f5d6e31f5787",
+      name: "TEST",
+      description: "testing image upload",
+      src: imgData
+    }; 
+    console.log(itemObj)
+    await API.createItem(itemObj);
+
+    window.location.reload();
+  }
 
   return (
     <div className="profile">
       <Container>
         <Row>
           <Hero
-            name={storeObj.name}
-            ratings={storeObj.ratings}
-            address={storeObj.address}
-            phoneNumber={storeObj.phoneNumber}
-            tags={[storeObj.tags]}
+            name={userData.username}
+            tags={companyData.tags}
             heroImg={storeObj.heroImg.src}
             heroImgAlt={storeObj.heroImg.alt}
             userImg={storeObj.userImg.src}
             userImgAlt={storeObj.userImg.alt}
           />
         </Row>
+      <div id="profileBtnDiv">
+        <MessageModal />
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
@@ -152,8 +148,7 @@ function Profile() {
         >
           {buttonText}
         </Button>{" "}
-        {/* edit position of contact button in Stores/style.css */}
-        <MessageModal />
+      </div>
         <div className="userProfileComponent" id={profileState}>
           {/* TODO make user profile edit functionality */}
           <UserProfile
@@ -177,13 +172,13 @@ function Profile() {
           </Row>
           <div id="itemCardsContainer">
             <Row className={editCard} id="bottomCardHalf">
-              {cardArray.map((item) => (
+              {menuData.map((item) => (
                 <EditCards
                 key={item.id}
                 name={item.name}
                   allergens={[item.allergens]}
                   description={item.description}
-                  img={item.img}
+                  src={item.src}
                   />
                   ))}
                 <>
@@ -203,7 +198,7 @@ function Profile() {
                       <Form>
                         <Form.Group
                           className="mb-3"
-                          controlId="exampleForm.ControlInput1"
+                          controlId=""
                         >
                           <Form.Label>Dish Name</Form.Label>
                           <Form.Control
@@ -220,10 +215,17 @@ function Profile() {
                         </Form.Group>
                         <Form.Group
                           className="mb-3"
-                          controlId="exampleForm.ControlTextarea1"
+                          controlId="newItemDescription"
                         >
                           <Form.Label>Dish Description</Form.Label>
                           <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                        <Form.Group
+                          className="mb-3"
+                          controlId="fileInput"
+                        >
+                          <Form.Label>Upload Image</Form.Label>
+                          <Form.Control type="file" rows={3} />
                         </Form.Group>
                       </Form>
                     </Modal.Body>
@@ -231,8 +233,8 @@ function Profile() {
                       <Button variant="secondary" onClick={handleClose}>
                         Close
                       </Button>
-                      <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                      <Button variant="primary" onClick={createNewItem}>
+                        Add Item
                       </Button>
                     </Modal.Footer>
                   </Modal>
@@ -241,13 +243,13 @@ function Profile() {
                 </div>
           <div id="itemCardsContainer">
             <Row className={itemCard} id="bottomCardHalf">
-              {cardArray.map((item) => (
+              {menuData.map((item) => (
                 <ItemCards
                   key={item.id}
                   name={item.name}
                   allergens={[item.allergens]}
                   description={item.description}
-                  img={item.img}
+                  src={item.src}
                 />
               ))}
             </Row>

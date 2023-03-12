@@ -30,12 +30,16 @@
     margin-top: -34%;
 }
 
-.companyProfileBtn {
-    margin-top: -81.6%;
+.msgModal {
+    margin-right: 5px;
+}
+
+/* .companyProfileBtn {
+    margin-top: -80%;
     margin-left: 6%;
     width:20%;
     margin-right: -5%;
-}
+} */
 
 .highlightCreationEditButton {
     width: 200%;
@@ -45,13 +49,25 @@
 .highlightCreationComponent {
     margin-top: -36%;
 }
-/* for highlight/userprofile */
+
 #contentHidden {
     display: none;
 }
 
 #contentVisible {
     display: visible;
+}
+#testDiv {
+    position: relative;
+    border: solid saddlebrown;
+}
+
+#profileBtnDiv {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    transform: translateY(870%);
 }
 
 /* for edit Button */

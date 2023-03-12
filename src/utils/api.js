@@ -62,34 +62,25 @@ const API = {
                 }).then(res => res.json())
         },
 
+        sendMessage : (msgObj) => {
+                return fetch(`${URL_PREFIX}/api/users/message`, {
+                        method: "POST",
+                        body: JSON.stringify(msgObj),
+                        headers: {
+                                "Content-Type":"application/json"
+                        }
+                })
+        },
+
+        createItem : (itemObj) => {
+                return fetch(`${URL_PREFIX}/api/items`, {
+                        method: "POST",
+                        body: JSON.stringify(itemObj),
+                        headers: {
+                                "Content-Type":"application/json"
+                        }
+                }).then(res => res.json())
+        },
 }
 
 export default API
-
-
-/* Example how to GET DAT all data (useres and companies)*/
-// API.getAllData().then(res => console.log(res))
-
-/* Example user CREATE*/
-// const userObj = {
-//         username: "test",
-//         email: "test@test.com",
-//         password: "password",
-//         address: "testing",
-// }
-// API.createUser(userObj).then(res => console.log(res));
-
-/* Example how to get data for a single user (user and company data) */
-// API.getSingleUser("Luke").then(res => console.log(res))
-
-/* Example user UPDATE*/
-// const userObj = {
-//         username: "timmy",
-//         email: "test@test.com",
-//         password: "newpassword",
-//         address: "testing",
-// }
-// API.updateUser("test", userObj).then(res => console.log(res));
-
-/* Example user DELETE*/
-// API.deleteUser("timmy").then(res => console.log(res))

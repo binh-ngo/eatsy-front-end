@@ -1,24 +1,28 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import { Card, Container } from "react-bootstrap";
 import "./style.css";
 import MiniItemCards from "../MiniItemCards";
 
 function GalleryTile(props) {
-  const menuItems = [];
-  function createMenuCards() {
-    for (var i = 0; i < 4; i++) {
-      menuItems.push([
-        <MiniItemCards
-        key={props.id}
-        link={`http://localhost:3000/users/${props.username}`}
-          name={props.companyMenu[i].name}
-          img={props.companyMenu[i].img}
-          description={props.companyMenu[i].description}
-        ></MiniItemCards>,
-      ]);
-    }
-    return menuItems;
-  }
+  // const menuItems = [];
+  // async function createMenuCards() {
+  //   const [menu, setMenu] = useState([])
+  //   for (var i = 0; i < 4; i++) {
+  //     await useEffect(() => {
+  //       setMenu(props.companyMenu[i])
+  //     })
+  //     menuItems.push([
+  //       <MiniItemCards
+  //       key={props.id}
+  //       link={`http://localhost:3000/users/${props.username}`}
+  //         name={menu.name}
+  //         src={menu.src}
+  //         description={menu.description}
+  //       ></MiniItemCards>,
+  //     ]);
+  //   }
+  //   return menuItems;
+  // }
   return (
 
     <Container fluid className="galleryTileCon">
@@ -29,11 +33,19 @@ function GalleryTile(props) {
       <div id="chefInfoDiv">
         <a id="cardLink" href={`http://localhost:3000/users/${props.username}`} > <p className="chefName">{props.companyName}</p> </a>
         <div id="gallerTagBox">
-        <p id="galleryTags">{props.tags[0]}|{props.userRatings}/5</p>
+        <p id="galleryTags">{props.tags}</p>
         </div>
       </div>
       </Container>
-        {createMenuCards()}
+        {props.companyMenu.map(item => {
+          return <MiniItemCards
+          key={props.id}
+          link={`http://localhost:3000/users/${props.username}`}
+          name={item.name}
+          src={item.src}
+          description={item.description}
+          />
+        })}
         </Card>
     </Container>
   );

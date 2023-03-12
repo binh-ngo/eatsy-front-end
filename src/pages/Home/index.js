@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import "./style.css";
 import GalleryTile from "../../components/GalleryTile";
 import {Container } from "react-bootstrap";
@@ -9,6 +9,7 @@ import chickensammy from "./chickensammy.jpg"
 import nuggets from "./nuggets.jpg"
 import fries from "./fries.jpg"
 import SearchBar from "../../components/Search";
+import API from "../../utils/api"
 
 const companyObj = [{
   name: "Company 1",
@@ -124,20 +125,34 @@ followers: "Number",
 ];
 
 function Home() {
+  // fetch data
+  const [userData, setUserData] = useState([]);
+  const [companyData, setCompanyData] = useState([]);
+  const [menuData, setMenuData] = useState([]);
+
+  // Get user dara and set data for use
+  useEffect(() => {
+    API.getAllData()
+      .then((res) => {
+        console.log(res);
+        setUserData(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
      <SearchBar></SearchBar>
       <Container fluid className="allStoreCards" id="homeStoreView">
-        {companyObj.map((user) => (
+        {userData.map((user) => (
           <GalleryTile
-          key={user.id}
-          tags={user.tags}
+          key={user._id}
+          tags={user.company.tags}
           username={user.username}
           companyUserImg={user.img}
-          companyName={user.name}
-          userRatings={user.ratings}
-          companytags={user.tags}
-          companyMenu={user.menu}
+          companyName={user.username}
+          userRatings={user.company.ratings}
+          companyMenu={user.company.menu}
           companyfollowers={user.followers}
           ></GalleryTile>
           ))}

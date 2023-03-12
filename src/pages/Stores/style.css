@@ -23,6 +23,17 @@
     margin-bottom: 2%;
 }
 
+#storeHero {
+    position: relative;
+}
+
+#sendMessage{
+    top: 35%;
+    left: 5%;
+    position: absolute;
+    width: fit-content;
+}
+
 #itemCardsContainer{
     display: flex;
     justify-content: center;

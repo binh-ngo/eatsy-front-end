@@ -19,9 +19,6 @@ function Hero(props) {
       <Col sm="12" className="descriptors">
         <h1>{props.name}</h1>
         <ul>
-          <li>{props.address}</li>
-          <li>{props.phoneNumber}</li>
-          <li>Rating: {props.ratings}</li>
         <div className='tagArr'>
           <li>{props.tags+' '}</li>
         </div>
