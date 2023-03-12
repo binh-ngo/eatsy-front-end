@@ -7,7 +7,6 @@ function Home() {
     <div>
       <div>
         <div>TYPE ADDRESS HERE</div>
-        <SendMessage/>
       </div>
       <div id="homeStoreView" className="container">
 
