@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import eatsyLogo from "./assets/eatsyimage.png"
 
 function Header({ loggedIn, setLoggedIn }) {
   return (
@@ -9,9 +10,9 @@ function Header({ loggedIn, setLoggedIn }) {
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <h1><a className="navbar-brand brand" href="/">
-            Eatsy
-          </a></h1>
+          <a className="navbar-brand brand" href="/">
+            Eatsy <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80"/>
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -42,7 +43,7 @@ function Header({ loggedIn, setLoggedIn }) {
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
           <a className="navbar-brand col-sm-5" href="/">
-            EATSY
+            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80"/>
           </a>
           <button
             className="navbar-toggler col-sm-1"
