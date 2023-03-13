@@ -5,6 +5,10 @@ nav {
     border-bottom: 5px solid #D97758;
 }
 
+nav img {
+    margin-top: -2%;
+}
+
 .logoName {
     justify-content: space-between;
 }

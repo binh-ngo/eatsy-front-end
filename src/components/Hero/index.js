@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import {Row, Col, Container} from 'react-bootstrap'
+import eatsyHero from "./assets/eatsyHero.jpg"
 
 function Hero(props) {
   return (
@@ -8,8 +9,8 @@ function Hero(props) {
       <Row>
       <Col sm="12">
          <img className="heroImg" 
-              src={props.heroImg} 
-              alt={props.heroImgAlt}
+              src={eatsyHero} 
+              alt= "eatsy hero"
               /> 
          <img className="userImg" 
               src={props.userImg} 
