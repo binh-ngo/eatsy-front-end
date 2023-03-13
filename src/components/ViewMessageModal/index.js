@@ -1,10 +1,13 @@
 import { React, useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
 import MessageCard from "../MessageCard";
 import "./style.css";
 import API from "../../utils/api"
 
 function MessageModal() {
+    // get username param
+    const params = useParams();
 
     const values = [true];
     const [fullscreen, setFullscreen] = useState(true);
@@ -18,7 +21,7 @@ function MessageModal() {
 
     useEffect(() => {
         // TODO make this call the user based on localstorage login.
-        API.getSingleUser("Lukas").then(res => setMsgData(res.messages))
+        API.getSingleUser(params.username).then(res => setMsgData(res.messages))
     }, [])
 
     return (

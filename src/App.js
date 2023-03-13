@@ -11,38 +11,58 @@ import {
   Route,
   Routes,
   Navigate,
-  Link, 
+  Link,
   useParams
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Preloader from './components/Preloader';
+import API from "./utils/api"
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [load, updateLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      updateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
+    const savedToken = localStorage.getItem("token");
+    console.log(savedToken);
+    if (savedToken) {
+      API.isValidToken(savedToken).then(tokenData => {
+        if (tokenData.isValid) {
+          console.log(tokenData)
+          setToken(savedToken);
+          setUsername(tokenData.user.username)
+          setIsLoggedIn(true)
+        } else {
+          localStorage.removeItem("token")
+        }
+      })
+    }
   }, []);
+
+  const logout = ()=>{
+    setToken('');
+    setUsername("");
+    setIsLoggedIn(false);
+    localStorage.removeItem("token")
+  }
+
   return (
     <Router>
       <Preloader load={load} />
-    <div className='App'>
-      <Header loggedIn = {loggedIn} setLoggedIn={setLoggedIn}/>
-      <Routes>
-        <Route path="/" element={<Home />}/> {/* Gallery */}
-        <Route path="/signin" element={<SignIn />}/>
-        <Route path="/signup" element={<Signup />}/>
-        <Route path="/users/:username" element={<Stores />}/>  {/* Storefront View */}
-        <Route path="/profile/:username" element={<Profile />}/>  {/*  User Profile */}
-        <Route path="*" element={<Navigate to="/"/>} />
-      </Routes>
-      <Footer />
-    </div>
+      <div className='App'>
+        <Header loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} />
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Gallery */}
+          <Route path="/signin" element={<SignIn setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/signup" element={<Signup setToken={setToken} setUsername = {setUsername} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/users/:username" element={<Stores />} />  {/* Storefront View */}
+          <Route path="/profile" element={<Profile username={username} token={token} />} />  {/*  User Profile */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }

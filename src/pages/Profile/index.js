@@ -1,23 +1,16 @@
 import { React, useState, useEffect } from "react";
-import {useParams} from "react-router-dom";
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
 import userImg from "../Stores/assets/userImg.jpg";
 import UserProfile from "../../components/UserProfile";
 import { Container, Col, Row, Button, Card, Modal, Form } from "react-bootstrap";
-import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import EditCards from "../../components/EditCards";
 import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
-function Profile() {
-  // get username param
-  const params = useParams();
-  console.log("----------------")
-  console.log(params.username)
-  console.log("----------------")
+function Profile(props) {
 
   // fetch data
   const [userData, setUserData] = useState([]);
@@ -27,7 +20,7 @@ function Profile() {
 
   // Get user dara and set data for use
   useEffect(() => {
-    API.getSingleUser(params.username)
+    API.getSingleUser(props.username)
       .then((res) => {
         console.log(res);
         setUserData(res);
@@ -115,6 +108,7 @@ function Profile() {
   const createNewItem = async () => {
 
     const itemObj = {
+      // TODO make this add to username then find company instead
       companyId: "640ce8d8b959f5d6e31f5787",
       name: "TEST",
       description: "testing image upload",
@@ -132,7 +126,7 @@ function Profile() {
         <Row>
           <Hero
             name={userData.username}
-            tags={companyData.tags}
+            // tags={companyData.tags}
             heroImg={storeObj.heroImg.src}
             heroImgAlt={storeObj.heroImg.alt}
             userImg={storeObj.userImg.src}
@@ -140,7 +134,7 @@ function Profile() {
           />
         </Row>
       <div id="profileBtnDiv">
-        <MessageModal />
+        {/* <MessageModal /> */}
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
@@ -243,7 +237,7 @@ function Profile() {
                 </div>
           <div id="itemCardsContainer">
             <Row className={itemCard} id="bottomCardHalf">
-              {menuData.map((item) => (
+              {/* {menuData.map((item) => (
                 <ItemCards
                   key={item.id}
                   name={item.name}
@@ -251,7 +245,7 @@ function Profile() {
                   description={item.description}
                   src={item.src}
                 />
-              ))}
+              ))} */}
             </Row>
           </div>
         </div>
