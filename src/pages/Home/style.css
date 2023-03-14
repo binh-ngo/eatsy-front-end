@@ -1,7 +1,58 @@
-
-#homeStoreView{
-    display: flex;
-    flex-wrap: wrap;
+#homeStoreView {
+  display: flex;
+  flex-wrap: wrap;
+}
+#homeFilterDiv {
+  justify-content: center;
 }
 
+#homeFilterTitle {
+  display: flex;
+  position: relative;
+  left: 15rem;
+  font-family: "Bowlby One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.4rem;
+  line-height: 150%;
+  color: #d97758;
+}
+#mainBarTag {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(77, 45, 32, 0.44);
+}
 
+#homeFilterBar {
+  left: 15rem;
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+}
+#homeSearchBar {
+  width: 35rem;
+  height: 3rem;
+}
+#welcomeText {
+    left: 15rem;
+  position: relative;
+  display: flex;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #4d2d20;
+}
+#welcomeTextBold{
+    margin: 0px 7px 0px 7px;
+    font-family: "Bowlby One";
+    font-style: normal;
+    font-size: 18px;
+    line-height: 33px;
+    color: #4d2d20;
+
+}

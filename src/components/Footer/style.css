@@ -6,8 +6,11 @@ body{
 .footer a {
     color: #4D2D20;
     text-decoration: none;
+    transition: all .3s ease-in-out ;
 }
-
+.footer a:hover{
+color:#D97758;
+}
 .footer ul {
     list-style-type: none;
     display:flex;

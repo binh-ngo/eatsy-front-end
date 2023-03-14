@@ -16,10 +16,16 @@ nav img {
     margin-left: 2%;
     color: #4D2D20 !important;
     font-size: 50px !important;
+    
 }
-
+.nav-link{
+    text-transform: uppercase;
+    transition: all .3s ease-in-out !important;
+}
 .nav-link:hover {
-    background-color: #caf0f8
+    color: #D97758 !important;
+    scale: 1.05;
+
 }
 
 .header ul {

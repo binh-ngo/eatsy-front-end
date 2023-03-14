@@ -1,25 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./style.css";
 import Form from "react-bootstrap/Form";
 import {Container} from "react-bootstrap";
 import API from "../../utils/api"
 
-const SearchBar = ({Tags, setSearchResults}) => {
-  // array that will hold all companies
-  const allCompanies = []
-  function getAllCompanies(){
-    API.getAllData().then(res => {
-    for(var i=0; i<res.length; i++){
-           allCompanies.push(res[i].company)}
-    })}
-  const handleSubmit = (e) => e.preventDefault()
+const SearchBar = () => {
+  const [searchInput, setSearchInput] = useState('');
 
-  const handleSearchChange = (e) => {
-    if(!e.target.value){
-      return setSearchResults()
-    }
-    const resultsArray = allCompanies.filter(user => allCompanies.tags.includes(e.target.value))
+  const searchItems = (searchValue) =>{
+    setSearchInput(searchValue)
+    console.log(allData)
+
   }
+
   return (
 
     <div>
@@ -33,10 +26,8 @@ const SearchBar = ({Tags, setSearchResults}) => {
               </Form.Label>
 
               <Form.Control
-                id="homeSearchBar"
-                onSubmit={handleSubmit}
-                onChange={handleSearchChange}
                 placeholder="1234 Main St"
+                onChange={(e) => searchItems(e.target.value)}
               />
             </Form.Group>
           </Form>
