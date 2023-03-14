@@ -58,18 +58,6 @@ function Home() {
               companyfollowers={user.followers}
               ></GalleryTile>
             ) : <></>
-            ) : 
-            <GalleryTile
-            key={user._id}
-            // tags={user.company.tags}
-            username={user.username}
-            companyUserImg={user.img}
-            companyName={user.username}
-            userRatings={user.company.ratings}
-            companyMenu={user.company.menu}
-            companyfollowers={user.followers}
-            ></GalleryTile>
-          ) : <></>
             ): <></>
           ):<></>
           ))}
