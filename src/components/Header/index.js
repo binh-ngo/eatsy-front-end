@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import eatsyLogo from "./assets/eatsyimage.png"
+import eatsy from "./assets/eatsy.png"
 
 function Header({ loggedIn, setLoggedIn }) {
   return (
