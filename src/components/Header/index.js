@@ -11,7 +11,7 @@ function Header({ loggedIn, setLoggedIn, logout}) {
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
           <a className="navbar-brand brand" href="/">
-            Eatsy <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80"/>
+            Eatsy <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"/>
           </a>
           <button
             className="navbar-toggler"
@@ -43,7 +43,7 @@ function Header({ loggedIn, setLoggedIn, logout}) {
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
           <a className="navbar-brand col-sm-5" href="/">
-            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80"/>
+            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80" id="Shake"/>
           </a>
           <button
             className="navbar-toggler col-sm-1"

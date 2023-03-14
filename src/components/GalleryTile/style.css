@@ -36,6 +36,10 @@
   line-height: 58px;
   color: #4D2D20;
   margin-bottom: 0;
+  transition: all .3s ease-in-out ;
+}
+.chefName:hover{
+  color: #D97758 ;
 }
 #cardLink{
     /* margin-left: 20px; */

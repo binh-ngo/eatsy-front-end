@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import {Row, Col, Container} from 'react-bootstrap'
-import eatsyHero from "./assets/eatsyHero.jpg"
+import eatsyHero from "../../utils/assests/eatsyhero.png"
 
 function Hero(props) {
   return (

@@ -32,6 +32,8 @@
     justify-content: center;
 }
 #cardImg{
+    max-height: 20rem;
+    max-width: 25rem;
     width: 25rem;
     background-color: gray;
     transition: all .4s ease-in-out ;

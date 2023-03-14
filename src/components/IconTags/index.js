@@ -66,7 +66,28 @@ function IconTags() {
   useEffect(() => {
     setArray(tagArr);
   }, []);
-  
+
+  function getUsers() {
+    const userList = props.userData;
+    return userList;
+  }
+  function filterUserList(filter) {
+    let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
+    return returnFilteredUsers;
+  }
+  const [filteredUsers, setFilteredUsers] = useState(null);
+  useEffect(() => {
+    setFilteredUsers(getUsers());
+  }, []);
+
+  function filterUsers(e) {
+    localStorage.setItem("filter",e.currentTarget.value)
+    // let filterChosen = e.currentTarget.value;
+    // filterChosen != "all"
+    //   ? setFilteredUsers(filterUserList(filterChosen))
+    //   : setFilteredUsers(getUsers());
+  }
+
   function showText(e) {
     e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
     e.currentTarget.addEventListener("mouseout", (i) => {
