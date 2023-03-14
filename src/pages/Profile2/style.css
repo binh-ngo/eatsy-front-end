@@ -8,6 +8,7 @@
 #heroContainer {
         position: relative;
         margin: 0 auto;
+        margin-bottom: 100px;
         margin-top: 30px;
         padding: 0;
 }
@@ -56,4 +57,10 @@
         background-color: #CCDCD1;
         left: -30px;
         bottom: -30px;
+}
+
+#profileBtns {
+        position: absolute;
+        left: 80px;
+        margin-top: 10px;
 }

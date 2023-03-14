@@ -137,7 +137,131 @@ function Profile() {
                                                 <li>Spicy</li>
                                         </ul>
                                 </div>
+                                <section id="profileBtns">
+                                        <MessageModal userData={userData} />
+                                        <Button
+                                                onClick={switchButton}
+                                                className="companyProfileBtn"
+                                                variant={variant}
+                                        >
+                                                {buttonText}
+                                        </Button>{" "}
+                                </section>
                         </section>
+                        <div className="userProfileComponent" id={profileState}>
+                                {/* TODO make user profile edit functionality */}
+                                <UserProfile
+                                        name={userData.username}
+                                        email={userData.email}
+                                        address={userData.address}
+                                />
+                        </div>
+                        <div className="highlightCreationComponent" id={highlightState}>
+                                <Row className="highlightCreationUnderline">
+                                        <Col sm="11"></Col>
+                                        <Col sm="1">
+                                                <Button
+                                                        onClick={editHighlights}
+                                                        className="highlightCreationEditButton"
+                                                        variant="success"
+                                                >
+                                                        {editBtnText}
+                                                </Button>{" "}
+                                        </Col>
+                                </Row>
+                                <div id="itemCardsContainer">
+                                        <Row className={editCard} id="bottomCardHalf">
+                                                {menuData?.length
+                                                        ? (
+                                                                menuData.map(item => (
+                                                                        <ItemCards
+                                                                                key={item.id}
+                                                                                name={item.name}
+                                                                                allergens={[item.allergens]}
+                                                                                description={item.description}
+                                                                                src={item.src}
+                                                                        />
+                                                                ))
+                                                        ) : <p>No menu to display</p>
+                                                }
+                                                <>
+                                                        <Col sm="6">
+                                                                <Button className="addDishBtn" onClick={handleShow} variant="light">
+                                                                        <Card id="addDishCard" className="card col-5">
+                                                                                <Card.Title id="addDishText">Add Dish</Card.Title>
+                                                                                <Card.Text id="addDishPlus">+</Card.Text>
+                                                                        </Card>
+                                                                </Button>
+                                                        </Col>
+                                                        <Modal show={show} onHide={handleClose}>
+                                                                <Modal.Header closeButton>
+                                                                        <Modal.Title>Add Dish</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                        <Form>
+                                                                                <Form.Group
+                                                                                        className="mb-3"
+                                                                                        controlId=""
+                                                                                >
+                                                                                        <Form.Label>Dish Name</Form.Label>
+                                                                                        <Form.Control
+                                                                                                type="text"
+                                                                                                placeholder="Spaghetti and Meatballs"
+                                                                                                autoFocus
+                                                                                        />
+                                                                                        <Form.Label>Allergens</Form.Label>
+                                                                                        <Form.Control
+                                                                                                type="text"
+                                                                                                placeholder="Soy, Peanuts, Gluten..."
+                                                                                                autoFocus
+                                                                                        />
+                                                                                </Form.Group>
+                                                                                <Form.Group
+                                                                                        className="mb-3"
+                                                                                        controlId="newItemDescription"
+                                                                                >
+                                                                                        <Form.Label>Dish Description</Form.Label>
+                                                                                        <Form.Control as="textarea" rows={3} />
+                                                                                </Form.Group>
+                                                                                <Form.Group
+                                                                                        className="mb-3"
+                                                                                        controlId="fileInput"
+                                                                                >
+                                                                                        <Form.Label>Upload Image</Form.Label>
+                                                                                        <Form.Control type="file" rows={3} />
+                                                                                </Form.Group>
+                                                                        </Form>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                        <Button variant="secondary" onClick={handleClose}>
+                                                                                Close
+                                                                        </Button>
+                                                                        <Button variant="primary" onClick={createNewItem}>
+                                                                                Add Item
+                                                                        </Button>
+                                                                </Modal.Footer>
+                                                        </Modal>
+                                                </>
+                                        </Row>
+                                </div>
+                                <div id="itemCardsContainer">
+                                        <Row className={itemCard} id="bottomCardHalf">
+                                                {menuData?.length
+                                                        ? (
+                                                                menuData.map(item => (
+                                                                        <ItemCards
+                                                                                key={item.id}
+                                                                                name={item.name}
+                                                                                allergens={[item.allergens]}
+                                                                                description={item.description}
+                                                                                src={item.src}
+                                                                        />
+                                                                ))
+                                                        ) : <p>No menu to display</p>
+                                                }
+                                        </Row>
+                                </div>
+                        </div>
                 </section>
         );
 }
