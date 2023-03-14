@@ -11,6 +11,7 @@ import EditCards from "../../components/EditCards";
 import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
+
 function Profile() {
   // fetch data
   const [userData, setUserData] = useState([]);
@@ -145,8 +146,6 @@ function Profile() {
           <Hero
             name={userData.username}
             tags={companyData.tags}
-            heroImg={storeObj.heroImg.src}
-            heroImgAlt={storeObj.heroImg.alt}
             userImg={storeObj.userImg.src}
             userImgAlt={storeObj.userImg.alt}
           />
