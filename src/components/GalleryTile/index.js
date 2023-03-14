@@ -29,9 +29,9 @@ function GalleryTile(props) {
 
       <Card className="mainGalleryCard">
       <Container fluid className="galleryTileInfoCon">
-      <a id="imgLink" href={`http://localhost:3000/users/${props.username}`} ><img className="galleryUserImg" src={props.companyUserImg}></img></a>
+      <a id="imgLink" href={`https://eatsyfoods.netlify.app/users/${props.username}`} ><img className="galleryUserImg" src={props.companyUserImg}></img></a>
       <div id="chefInfoDiv">
-        <a id="cardLink" href={`http://localhost:3000/users/${props.username}`} > <p className="chefName">{props.companyName}</p> </a>
+        <a id="cardLink" href={`https://eatsyfoods.netlify.app/users/${props.username}`} > <p className="chefName">{props.companyName}</p> </a>
         <div id="gallerTagBox">
         <p id="galleryTags">{props.tags}</p>
         </div>
@@ -40,7 +40,7 @@ function GalleryTile(props) {
         {props.companyMenu.map(item => {
           return <MiniItemCards
           key={props.id}
-          link={`http://localhost:3000/users/${props.username}`}
+          link={`https://eatsyfoods.netlify.app/users/${props.username}`}
           name={item.name}
           src={item.src}
           description={item.description}

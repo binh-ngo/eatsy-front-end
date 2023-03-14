@@ -67,7 +67,7 @@ function Stores() {
           {/* TODO edit when JWT token is accessable */}
           <SendMessageModal 
           userTo = {params.username}
-          userFrom = {"TEST USER"}
+          userFrom = {localStorage.getItem("username")}
           />
       </Row>
       <Row className='divider'>

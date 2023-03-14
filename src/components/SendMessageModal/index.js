@@ -38,7 +38,6 @@ export default function SendMessage(props) {
               <Form.Control
                 type="text"
                 placeholder= {props.userTo}
-                autoFocus
                 readOnly
               />
             </Form.Group>
@@ -47,7 +46,7 @@ export default function SendMessage(props) {
               controlId="msgText"
             >
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea"rows={3} />
+              <Form.Control as="textarea"rows={3} autoFocus />
             </Form.Group>
           </Form>
         </Modal.Body>
