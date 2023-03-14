@@ -12,8 +12,10 @@ function Signup(props) {
     const userObj = {
       username: document.querySelector("#newUserName").value,
       email: document.querySelector("#newUserEmail").value,
-      password: document.querySelector("#newUserPassword").value
+      password: document.querySelector("#newUserPassword").value,
+      description:"test kitchen"
     }
+    console.log(userObj)
 
     API.createUser(userObj).then(data => {
       console.log(data);
