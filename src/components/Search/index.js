@@ -40,7 +40,6 @@ const SearchBar = ({Tags, setSearchResults}) => {
               />
             </Form.Group>
           </Form>
-          <div>TAG</div>
         </div>
       </Container>
     </div>
