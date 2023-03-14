@@ -8,9 +8,15 @@
 
 .filterBtn button {
     margin-bottom: 3px;
+    background-color: #CCDCD1;
 }
 .filterBtn button:hover {
-    color: #CCDCD1
+    background-color: #caf0f8
+}
+
+.btnRow {
+    margin-top: -6%;
+    margin-bottom: 2.5%;
 }
 
 .btnNames {
@@ -22,10 +28,28 @@
 
 }
 
+.allBtn {
+    margin-top: 30%;
+    margin-left: 35%;
+    background-color: #CCDCD1;
+    font-family: 'Bowlby One';
+    color: #4D2D20 !important;
+}
+
+.allBtn:hover {
+    background-color: #caf0f8
+}
 
 #homeStoreView{
     display: flex;
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 1399px) {
+    .btnRow{
+        display: flex;
+        flex-direction: row;
+    }
+
+}
 

@@ -27,9 +27,9 @@ function Signin(props) {
   return (
     <div>
       <Container fluid>
-        <Row className="justify-content-center">
-        <h1>Sign In</h1>
+        <Row className="flex justify-content-center">
       <Form className='signin'>
+        <h1>Sign In</h1>
       <Form.Group className="mb-3" controlId="singInUsername">
           <Form.Label>Username</Form.Label>
           <Form.Control type="text" placeholder="Username" />
@@ -40,7 +40,7 @@ function Signin(props) {
           <Form.Control type="text" placeholder="Password" /> 
         </Form.Group>
 
-        <Button onClick={signInHandler} variant="primary" type="submit">
+        <Button className="colorBtn" onClick={signInHandler} variant="light" type="submit">
           Submit
         </Button>
       </Form>

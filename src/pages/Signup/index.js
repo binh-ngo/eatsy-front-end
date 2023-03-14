@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import './style.css'
 import { Container, Row, Form, Button } from 'react-bootstrap'
-import { useState, useEffect } from "react";
 import API from "../../utils/api"
 
 function Signup(props) {
@@ -40,8 +39,8 @@ function Signup(props) {
     <div>
       <Container fluid>
         <Row className="justify-content-center">
-          <h1>Sign Up</h1>
           <Form className='signup'>
+          <h1>Sign Up</h1>
             <Form.Group className="mb-3" controlId="newUserName">
               <Form.Label><strong>Username</strong></Form.Label>
               <Form.Control type="text" placeholder="Username" />
@@ -57,7 +56,7 @@ function Signup(props) {
               <Form.Control type="text" placeholder="Password" />
             </Form.Group>
 
-            <Button onClick={signUpHandler} variant="primary" type="submit">
+            <Button className="colorBtn" onClick={signUpHandler} variant="light" type="submit">
               Submit
             </Button>
           </Form>

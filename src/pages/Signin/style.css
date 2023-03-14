@@ -1,7 +1,19 @@
 .signin {
     width: 500px;
     margin-top: 5%;
-    background-color: #00b4d8;
     padding: 2% 2%;
     border-radius: 10%;
+}
+
+.signin h1 {
+    font-family: 'Bowlby One', sans-serif;
+    color: #4D2D20
+}
+
+.colorBtn {
+    background-color: #CCDCD1;
+}
+
+.colorBtn:hover {
+    background-color: #caf0f8
 }

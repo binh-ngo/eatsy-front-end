@@ -6,7 +6,7 @@ body{
 .footer a {
     color: #4D2D20;
     text-decoration: none;
-}
+  }
 
 .footer ul {
     list-style-type: none;
@@ -27,6 +27,7 @@ body{
     font-family: 'Barlow Semi Condensed', sans-serif;
 color: #4D2D20;
 }
+
 
 @media (max-width: 767px) {
     .footer-copywright {
