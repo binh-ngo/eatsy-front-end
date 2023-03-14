@@ -125,6 +125,7 @@ function Profile() {
   
   const createNewItem = async () => {
     // const localUser = JSON.parse(localStorage.getItem("user"))
+    // TODO make itemObj pull from the inputs
     const itemObj = {
       companyId: companyData._id,
       name: "TEST",

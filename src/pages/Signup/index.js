@@ -13,6 +13,7 @@ function Signup(props) {
       username: document.querySelector("#newUserName").value,
       email: document.querySelector("#newUserEmail").value,
       password: document.querySelector("#newUserPassword").value,
+      // TODO change (add another input)
       description:"test kitchen"
     }
     console.log(userObj)
@@ -29,6 +30,7 @@ function Signup(props) {
         props.setUsername(data.user.username)
       }
       localStorage.setItem("token",data.token)
+      //  TODO add newUser localstorage item to bring new users to their profile and create a tutorial
       // localStorage.setItem("newUser", true);
       navigate("/profile")
     })
