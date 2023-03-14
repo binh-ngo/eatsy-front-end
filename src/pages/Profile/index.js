@@ -12,10 +12,6 @@ import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
 function Profile() {
-  const [token, setToken] = useState("");
-  const [username, setUsername] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
@@ -34,12 +30,13 @@ function Profile() {
           const response = await API.isValidToken(savedToken);
           if (response.isValid) {
             // use the token data to fetch appropriate user profile
-            const userData = await API.getSingleUser(response.user.username);
-            console.log(userData)
-            setUserData(userData);
-            setCompanyData(userData.company);
-            setMenuData(userData.company.menu);
-          } else{
+            const data = await API.getSingleUser(response.user.username);
+            console.log(data)
+            setUserData(data);
+            setCompanyData(data.company);
+            setMenuData(data.company.menu);
+            // localStorage.setItem("user", JSON.stringify(data))
+          } else {
             localStorage.removeItem("token")
           }
         }
@@ -127,10 +124,9 @@ function Profile() {
   }
   
   const createNewItem = async () => {
-
+    // const localUser = JSON.parse(localStorage.getItem("user"))
     const itemObj = {
-      // TODO make this add to username then find company instead
-      companyId: "640ce8d8b959f5d6e31f5787",
+      companyId: companyData._id,
       name: "TEST",
       description: "testing image upload",
       src: imgData
