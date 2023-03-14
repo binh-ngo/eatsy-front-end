@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import "./style.css";
 import GalleryTile from "../../components/GalleryTile";
-import {Container } from "react-bootstrap";
+import {Container, Form } from "react-bootstrap";
 // placeholder images
 import userImg from "./userimg.jpg"
 import bigmac from "./beegmac.jpg"
@@ -129,6 +129,23 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredUsers, setFilteredUsers] = useState([]);
+
+
+  const searchItems = (searchValue) =>{
+    setSearchInput(searchValue)
+    const filteredArr = []
+    userData.forEach(user=> {
+      const res = user.company.tags.filter(str => {
+        str.includes(searchValue)})
+        if(res.length === 0){
+          filteredArr.push(user)
+        }
+    })
+    console.log(filteredArr)
+    setUserData(filteredArr)
+  }
 
   // Get user dara and set data for use
   useEffect(() => {
@@ -142,7 +159,26 @@ function Home() {
 
   return (
     <div>
-     <SearchBar></SearchBar>
+      <div>
+      <Container fluid>
+        <div id="homeFilterDiv">
+          <div id="homeFilterTitle">FIND YOUR LOCAL CHEFS</div>
+          <Form id="homeFilterBar">
+            <Form.Group controlId="formGridAddress1">
+              <Form.Label id="mainBarTag">
+                Search Cuisine, Location, or Chef
+              </Form.Label>
+
+              <Form.Control
+                placeholder="1234 Main St"
+                onChange={(e) => searchItems(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+          <div>TAG</div>
+        </div>
+      </Container>
+    </div>
       <Container fluid className="allStoreCards" id="homeStoreView">
         {userData.map((user) => (
           <GalleryTile

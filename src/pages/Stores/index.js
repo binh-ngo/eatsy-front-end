@@ -58,7 +58,7 @@ function Stores() {
         <Hero
           // TODO remove rating, and phoneNumber here and in the hero itself
           name={userData.username}
-          tags={companyData.tags}
+          // tags={companyData.tags}
           heroImg={storeObj.heroImg.src}
           heroImgAlt={storeObj.heroImg.alt}
           userImg={storeObj.userImg.src}

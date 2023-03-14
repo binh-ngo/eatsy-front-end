@@ -115,7 +115,7 @@ function Profile() {
   const createNewItem = async () => {
 
     const itemObj = {
-      companyId: "640ce8d8b959f5d6e31f5787",
+      companyId: "640b9da63ca5b177879f42f9",
       name: "TEST",
       description: "testing image upload",
       src: imgData
@@ -140,7 +140,7 @@ function Profile() {
           />
         </Row>
       <div id="profileBtnDiv">
-        <MessageModal />
+        {/* <MessageModal /> */}
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
