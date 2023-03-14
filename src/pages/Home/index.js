@@ -147,6 +147,7 @@ function Home() {
         <IconTags 
         userData={userData}
         />
+        <hr></hr>
       <Container fluid className="allStoreCards" id="homeStoreView">
         {companyData.map((user) => (
           user.company.menu?.length

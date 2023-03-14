@@ -98,9 +98,9 @@ function IconTags(props) {
       <Container className="justify-content-center">
         <Row>
           <Col sm="1">
-            <Button value="all" onClick={filterUsers}>
+            {/* <Button value="all" onClick={filterUsers}>
               All
-            </Button>
+            </Button> */}
           </Col>
           {array.map((tag, index) => {
             return (
