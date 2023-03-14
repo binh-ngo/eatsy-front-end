@@ -24,23 +24,47 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [load, updateLoad] = useState(true);
 
- function getToken() {
-    const savedToken = localStorage.getItem("token");
-    console.log(savedToken);
-    if (savedToken) {
-      API.isValidToken(savedToken).then(tokenData => {
-        if (tokenData.isValid) {
-          console.log("--------")
-          console.log(tokenData)
-          setToken(savedToken);
-          setUsername(tokenData.user.username)
-          setIsLoggedIn(true)
-        } else {
-          localStorage.removeItem("token")
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const savedToken = localStorage.getItem("token");
+        if(savedToken) {
+          const response = await API.isValidToken(savedToken);
+          console.log(response);
+          if (response.isValid) {
+            setToken(savedToken);
+            setUsername(response.user.username);
+            setIsLoggedIn(true);
+          } else{
+            localStorage.removeItem("token")
+          }
         }
-      })
+      } catch (err) {
+        console.log(err)
+      }
     }
-  }
+
+    getUser();
+
+  }, [])
+
+//  function getToken() {
+//     const savedToken = localStorage.getItem("token");
+//     console.log(savedToken);
+//     if (savedToken) {
+//       API.isValidToken(savedToken).then(tokenData => {
+//         if (tokenData.isValid) {
+//           console.log("--------")
+//           console.log(tokenData)
+//           setToken(savedToken);
+//           setUsername(tokenData.user.username)
+//           setIsLoggedIn(true)
+//         } else {
+//           localStorage.removeItem("token")
+//         }
+//       })
+//     }
+//   }
 
   const logout = () => {
     setToken('');
@@ -59,7 +83,7 @@ function App() {
           <Route path="/signin" element={<SignIn setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/signup" element={<Signup setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/users/:username" element={<Stores />} />  {/* Storefront View */}
-          <Route path="/profile" element={<Profile username={username} token={token} getToken={getToken} />} />  {/*  User Profile */}
+          <Route path="/profile" element={<Profile />} />  {/*  User Profile */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

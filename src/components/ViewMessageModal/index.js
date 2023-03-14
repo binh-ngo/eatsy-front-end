@@ -5,10 +5,8 @@ import MessageCard from "../MessageCard";
 import "./style.css";
 import API from "../../utils/api"
 
-function MessageModal() {
-    // get username param
-    const params = useParams();
-
+function MessageModal(props) {
+    console.log(props)
     const values = [true];
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
@@ -18,11 +16,6 @@ function MessageModal() {
         setFullscreen(breakpoint);
         setShow(true);
     }
-
-    useEffect(() => {
-        // TODO make this call the user based on localstorage login.
-        API.getSingleUser(params.username).then(res => setMsgData(res.messages))
-    }, [])
 
     return (
         <>

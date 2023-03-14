@@ -124,8 +124,7 @@ followers: "Number",
 }
 ];
 
-function Home(props) {
-  console.log(props)
+function Home() {
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);

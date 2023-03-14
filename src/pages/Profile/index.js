@@ -11,7 +11,7 @@ import EditCards from "../../components/EditCards";
 import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
-function Profile(props) {
+function Profile() {
   const [token, setToken] = useState("");
   const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -21,19 +21,34 @@ function Profile(props) {
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
   const [imgData, setImgData] = useState([]);
-  props.getToken()
 
-  // Get user dara and set data for use
+  // Get user data and set data for use
   useEffect(() => {
-    console.log(username)
-    API.getSingleUser(props.username)
-      .then((res) => {
-        console.log(res);
-        setUserData(res);
-        setCompanyData(res.company);
-        setMenuData(res.company.menu);
-      })
-      .catch((err) => console.log(err));
+    const getUser = async () => {
+      try {
+        // check if user has token in local storage
+        const savedToken = localStorage.getItem("token");
+
+        if(savedToken) {
+          // get the token data from the api && check if the token is still valid
+          const response = await API.isValidToken(savedToken);
+          if (response.isValid) {
+            // use the token data to fetch appropriate user profile
+            const userData = await API.getSingleUser(response.user.username);
+            console.log(userData)
+            setUserData(userData);
+            setCompanyData(userData.company);
+            setMenuData(userData.company.menu);
+          } else{
+            localStorage.removeItem("token")
+          }
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    getUser();
   }, []);
 
   // HARD CODED
@@ -140,7 +155,7 @@ function Profile(props) {
           />
         </Row>
       <div id="profileBtnDiv">
-        <MessageModal />
+        {/* <MessageModal /> */}
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
@@ -172,15 +187,19 @@ function Profile(props) {
           </Row>
           <div id="itemCardsContainer">
             <Row className={editCard} id="bottomCardHalf">
-              {menuData.map((item) => (
-                <EditCards
-                key={item.id}
-                name={item.name}
+            {menuData?.length
+              ?(
+                menuData.map(item => (
+                  <ItemCards
+                  key={item.id}
+                  name={item.name}
                   allergens={[item.allergens]}
                   description={item.description}
                   src={item.src}
-                  />
-                  ))}
+                />
+                ))
+              ) : <p>No menu to display</p>
+            }
                 <>
               <Col sm="6">
                   <Button className="addDishBtn" onClick={handleShow} variant="light">
@@ -243,15 +262,19 @@ function Profile(props) {
                 </div>
           <div id="itemCardsContainer">
             <Row className={itemCard} id="bottomCardHalf">
-              {menuData.map((item) => (
-                <ItemCards
+              {menuData?.length
+              ?(
+                menuData.map(item => (
+                  <ItemCards
                   key={item.id}
                   name={item.name}
                   allergens={[item.allergens]}
                   description={item.description}
                   src={item.src}
                 />
-              ))}
+                ))
+              ) : <p>No menu to display</p>
+            }
             </Row>
           </div>
         </div>
