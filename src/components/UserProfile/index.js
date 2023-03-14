@@ -1,7 +1,7 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import './style.css'
-import API from "../../utils/api" 
+import API from "../../utils/api"
 
 function UserProfile(props) {
   const [name, setName] = useState([])
@@ -18,14 +18,14 @@ function UserProfile(props) {
   })
 
   const handleInputChange = (e) => {
-    const {target} = e;
+    const { target } = e;
     const inputType = target.name;
     const inputValue = target.value;
-    if(inputType === 'email') {
+    if (inputType === 'email') {
       setEmail(inputValue);
     } else if (inputType === 'name') {
       setName(inputValue);
-    } else if(inputType ==="address") {
+    } else if (inputType === "address") {
       setAddress(inputValue);
     }
   }
@@ -34,7 +34,7 @@ function UserProfile(props) {
     editUserInfo();
   }
 
-// TODO: WIP
+  // TODO: WIP
   async function editUserInfo() {
     const userInfoObj = {
       username: document.querySelector('#formBasicUsername').value || pName,
@@ -48,28 +48,28 @@ function UserProfile(props) {
   return (
     <Container className="userProfile">
       <Row className="userProfileUnderline">
-        <Col sm="12">
-          <p>User Info</p>
+        <Col sm="12" className="title-text bowlby">
+          <h3>USER INFO</h3>
         </Col>
       </Row>
       <Row>
         <Form controlId="userInfoForm">
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placeholder={pName} />
+            <Form.Label className="profile-label bowlby">USERNAME:</Form.Label>
+            <Form.Control className="lato" type="text" placeholder={pName} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control value={email} name="email" onChange={handleInputChange} type="email" placeholder={pEmail} />
-          </Form.Group>
-        
-          <Form.Group className="mb-3" controlId="formBasicAddress">
-            <Form.Label>Address</Form.Label>
-            <Form.Control value={address} name="address" onChange={handleInputChange} type="email" placeholder={pAddress} />
+            <Form.Label className="profile-label bowlby">EMAIL:</Form.Label>
+            <Form.Control className="lato" value={email} name="email" onChange={handleInputChange} type="email" placeholder={pEmail} />
           </Form.Group>
 
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicAddress">
+            <Form.Label className="profile-label bowlby">ADDRESS:</Form.Label>
+            <Form.Control className="lato" value={address} name="address" onChange={handleInputChange} type="email" placeholder={pAddress} />
+          </Form.Group>
+
+          <Button className="btn-style-secondary lato" onClick={handleFormSubmit}>
             Submit
           </Button>
         </Form>
