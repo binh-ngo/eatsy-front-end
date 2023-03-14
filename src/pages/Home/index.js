@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import "./style.css";
 import GalleryTile from "../../components/GalleryTile";
-import {Container, Form } from "react-bootstrap";
+import {Container, Form, Row } from "react-bootstrap";
 // placeholder images
 import userImg from "./userimg.jpg"
 import bigmac from "./beegmac.jpg"
@@ -10,6 +10,7 @@ import nuggets from "./nuggets.jpg"
 import fries from "./fries.jpg"
 import SearchBar from "../../components/Search";
 import API from "../../utils/api"
+import IconTags from "../../components/IconTags";
 
 const companyObj = [{
   name: "Company 1",
@@ -179,8 +180,11 @@ function Home() {
         </div>
       </Container>
     </div>
+        <IconTags 
+        userData={userData}
+        />
       <Container fluid className="allStoreCards" id="homeStoreView">
-        {userData.map((user) => (
+        {/* {userData.map((user) => (
           <GalleryTile
           key={user._id}
           tags={user.company.tags}
@@ -191,7 +195,7 @@ function Home() {
           companyMenu={user.company.menu}
           companyfollowers={user.followers}
           ></GalleryTile>
-          ))}
+          ))} */}
       </Container>
     </div>
   );

@@ -6,11 +6,11 @@ import heroImg from "../Stores/assets/heroImg.jpg";
 import userImg from "../Stores/assets/userImg.jpg";
 import UserProfile from "../../components/UserProfile";
 import { Container, Col, Row, Button, Card, Modal, Form } from "react-bootstrap";
-import taco from "../Stores/assets/taco.jpg";
 import ItemCards from "../../components/ItemCards/index";
 import EditCards from "../../components/EditCards";
 import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
+
 
 function Profile() {
   // get username param
@@ -133,8 +133,6 @@ function Profile() {
           <Hero
             name={userData.username}
             tags={companyData.tags}
-            heroImg={storeObj.heroImg.src}
-            heroImgAlt={storeObj.heroImg.alt}
             userImg={storeObj.userImg.src}
             userImgAlt={storeObj.userImg.alt}
           />
