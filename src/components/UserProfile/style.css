@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@700&display=swap');
+.bowlby{
+    font-family: 'Bowlby One', sans-serif;
+}
+.lato{
+    font-family: "Lato", sans-serif;
+}
+p{
+    font-family: "Lato", sans-serif;
+}
+
 .userProfileUnderline {
     border-bottom: 2px solid black;
     margin-bottom: 2%;
@@ -5,4 +16,23 @@
 
 .userProfileUnderline p {
     font-size: 1.5rem;
+}
+
+.title-text{
+    color: #D97758
+}
+.profile-label{
+    color:#4D2D20
+}
+
+.btn-style-secondary{
+    background-color: #CCDCD1;
+    color: black;
+    ;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-secondary:hover{
+    background-color: #d6ecdd;
+    color: inherit
 }

@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom"
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -26,7 +26,7 @@ function Profile() {
         // check if user has token in local storage
         const savedToken = localStorage.getItem("token");
 
-        if(savedToken) {
+        if (savedToken) {
           // get the token data from the api && check if the token is still valid
           const response = await API.isValidToken(savedToken);
           if (response.isValid) {
@@ -75,12 +75,12 @@ function Profile() {
   function switchButton() {
     if (buttonText === "View Company Profile") {
       setButtonText("View User Profile");
-      setVariant("primary");
+      setVariant("light");
       setProfileState("contentHidden");
       setHighlightState("contentVisible");
     } else {
       setButtonText("View Company Profile");
-      setVariant("danger");
+      setVariant("light");
       setProfileState("contentVisible");
       setHighlightState("contentHidden");
     }
@@ -111,19 +111,19 @@ function Profile() {
     await setShow(true);
 
     const fileInput = await document.getElementById("fileInput")
-  
+
     fileInput.addEventListener("change", e => {
       const file = fileInput.files[0];
       const reader = new FileReader();
-  
+
       reader.addEventListener("load", () => {
         setImgData(reader.result);
       });
-  
+
       reader.readAsDataURL(file);
     })
   }
-  
+
   const createNewItem = async () => {
     // const localUser = JSON.parse(localStorage.getItem("user"))
     // TODO make itemObj pull from the inputs
@@ -132,7 +132,7 @@ function Profile() {
       name: "TEST",
       description: "testing image upload",
       src: imgData
-    }; 
+    };
     console.log(itemObj)
     await API.createItem(itemObj);
 
@@ -150,16 +150,15 @@ function Profile() {
             userImgAlt={storeObj.userImg.alt}
           />
         </Row>
-      <div id="profileBtnDiv">
-        <MessageModal userData={userData}/>
-        <Button
-          onClick={switchButton}
-          className="companyProfileBtn"
-          variant={variant}
-        >
-          {buttonText}
-        </Button>{" "}
-      </div>
+        <div id="profileBtnDiv">
+          <MessageModal userData={userData} className="btn-style-primary" />
+          <Button
+            onClick={switchButton}
+            className="companyProfileBtn btn-style-primary lato"
+          >
+            {buttonText}
+          </Button>{" "}
+        </div>
         <div className="userProfileComponent" id={profileState}>
           {/* TODO make user profile edit functionality */}
           <UserProfile
@@ -174,8 +173,8 @@ function Profile() {
             <Col sm="1">
               <Button
                 onClick={editHighlights}
-                className="highlightCreationEditButton"
-                variant="success"
+                className="highlightCreationEditButton btn-style-secondary lato"
+
               >
                 {editBtnText}
               </Button>{" "}
@@ -183,94 +182,94 @@ function Profile() {
           </Row>
           <div id="itemCardsContainer">
             <Row className={editCard} id="bottomCardHalf">
-            {menuData?.length
-              ?(
-                menuData.map(item => (
-                  <ItemCards
-                  key={item.id}
-                  name={item.name}
-                  allergens={[item.allergens]}
-                  description={item.description}
-                  src={item.src}
-                />
-                ))
-              ) : <p>No menu to display</p>
-            }
-                <>
-              <Col sm="6">
+              {menuData?.length
+                ? (
+                  menuData.map(item => (
+                    <ItemCards
+                      key={item.id}
+                      name={item.name}
+                      allergens={[item.allergens]}
+                      description={item.description}
+                      src={item.src}
+                    />
+                  ))
+                ) : <p>No menu to display</p>
+              }
+              <>
+                <Col sm="6">
                   <Button className="addDishBtn" onClick={handleShow} variant="light">
                     <Card id="addDishCard" className="card col-5">
                       <Card.Title id="addDishText">Add Dish</Card.Title>
                       <Card.Text id="addDishPlus">+</Card.Text>
                     </Card>
                   </Button>
-              </Col>
-                  <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                      <Modal.Title>Add Dish</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <Form>
-                        <Form.Group
-                          className="mb-3"
-                          controlId=""
-                        >
-                          <Form.Label>Dish Name</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Spaghetti and Meatballs"
-                            autoFocus
-                          />
-                          <Form.Label>Allergens</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Soy, Peanuts, Gluten..."
-                            autoFocus
-                          />
-                        </Form.Group>
-                        <Form.Group
-                          className="mb-3"
-                          controlId="newItemDescription"
-                        >
-                          <Form.Label>Dish Description</Form.Label>
-                          <Form.Control as="textarea" rows={3} />
-                        </Form.Group>
-                        <Form.Group
-                          className="mb-3"
-                          controlId="fileInput"
-                        >
-                          <Form.Label>Upload Image</Form.Label>
-                          <Form.Control type="file" rows={3} />
-                        </Form.Group>
-                      </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="secondary" onClick={handleClose}>
-                        Close
-                      </Button>
-                      <Button variant="primary" onClick={createNewItem}>
-                        Add Item
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                </>
-                  </Row>
-                </div>
+                </Col>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Add Dish</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Form>
+                      <Form.Group
+                        className="mb-3"
+                        controlId=""
+                      >
+                        <Form.Label>Dish Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Spaghetti and Meatballs"
+                          autoFocus
+                        />
+                        <Form.Label>Allergens</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Soy, Peanuts, Gluten..."
+                          autoFocus
+                        />
+                      </Form.Group>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="newItemDescription"
+                      >
+                        <Form.Label>Dish Description</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
+                      </Form.Group>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="fileInput"
+                      >
+                        <Form.Label>Upload Image</Form.Label>
+                        <Form.Control type="file" rows={3} />
+                      </Form.Group>
+                    </Form>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button className="btn-style-primary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button className="btn-style-secondary" onClick={createNewItem}>
+                      Add Item
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </>
+            </Row>
+          </div>
           <div id="itemCardsContainer">
             <Row className={itemCard} id="bottomCardHalf">
               {menuData?.length
-              ?(
-                menuData.map(item => (
-                  <ItemCards
-                  key={item.id}
-                  name={item.name}
-                  allergens={[item.allergens]}
-                  description={item.description}
-                  src={item.src}
-                />
-                ))
-              ) : <p>No menu to display</p>
-            }
+                ? (
+                  menuData.map(item => (
+                    <ItemCards
+                      key={item.id}
+                      name={item.name}
+                      allergens={[item.allergens]}
+                      description={item.description}
+                      src={item.src}
+                    />
+                  ))
+                ) : <p>No menu to display</p>
+              }
             </Row>
           </div>
         </div>
