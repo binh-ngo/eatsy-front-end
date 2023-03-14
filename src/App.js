@@ -35,6 +35,7 @@ function App() {
             setToken(savedToken);
             setUsername(response.user.username);
             setIsLoggedIn(true);
+            localStorage.setItem("username", response.user.username)
           } else{
             localStorage.removeItem("token")
           }
@@ -71,13 +72,14 @@ function App() {
     setUsername("");
     setIsLoggedIn(false);
     localStorage.removeItem("token")
+    localStorage.removeItem("username")
   }
 
   return (
     <Router>
       <Preloader load={load} />
       <div className='App'>
-        <Header loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} />
+        <Header loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} logout={logout}/>
         <Routes>
           <Route path="/" element={<Home />} /> {/* Gallery */}
           <Route path="/signin" element={<SignIn setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
