@@ -11,38 +11,85 @@ import {
   Route,
   Routes,
   Navigate,
-  Link, 
+  Link,
   useParams
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Preloader from './components/Preloader';
+import API from "./utils/api"
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [load, updateLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      updateLoad(false);
-    }, 1200);
+    const getUser = async () => {
+      try {
+        const savedToken = localStorage.getItem("token");
+        if(savedToken) {
+          const response = await API.isValidToken(savedToken);
+          console.log(response);
+          if (response.isValid) {
+            setToken(savedToken);
+            setUsername(response.user.username);
+            setIsLoggedIn(true);
+            localStorage.setItem("username", response.user.username)
+          } else{
+            localStorage.removeItem("token")
+          }
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
 
-    return () => clearTimeout(timer);
-  }, []);
+    getUser();
+
+  }, [])
+
+//  function getToken() {
+//     const savedToken = localStorage.getItem("token");
+//     console.log(savedToken);
+//     if (savedToken) {
+//       API.isValidToken(savedToken).then(tokenData => {
+//         if (tokenData.isValid) {
+//           console.log("--------")
+//           console.log(tokenData)
+//           setToken(savedToken);
+//           setUsername(tokenData.user.username)
+//           setIsLoggedIn(true)
+//         } else {
+//           localStorage.removeItem("token")
+//         }
+//       })
+//     }
+//   }
+
+  const logout = () => {
+    setToken('');
+    setUsername("");
+    setIsLoggedIn(false);
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+  }
+
   return (
     <Router>
       <Preloader load={load} />
-    <div className='App'>
-      <Header loggedIn = {loggedIn} setLoggedIn={setLoggedIn}/>
-      <Routes>
-        <Route path="/" element={<Home />}/> {/* Gallery */}
-        <Route path="/signin" element={<SignIn />}/>
-        <Route path="/signup" element={<Signup />}/>
-        <Route path="/users/:username" element={<Stores />}/>  {/* Storefront View */}
-        <Route path="/profile/:username" element={<Profile />}/>  {/*  User Profile */}
-        <Route path="*" element={<Navigate to="/"/>} />
-      </Routes>
-      <Footer />
-    </div>
+      <div className='App'>
+        <Header loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} logout={logout}/>
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Gallery */}
+          <Route path="/signin" element={<SignIn setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/signup" element={<Signup setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/users/:username" element={<Stores />} />  {/* Storefront View */}
+          <Route path="/profile" element={<Profile />} />  {/*  User Profile */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }

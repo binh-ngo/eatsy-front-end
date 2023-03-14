@@ -11,12 +11,14 @@
   position: relative;
   background: linear-gradient(
     359.56deg,
-    #ccdcd1 -15.28%,
+    #bbcac0 -15.28%,
     rgba(255, 255, 255, 0) 40.16%
   );
 }
 #miniItemCard:hover {
   transform: scale(1.02);
+  background:  #d2e0d5 -15.28%;
+    
 }
 #miniItemInfoDiv {
   background: transparent;
@@ -36,10 +38,10 @@
   justify-content: center;
 }
 #miniCardImg {
-    height: 10rem;
+    height: 12.5rem;
     width: 15rem;
   max-width: 15rem;
-  max-height: 14rem;
+  max-height: 12.5rem;
   background-color: gray;
   transition: all 0.4s ease-in-out;
 }
@@ -49,7 +51,6 @@
   font-style: normal;
   font-weight: 400;
   font-size: 1.1rem;
-  line-height: 177.5%;
   text-transform: uppercase;
   margin: 10px 0px 0px 10px;
 
@@ -67,7 +68,7 @@
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 5px;
   margin-left: 5px;
 }

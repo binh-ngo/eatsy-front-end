@@ -2,9 +2,8 @@ import React from "react";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import eatsyLogo from "./assets/eatsyimage.png"
-import eatsy from "./assets/eatsy.png"
 
-function Header({ loggedIn, setLoggedIn }) {
+function Header({ loggedIn, setLoggedIn, logout}) {
   return (
     <div className="header">
       {/* If user is logged in, generate this html for the header
@@ -33,7 +32,7 @@ function Header({ loggedIn, setLoggedIn }) {
                 </a>
               </li>
               <li className= "nav-item active list-inline-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" onClick={logout} href="/">
                   Sign Out
                 </a>
               </li>

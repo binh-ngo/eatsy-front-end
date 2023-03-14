@@ -12,30 +12,14 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-  const [filteredUsers, setFilteredUsers] = useState([]);
-
-
-  const searchItems = (searchValue) =>{
-    setSearchInput(searchValue)
-    const filteredArr = []
-    userData.forEach(user=> {
-      const res = user.company.tags.filter(str => {
-        str.includes(searchValue)})
-        if(res.length === 0){
-          filteredArr.push(user)
-        }
-    })
-    console.log(filteredArr)
-    setUserData(filteredArr)
-  }
+  
 
   // Get user dara and set data for use
   useEffect(() => {
     API.getAllData()
       .then((res) => {
-        console.log(res);
-        setUserData(res);
+        console.log(res)
+        setCompanyData(res);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -45,39 +29,33 @@ function Home() {
       <div>
       <Container fluid>
         <div id="homeFilterDiv">
-          <div id="homeFilterTitle">FIND YOUR LOCAL CHEFS</div>
-          <Form id="homeFilterBar">
-            <Form.Group controlId="formGridAddress1">
-              <Form.Label id="mainBarTag">
-                Search Cuisine, Location, or Chef
-              </Form.Label>
-
-              <Form.Control
-                placeholder="1234 Main St"
-                onChange={(e) => searchItems(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-          <div>TAG</div>
+          <div id="homeFilterTitle">FIND LOCAL CHEFS</div>
+          <div id="welcomeText">Here is where local chefs can showcase their <span id="welcomeTextBold"> CULTURE, CREATIVITY</span>and <span id="welcomeTextBold"> CRAFT! </span> </div>
+          <div id="welcomeText">Looking to spice up your next event or party? Get in Touch with <span id="welcomeTextBold">EATSY!</span> </div>
+          <div id="welcomeText"> Find a Chef with a menu that <span id="welcomeTextBold">WOWS</span>, and <span id="welcomeTextBold">CONNECT</span> on our platform!  </div>
         </div>
       </Container>
     </div>
         <IconTags 
         userData={userData}
         />
+        <hr></hr>
       <Container fluid className="allStoreCards" id="homeStoreView">
-        {/* {userData.map((user) => (
-          <GalleryTile
-          key={user._id}
-          tags={user.company.tags}
-          username={user.username}
-          companyUserImg={user.img}
-          companyName={user.username}
-          userRatings={user.company.ratings}
-          companyMenu={user.company.menu}
-          companyfollowers={user.followers}
-          ></GalleryTile>
-          ))} */}
+        {companyData.map((user) => (
+          user.company.menu?.length
+          ?(
+            <GalleryTile
+            key={user._id}
+            // tags={user.company.tags}
+            username={user.username}
+            companyUserImg={user.img}
+            companyName={user.username}
+            // userRatings={user.company.ratings}
+            companyMenu={user.company.menu}
+            companyfollowers={user.followers}
+            ></GalleryTile>
+          ) : <></>
+          ))}
       </Container>
     </div>
   );
