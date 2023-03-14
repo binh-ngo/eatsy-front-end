@@ -24,12 +24,13 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [load, updateLoad] = useState(true);
 
-  useEffect(() => {
+ function getToken() {
     const savedToken = localStorage.getItem("token");
     console.log(savedToken);
     if (savedToken) {
       API.isValidToken(savedToken).then(tokenData => {
         if (tokenData.isValid) {
+          console.log("--------")
           console.log(tokenData)
           setToken(savedToken);
           setUsername(tokenData.user.username)
@@ -39,9 +40,9 @@ function App() {
         }
       })
     }
-  }, []);
+  }
 
-  const logout = ()=>{
+  const logout = () => {
     setToken('');
     setUsername("");
     setIsLoggedIn(false);
@@ -56,9 +57,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> {/* Gallery */}
           <Route path="/signin" element={<SignIn setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/signup" element={<Signup setToken={setToken} setUsername = {setUsername} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/signup" element={<Signup setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/users/:username" element={<Stores />} />  {/* Storefront View */}
-          <Route path="/profile" element={<Profile username={username} token={token} />} />  {/*  User Profile */}
+          <Route path="/profile" element={<Profile username={username} token={token} getToken={getToken} />} />  {/*  User Profile */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

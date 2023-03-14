@@ -24,7 +24,7 @@ const API = {
                                 "authorization": `Bearer ${token}`
                         }
                 }).then(res => res.json())
-                        .catch(err => console.log(err))
+                .catch(err => console.log(err))
         },
 
         login: userObj => {
@@ -39,7 +39,7 @@ const API = {
 
                 // Use this for profile pages (for editing AND storefront views)
                 getSingleUser: (username) => {
-                        return fetch(`${URL_PREFIX}/api/users/${username}`).then(res => res.json());
+                        return fetch(`${URL_PREFIX}/api/users/getUser/${username}`).then(res => res.json());
                 },
 
                         // Use this when a user wants to update their profile

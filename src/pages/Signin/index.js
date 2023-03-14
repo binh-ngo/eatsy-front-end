@@ -20,7 +20,7 @@ function Signin(props) {
         props.setUsername(data.user.username)
       }
       localStorage.setItem("token",data.token)
-      navigate("/")
+      navigate("/profile")
     })
    }
 

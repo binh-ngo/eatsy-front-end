@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import {useParams} from "react-router-dom"
 import "./style.css";
 import Hero from "../../components/Hero/index";
 import heroImg from "../Stores/assets/heroImg.jpg";
@@ -11,15 +12,20 @@ import API from "../../utils/api"
 import MessageModal from "../../components/ViewMessageModal";
 
 function Profile(props) {
+  const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
   const [imgData, setImgData] = useState([]);
+  props.getToken()
 
   // Get user dara and set data for use
   useEffect(() => {
+    console.log(username)
     API.getSingleUser(props.username)
       .then((res) => {
         console.log(res);
@@ -126,7 +132,7 @@ function Profile(props) {
         <Row>
           <Hero
             name={userData.username}
-            // tags={companyData.tags}
+            tags={companyData.tags}
             heroImg={storeObj.heroImg.src}
             heroImgAlt={storeObj.heroImg.alt}
             userImg={storeObj.userImg.src}
@@ -134,7 +140,7 @@ function Profile(props) {
           />
         </Row>
       <div id="profileBtnDiv">
-        {/* <MessageModal /> */}
+        <MessageModal />
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
@@ -237,7 +243,7 @@ function Profile(props) {
                 </div>
           <div id="itemCardsContainer">
             <Row className={itemCard} id="bottomCardHalf">
-              {/* {menuData.map((item) => (
+              {menuData.map((item) => (
                 <ItemCards
                   key={item.id}
                   name={item.name}
@@ -245,7 +251,7 @@ function Profile(props) {
                   description={item.description}
                   src={item.src}
                 />
-              ))} */}
+              ))}
             </Row>
           </div>
         </div>
