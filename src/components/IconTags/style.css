@@ -1,9 +1,21 @@
-
-
-.carouselSlides {
-    /* width: 50%; */
+.filterBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.carousel {
-    /* width:100vw */
+.filterBtn button {
+    margin-bottom: 3px;
 }
+
+.btnNames {
+    visibility: hidden;
+    margin: 0;
+    color: #D97758;
+    font-family: 'Bowlby One';
+    font-size: 1rem;
+
+}
+

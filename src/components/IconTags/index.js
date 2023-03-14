@@ -86,31 +86,50 @@ function IconTags(props) {
       : setFilteredUsers(getUsers());
   }
 
+  function showText(e) {
+    e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
+    e.currentTarget.addEventListener("mouseout", (i) => {
+      i.currentTarget.parentNode.children[0].setAttribute("style", "visibility: hidden;")
+    })
+  }
+
   return (
     <div className="d-flex flex-row">
       <Container className="justify-content-center">
         <Row>
           <Col sm="1">
-            <Button value="all" onClick={filterUsers}>All</Button>
+            <Button value="all" onClick={filterUsers}>
+              All
+            </Button>
           </Col>
-          {array.map((tag) => {
+          {array.map((tag, index) => {
             return (
               <Col sm="1">
-                <Button value={tag.name} onClick={filterUsers} variant="light" title={tag.name} >
-                  <img
-                    className="dishTags"
-                    src={tag.src}
-                    alt={tag.name}
-                    width="30px"
-                    height="30px"
-                  />
-                </Button>
+                <div className="filterBtn">
+                  <p className="btnNames">{tag.name}</p>
+                  <Button
+                    onMouseOver={showText}
+                    key={index}
+                    value={tag.name}
+                    onClick={filterUsers}
+                    variant="light"
+                    title={tag.name}
+                  >
+                    <img
+                      className="dishTags"
+                      src={tag.src}
+                      alt={tag.name}
+                      width="30px"
+                      height="30px"
+                    />
+                  </Button>
+                </div>
               </Col>
             );
           })}
           {filteredUsers &&
-            filteredUsers.map(user=> (
-                <GalleryTile
+            filteredUsers.map((user) => (
+              <GalleryTile
                 key={user._id}
                 tags={user.company.tags}
                 username={user.username}
@@ -119,7 +138,7 @@ function IconTags(props) {
                 userRatings={user.company.ratings}
                 companyMenu={user.company.menu}
                 companyfollowers={user.followers}
-                ></GalleryTile>
+              ></GalleryTile>
             ))}
         </Row>
       </Container>
