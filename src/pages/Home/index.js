@@ -12,11 +12,7 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
-<<<<<<< HEAD
   const [tagFilter, setTagFilter] = useState([]);
-=======
-  
->>>>>>> dev
 
   // Get user dara and set data for use
   useEffect(() => {

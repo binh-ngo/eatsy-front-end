@@ -43,7 +43,7 @@ nav img {
     margin-right: 3%;
 }
 
-#shake:hover {
+#Shake:hover {
     animation: shake 75ms infinite;
     animation-timing-function: linear;
     z-index: 7;
