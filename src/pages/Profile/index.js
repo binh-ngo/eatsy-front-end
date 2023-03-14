@@ -75,12 +75,12 @@ function Profile() {
   function switchButton() {
     if (buttonText === "View Company Profile") {
       setButtonText("View User Profile");
-      setVariant("primary");
+      setVariant("light");
       setProfileState("contentHidden");
       setHighlightState("contentVisible");
     } else {
       setButtonText("View Company Profile");
-      setVariant("danger");
+      setVariant("light");
       setProfileState("contentVisible");
       setHighlightState("contentHidden");
     }
@@ -150,6 +150,7 @@ function Profile() {
             userImgAlt={storeObj.userImg.alt}
           />
         </Row>
+<<<<<<< HEAD
         {/* TODO move the buttons into the hero? */}
         <div id="profileBtnDiv">
           <MessageModal userData={userData} />
@@ -157,6 +158,13 @@ function Profile() {
             onClick={switchButton}
             className="companyProfileBtn"
             variant={variant}
+=======
+        <div id="profileBtnDiv">
+          <MessageModal userData={userData} className="btn-style-primary" />
+          <Button
+            onClick={switchButton}
+            className="companyProfileBtn btn-style-primary lato"
+>>>>>>> dev
           >
             {buttonText}
           </Button>{" "}
@@ -175,8 +183,8 @@ function Profile() {
             <Col sm="1">
               <Button
                 onClick={editHighlights}
-                className="highlightCreationEditButton"
-                variant="success"
+                className="highlightCreationEditButton btn-style-secondary lato"
+
               >
                 {editBtnText}
               </Button>{" "}
@@ -246,10 +254,17 @@ function Profile() {
                     </Form>
                   </Modal.Body>
                   <Modal.Footer>
+<<<<<<< HEAD
                     <Button variant="secondary" onClick={handleClose}>
                       Close
                     </Button>
                     <Button variant="primary" onClick={createNewItem}>
+=======
+                    <Button className="btn-style-primary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button className="btn-style-secondary" onClick={createNewItem}>
+>>>>>>> dev
                       Add Item
                     </Button>
                   </Modal.Footer>

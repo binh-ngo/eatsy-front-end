@@ -19,26 +19,26 @@ function MessageModal(props) {
     return (
         <>
             {values.map((v, idx) => (
-                <Button key={idx} className="msgModal" onClick={() => handleShow(v)}>
+                <Button key={idx} className="msgModal btn-style-primary lato" onClick={() => handleShow(v)}>
                     View Messages
                     {typeof v === 'string' && `below ${v.split('-')[0]}`}
                 </Button>
             ))}
             <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Messages</Modal.Title>
+                    <Modal.Title className="bowlby">Messages</Modal.Title>
                 </Modal.Header>
 
-                <Modal.Body>
+                <Modal.Body className="lato">
                     {props.userData.messages?.length
-                    ?(
-                        props.userData.messages.map(msg => {
-                            return <MessageCard
-                            text = {msg.text}
-                            from = {msg.from}
-                            />
-                        })
-                        ): <p>No messages to display</p>
+                        ? (
+                            props.userData.messages.map(msg => {
+                                return <MessageCard
+                                    text={msg.text}
+                                    from={msg.from}
+                                />
+                            })
+                        ) : <p>No messages to display</p>
                     }
                 </Modal.Body>
             </Modal>

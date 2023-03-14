@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@700&display=swap');
+
+.bowlby{
+    font-family: 'Bowlby One', sans-serif;
+}
+.lato{
+    font-family: "Lato", sans-serif;
+}
+
 .addDishBtn {
     margin-top: 6%;
 }
@@ -5,7 +14,6 @@
     margin-top: 4%;
     font-size: 3rem;
 }
-
 .addDishCardLabel {
     margin-left: 2%;
 }
@@ -13,21 +21,44 @@
     margin-top: -35%;
     font-size: 20em;
 }
-
 #addDishCard{
     width: 25rem;
     height: 23rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
     transition: all .3s ease-in-out ;
     overflow: hidden;
     position:relative;
-    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));}
+    background: #CCDCD1;
+    color:black}
 
 #addDishCard:hover{
     transform: scale(1.02);
+    background: #d6ecdd;
 }
+
+.btn-style-primary{
+    background-color: #D97758;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-primary:hover{
+    background-color: #BD5430;
+    color: inherit
+}
+.btn-style-secondary{
+    background-color: #CCDCD1;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-secondary:hover{
+    background-color: #d6ecdd;
+    color: inherit
+}
+
 .userProfileComponent {
-    margin-top: -34%;
+    margin-top: -40%;
 }
 
 .msgModal {
@@ -57,6 +88,7 @@
 #contentVisible {
     display: visible;
 }
+
 #testDiv {
     position: relative;
     border: solid saddlebrown;
@@ -65,8 +97,8 @@
 #profileBtnDiv {
     display: inline;
     position: absolute;
-    top: 0;
-    left: 10%;
+    top: 10%;
+    left: 20%;
     transform: translateY(870%);
 }
 
