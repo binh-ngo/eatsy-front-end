@@ -1,12 +1,11 @@
 import { React, useState, useEffect } from "react";
-import {useParams} from "react-router-dom";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
 import MessageCard from "../MessageCard";
 import "./style.css";
 import API from "../../utils/api"
 
 function MessageModal(props) {
-    console.log(props)
+    // TODO test if the prop is working as expected
     const values = [true];
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
@@ -31,14 +30,16 @@ function MessageModal(props) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    {/* TODO make a function that maps and outputs message cards */}
-                    {msgData.map(msg => {
-                        return <MessageCard
-                        text = {msg.text}
-                        from = {msg.from}
-                        />
-                    })}
-
+                    {props.userData.messages?.length
+                    ?(
+                        props.userData.messages.map(msg => {
+                            return <MessageCard
+                            text = {msg.text}
+                            from = {msg.from}
+                            />
+                        })
+                        ): <p>No messages to display</p>
+                    }
                 </Modal.Body>
             </Modal>
         </>

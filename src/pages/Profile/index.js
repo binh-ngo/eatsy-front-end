@@ -151,7 +151,7 @@ function Profile() {
           />
         </Row>
       <div id="profileBtnDiv">
-        {/* <MessageModal /> */}
+        <MessageModal userData={userData}/>
         <Button
           onClick={switchButton}
           className="companyProfileBtn"
