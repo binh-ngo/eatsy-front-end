@@ -43,7 +43,7 @@ function Header({ loggedIn, setLoggedIn, logout}) {
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
           <a className="navbar-brand col-sm-5" href="/">
-            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80"/>
+            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80" id="shake"/>
           </a>
           <button
             className="navbar-toggler col-sm-1"

@@ -36,3 +36,15 @@ nav img {
 .navbar-toggler {
     margin-right: 3%;
 }
+
+#shake:hover {
+    animation: shake 75ms infinite;
+    animation-timing-function: linear;
+    z-index: 7;
+}
+
+@keyframes shake {
+    0% { transform: rotate(1.5deg); }
+    50% { transform: rotate(-1.5deg); }
+    100% { transform: rotate(1.5deg); }
+  }

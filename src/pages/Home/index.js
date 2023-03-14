@@ -130,6 +130,7 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
   const [menuData, setMenuData] = useState([]);
+  const [tagFilter, setTagFilter] = useState([]);
 
   // Get user dara and set data for use
   useEffect(() => {
@@ -146,12 +147,27 @@ function Home() {
      <SearchBar></SearchBar>
         <IconTags 
         userData={userData}
+        setTagFilter={setTagFilter}
         />
         <hr></hr>
       <Container fluid className="allStoreCards" id="homeStoreView">
         {companyData.map((user) => (
           user.company.menu?.length
-          ?(
+          ?(localStorage?.getItem("filter")
+            ?(user.company.tags?.includes(localStorage.getItem("filter"))
+            ? (
+              <GalleryTile
+              key={user._id}
+              // tags={user.company.tags}
+              username={user.username}
+              companyUserImg={user.img}
+              companyName={user.username}
+              // userRatings={user.company.ratings}
+              companyMenu={user.company.menu}
+              companyfollowers={user.followers}
+              ></GalleryTile>
+            ) : <></>
+            ) : 
             <GalleryTile
             key={user._id}
             // tags={user.company.tags}

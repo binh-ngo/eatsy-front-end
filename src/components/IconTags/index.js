@@ -80,10 +80,11 @@ function IconTags(props) {
   }, []);
 
   function filterUsers(e) {
-    let filterChosen = e.currentTarget.value;
-    filterChosen != "all"
-      ? setFilteredUsers(filterUserList(filterChosen))
-      : setFilteredUsers(getUsers());
+    localStorage.setItem("filter",e.currentTarget.value)
+    // let filterChosen = e.currentTarget.value;
+    // filterChosen != "all"
+    //   ? setFilteredUsers(filterUserList(filterChosen))
+    //   : setFilteredUsers(getUsers());
   }
 
   function showText(e) {
