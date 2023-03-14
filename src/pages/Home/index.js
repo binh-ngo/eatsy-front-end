@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from "react";
 import "./style.css";
-import GalleryTile from "../../components/GalleryTile";
+// import GalleryTile from "../../components/GalleryTile";
 import {Container, Row } from "react-bootstrap";
 // placeholder images
 import userImg from "./userimg.jpg"

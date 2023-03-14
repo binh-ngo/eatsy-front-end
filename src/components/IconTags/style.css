@@ -9,6 +9,9 @@
 .filterBtn button {
     margin-bottom: 3px;
 }
+.filterBtn button:hover {
+    color: #CCDCD1
+}
 
 .btnNames {
     visibility: hidden;
@@ -18,4 +21,11 @@
     font-size: 1rem;
 
 }
+
+
+#homeStoreView{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 

@@ -66,14 +66,26 @@ function IconTags(props) {
     setArray(tagArr);
   }, []);
 
+  function showText(e) {
+    e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
+    e.currentTarget.addEventListener("mouseout", (i) => {
+      i.currentTarget.parentNode.children[0].setAttribute("style", "visibility: hidden;")
+    })
+  }
+
+  // gets all users
   function getUsers() {
     const userList = props.userData;
     return userList;
   }
+
+  // filters list from above by tag name and returns it
   function filterUserList(filter) {
     let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
     return returnFilteredUsers;
   }
+
+  // displays all users on page load
   const [filteredUsers, setFilteredUsers] = useState(null);
   useEffect(() => {
     setFilteredUsers(getUsers());
@@ -81,17 +93,13 @@ function IconTags(props) {
 
   function filterUsers(e) {
     let filterChosen = e.currentTarget.value;
+    // if the user doesn't click all, filter the list by whatever the user clicks.
+    // else, display all users.
     filterChosen != "all"
       ? setFilteredUsers(filterUserList(filterChosen))
       : setFilteredUsers(getUsers());
   }
 
-  function showText(e) {
-    e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
-    e.currentTarget.addEventListener("mouseout", (i) => {
-      i.currentTarget.parentNode.children[0].setAttribute("style", "visibility: hidden;")
-    })
-  }
 
   return (
     <div className="d-flex flex-row">
@@ -127,10 +135,13 @@ function IconTags(props) {
               </Col>
             );
           })}
+          </Row>
+          <Container fluid className="allStoreCards" id="homeStoreView">
+          {/* as long as filteredUsers !null, create GalleryTiles  */}
           {filteredUsers &&
-            filteredUsers.map((user) => (
+            props.userData.map((user) => {
               <GalleryTile
-                key={user._id}
+              key={user._id}
                 tags={user.company.tags}
                 username={user.username}
                 companyUserImg={user.img}
@@ -138,9 +149,10 @@ function IconTags(props) {
                 userRatings={user.company.ratings}
                 companyMenu={user.company.menu}
                 companyfollowers={user.followers}
-              ></GalleryTile>
-            ))}
-        </Row>
+                ></GalleryTile>
+              })
+            }
+            </Container>
       </Container>
     </div>
   );

@@ -1,6 +1,6 @@
 // The url for the api we are hitting
 // TODO change this once we deploy our db to heroku
-const URL_PREFIX = "http://localhost:3001"
+const URL_PREFIX = "https://eatsy.herokuapp.com/"
 
 const API = {
         // use this for the homepage (to show all the user profiles optional)
