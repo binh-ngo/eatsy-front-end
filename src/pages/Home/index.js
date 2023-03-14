@@ -135,8 +135,8 @@ function Home() {
   useEffect(() => {
     API.getAllData()
       .then((res) => {
-        console.log(res);
-        setUserData(res);
+        console.log(res)
+        setCompanyData(res);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -147,19 +147,23 @@ function Home() {
         <IconTags 
         userData={userData}
         />
+        <hr></hr>
       <Container fluid className="allStoreCards" id="homeStoreView">
-        {/* {userData.map((user) => (
-          <GalleryTile
-          key={user._id}
-          tags={user.company.tags}
-          username={user.username}
-          companyUserImg={user.img}
-          companyName={user.username}
-          userRatings={user.company.ratings}
-          companyMenu={user.company.menu}
-          companyfollowers={user.followers}
-          ></GalleryTile>
-          ))} */}
+        {companyData.map((user) => (
+          user.company.menu?.length
+          ?(
+            <GalleryTile
+            key={user._id}
+            // tags={user.company.tags}
+            username={user.username}
+            companyUserImg={user.img}
+            companyName={user.username}
+            // userRatings={user.company.ratings}
+            companyMenu={user.company.menu}
+            companyfollowers={user.followers}
+            ></GalleryTile>
+          ) : <></>
+          ))}
       </Container>
     </div>
   );
