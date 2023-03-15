@@ -34,14 +34,13 @@ function UserProfile(props) {
     editUserInfo();
   }
 
-  // TODO: WIP
   async function editUserInfo() {
     const userInfoObj = {
-      username: document.querySelector('#formBasicUsername').value || pName,
       email: document.querySelector('#formBasicEmail').value || pEmail,
       address: document.querySelector('#formBasicAddress').value || pAddress,
     }
     await API.updateUser(pName, userInfoObj)
+
     window.location.reload()
   }
 
@@ -54,10 +53,6 @@ function UserProfile(props) {
       </Row>
       <Row>
         <Form controlId="userInfoForm">
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label className="profile-label bowlby">USERNAME:</Form.Label>
-            <Form.Control className="lato" type="text" placeholder={pName} />
-          </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="profile-label bowlby">EMAIL:</Form.Label>

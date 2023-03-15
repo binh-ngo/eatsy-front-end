@@ -55,6 +55,25 @@
         min-height: 100vh;
 }
 
+#addProfilePicture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 55px;
+        bottom: -10px;
+        border: solid #BD5430;
+        border-radius: 50%;
+        background-color: #D97758;
+        height: 25px;
+        width: 25px;
+        padding: 0;
+}
+
+#addProfilePicture:hover {
+        cursor: pointer;
+}
+
 #heroContainer {
         position: relative;
         margin: 0 auto;

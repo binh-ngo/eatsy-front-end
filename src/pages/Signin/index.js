@@ -18,9 +18,9 @@ function Signin(props) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUsername(data.user.username)
+        localStorage.setItem("token",data.token)
+        navigate("/profile")
       }
-      localStorage.setItem("token",data.token)
-      navigate("/profile")
     })
    }
 
