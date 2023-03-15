@@ -58,3 +58,15 @@ nav img {
     50% { transform: rotate(-1.5deg); }
     100% { transform: rotate(1.5deg); }
   }
+
+.rawr {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -400px;
+    height: 200vh;
+    width: 200vh;
+    z-index: 1000;
+    animation: shake 75ms infinite;
+    animation-timing-function: linear;
+}
