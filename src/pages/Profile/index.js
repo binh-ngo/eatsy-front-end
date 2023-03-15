@@ -185,7 +185,7 @@ function Profile() {
               {menuData?.length
                 ? (
                   menuData.map(item => (
-                    <ItemCards
+                    <EditCards
                       key={item.id}
                       name={item.name}
                       allergens={[item.allergens]}
