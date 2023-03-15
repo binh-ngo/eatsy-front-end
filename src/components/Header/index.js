@@ -13,10 +13,8 @@ function Header({ loggedIn, setLoggedIn, logout}) {
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand brand">
-            Eatsy <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"
-            onDoubleClick={rawr}
-            />
+          <a href='/' className="navbar-brand brand">
+            EATSY <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"/>
           </a>
           <button
             className="navbar-toggler"
@@ -47,10 +45,8 @@ function Header({ loggedIn, setLoggedIn, logout}) {
       ) : (
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
-          <a className="navbar-brand col-sm-5">
-            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80" id="Shake"
-            onDoubleClick={rawr}
-            />
+          <a href='/' className="navbar-brand col-sm-5">
+            EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80" id="Shake"/>
           </a>
           <button
             className="navbar-toggler col-sm-1"
