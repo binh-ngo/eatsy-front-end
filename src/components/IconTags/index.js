@@ -19,52 +19,55 @@ function IconTags() {
   const [array, setArray] = useState([]);
   const tagArr = [
     {
-      name: "american",
+      name: "American",
       src: american,
     },
     {
-      name: "asian",
+      name: "Asian",
       src: asian,
     },
     {
-      name: "seafood",
+      name: "Seafood",
       src: seafood,
     },
     {
-      name: "breakfast",
+      name: "Breakfast",
       src: breakfast,
     },
     {
-      name: "vegetarian",
+      name: "Vegetarian",
       src: vegetarian,
     },
     {
-      name: "noodles",
+      name: "Noodles",
       src: noodles,
     },
     {
-      name: "japanese",
+      name: "Japanese",
       src: japanese,
     },
     {
-      name: "sweets",
+      name: "Sweets",
       src: sweets,
     },
     {
-      name: "vegan",
+      name: "Vegan",
       src: vegan,
     },
     {
-      name: "mexican",
+      name: "Mexican",
       src: mexican,
     },
     {
-      name: "italian",
+      name: "Italian",
       src: italian,
     },
   ];
   useEffect(() => {
     setArray(tagArr);
+    if(localStorage.getItem("filter")) {
+      setHidden("visible")
+    }
   }, []);
   
   function showText(e) {
@@ -74,27 +77,16 @@ function IconTags() {
     })
   }
 
-  // // gets all users
-  // function getUsers() {
-  //   // const userList = companyData;
-  //   console.log(userList)
-  //   return userList;
-  // }
-
-  // filters list from above by tag name and returns it
-  // function filterBy(filter) {
-  //   let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
-  //   return returnFilteredUsers;
-  // }
-
-  // displays all users on page load
-  // const [filteredUsers, setFilteredUsers] = useState(null);
-  // useEffect(() => {
-  //   setFilteredUsers(getUsers());
-  // }, []);
+  const [hidden, setHidden]=useState("hidden")
 
   function filterUsers(e) {
     localStorage.setItem("filter", e.currentTarget.value)
+    setHidden("visible")
+  }
+
+  function removeFilters() {
+    localStorage.removeItem("filter")
+    setHidden("hidden")
   }
 
   return (
@@ -102,8 +94,8 @@ function IconTags() {
       <Container className="justify-content-center">
         <Row className="btnRow">
           <Col sm="1">
-            <Button variant="light" className="allBtn" value="all" onClick={filterUsers}>
-              All
+            <Button variant="light" className="allBtn" id={hidden} value="all" onClick={removeFilters}>
+              X
             </Button>
           </Col>
           {array.map((tag, index) => {
