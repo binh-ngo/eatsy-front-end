@@ -1,3 +1,7 @@
+.wrapper {
+  min-height: 100vh;
+}
+
 #homeStoreView {
   display: flex;
   flex-wrap: wrap;
