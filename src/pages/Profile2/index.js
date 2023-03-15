@@ -141,7 +141,7 @@ function Profile() {
                                         <MessageModal userData={userData} />
                                         <Button
                                                 onClick={switchButton}
-                                                className="companyProfileBtn"
+                                                className="companyProfileBtn btn-style-primary lato"
                                                 variant={variant}
                                         >
                                                 {buttonText}
@@ -156,14 +156,15 @@ function Profile() {
                                         address={userData.address}
                                 />
                         </div>
+                        <Container>
                         <div className="highlightCreationComponent" id={highlightState}>
                                 <Row className="highlightCreationUnderline">
                                         <Col sm="11"></Col>
                                         <Col sm="1">
                                                 <Button
                                                         onClick={editHighlights}
-                                                        className="highlightCreationEditButton"
-                                                        variant="success"
+                                                        className="highlightCreationEditButton btn-style-secondary lato"
+                                                        // variant="success"
                                                 >
                                                         {editBtnText}
                                                 </Button>{" "}
@@ -174,7 +175,7 @@ function Profile() {
                                                 {menuData?.length
                                                         ? (
                                                                 menuData.map(item => (
-                                                                        <ItemCards
+                                                                        <EditCards
                                                                                 key={item.id}
                                                                                 name={item.name}
                                                                                 allergens={[item.allergens]}
@@ -233,10 +234,10 @@ function Profile() {
                                                                         </Form>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
-                                                                        <Button variant="secondary" onClick={handleClose}>
+                                                                        <Button className="btn-style-primary" onClick={handleClose}>
                                                                                 Close
                                                                         </Button>
-                                                                        <Button variant="primary" onClick={createNewItem}>
+                                                                        <Button className="btn-style-seconday" onClick={createNewItem}>
                                                                                 Add Item
                                                                         </Button>
                                                                 </Modal.Footer>
@@ -262,6 +263,7 @@ function Profile() {
                                         </Row>
                                 </div>
                         </div>
+                        </Container>
                 </section>
         );
 }
