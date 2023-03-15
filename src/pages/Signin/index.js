@@ -28,7 +28,7 @@ function Signin(props) {
     <div className='wrapper'>
       <Container fluid>
         <Row className="justify-content-center">
-        <h1 id='signInTitleText'>SIGN IN</h1>
+        <h1>SIGN IN</h1>
       <Form className='signin'>
       <Form.Group className="mb-3" controlId="singInUsername">
           <Form.Label>Username</Form.Label>
@@ -37,7 +37,7 @@ function Signin(props) {
   
         <Form.Group className="mb-3" controlId="singInPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="text" placeholder="Password" /> 
+          <Form.Control type="password" placeholder="Password" /> 
         </Form.Group>
 
         <Button onClick={signInHandler} variant="primary" type="submit">
