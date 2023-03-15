@@ -15,8 +15,6 @@ export default function ItemCards(props) {
       <div id="itemInfoDiv">
         <Card.Title id="itemTitle">{props.name}</Card.Title>
         <Card.Body className="itemText">{props.description}</Card.Body>
-        <Card.Body id="itemSubTitle">INGREDIENTS</Card.Body>
-        <Card.Body className="itemText">{props.ingredients}</Card.Body>
         <Card.Body id="itemSubTitle">ALLERGENS</Card.Body>
         <Card.Body className="itemText">{props.allergens}</Card.Body>
         {/* TODO: add Tags to Database and make clickable box for each tag */}
