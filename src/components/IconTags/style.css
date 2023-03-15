@@ -8,6 +8,14 @@
 
 .filterBtn button {
     margin-bottom: 3px;
+    background-color: #CCDCD1;
+}
+.filterBtn button:hover {
+    background-color: #caf0f8
+}
+
+.btnRow {
+    margin-bottom: 2.5%;
 }
 
 .btnNames {
@@ -17,6 +25,77 @@
     font-family: 'Bowlby One';
     font-size: 1rem;
     text-transform: capitalize;
+}
+
+#hidden {
+    visibility: hidden;
+}
+
+#visible {
+    visibility: visible;
+}
+
+.allBtn {
+    margin-top: 27%;
+    margin-left: 35%;
+    width: 56px;
+    height: 44px; 
+    background-color: #CCDCD1;
+    font-family: 'Bowlby One';
+    color: #4D2D20 !important;
+}
+
+.allBtn:hover {
+    background-color: #caf0f8
+}
+
+#homeStoreView{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1399px) {
+    .btnRow{
+        display: flex;
+        flex-direction: row;
+    }
+    .allBtn {
+        margin-top: 34%;
+        margin-left: 15%;
+    }
 
 }
 
+@media screen and (max-width: 1199px) {
+    .allBtn {
+        margin-top: 42%;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .allBtn {
+        margin-top: 68%;
+        margin-left: -30%;
+    }
+    #homeFilterDiv {
+        margin-left: -15%;
+    }
+    
+}
+
+@media screen and (max-width: 840px) {
+    #homeFilterDiv {
+        margin-left: -25%;
+    }   
+}
+
+@media screen and (max-width: 767px) {
+    .allBtn {
+        margin-top: 114%;
+        margin-left: -70%;
+    }
+    #homeFilterDiv {
+        margin-left: -32%;
+    }   
+}

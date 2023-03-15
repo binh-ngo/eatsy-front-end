@@ -29,6 +29,7 @@
   color: #4D2D20;
 }
 
+
 @media (max-width: 767px) {
   .footer-copywright {
     text-align: center !important;

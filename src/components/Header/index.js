@@ -13,11 +13,11 @@ function Header({ loggedIn, setLoggedIn, logout}) {
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <a href='/' className="navbar-brand brand">
+          <a href='/' className="navbar-brand brand col-sm-5">
             EATSY <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"/>
           </a>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler col-sm-1"
             type="button"
             data-toggle="collapse"
             data-target="#navbarText"
@@ -28,7 +28,7 @@ function Header({ loggedIn, setLoggedIn, logout}) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto list-inline">
+            <ul className="navbar-nav mr-auto list-inline headerTags col-sm-2">
               <li className= "nav-item active list-inline-item">
                 <a className="nav-link" href="/profile">
                   Profile

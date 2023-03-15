@@ -8,7 +8,26 @@
 .editCardLabel {
     margin-left: 2%;
 }
-
+.btn-primary{
+    background-color: #D97758;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-primary:hover{
+    background-color: #BD5430;
+    color: inherit
+}
+.btn-danger{
+    background-color: #CCDCD1;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-danger:hover{
+    background-color: #d6ecdd;
+    color: inherit
+}
 #editCard{
     margin: 2rem;
     width: 25rem;
@@ -17,24 +36,21 @@
     transition: all .3s ease-in-out ;
     overflow: hidden;
     position:relative;
+    transform: scale(1.02);
     background: linear-gradient(359.56deg, #CCDCD1 -15.28%, rgba(255, 255, 255, 0) 40.16%);
 }
-#editCard:hover{
-    transform: scale(1.02);
-}
+
 #editItemInfoDiv{
-    background: transparent;
+    background:transparent;
     height: 23rem;
     position: relative;
-    transition: .4s ease-in-out;
+    transform:translateY(-140%)
 }
 #editCard:hover #editItemInfoDiv{
-    transform: translateY(-130%);
+    transform: translateY(-140%);
 
 }
-#editCard:hover #editCardImg{
-    transform: translateY(-90%);
-}
+
 #imgContainer{
     display: flex;
     justify-content: center;
