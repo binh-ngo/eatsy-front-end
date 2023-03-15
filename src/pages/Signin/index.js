@@ -25,7 +25,7 @@ function Signin(props) {
    }
 
   return (
-    <div>
+    <div className='wrapper'>
       <Container fluid>
         <Row className="flex justify-content-center">
       <Form className='signin'>

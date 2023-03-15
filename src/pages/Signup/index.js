@@ -36,7 +36,7 @@ function Signup(props) {
   }
 
   return (
-    <div>
+    <div className='wrapper'>
       <Container fluid>
         <Row className="justify-content-center">
           <Form className='signup'>
