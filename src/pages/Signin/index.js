@@ -9,8 +9,8 @@ function Signin(props) {
   function signInHandler(e) {
     e.preventDefault();
     const userObj = {
-      username: document.querySelector("#singInUsername").value,
-      password: document.querySelector("#singInPassword").value
+      username: document.querySelector("#signInUsername").value,
+      password: document.querySelector("#signInPassword").value
     }
     API.login(userObj).then(data=>{
       console.log(data);
@@ -25,18 +25,16 @@ function Signin(props) {
    }
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper signInUpHero'>
       <Container fluid>
         <Row className="flex justify-content-center">
       <Form className='signin'>
         <h1>Sign In</h1>
-      <Form.Group className="mb-3" controlId="singInUsername">
-          <Form.Label>Username</Form.Label>
+      <Form.Group className="mb-3" controlId="signInUsername">
           <Form.Control type="text" placeholder="Username" />
         </Form.Group>
   
-        <Form.Group className="mb-3" controlId="singInPassword">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-3" controlId="signInPassword">
           <Form.Control type="text" placeholder="Password" /> 
         </Form.Group>
 

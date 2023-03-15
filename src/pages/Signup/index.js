@@ -36,23 +36,20 @@ function Signup(props) {
   }
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper signInUpHero'>
       <Container fluid>
         <Row className="justify-content-center">
           <Form className='signup'>
           <h1>Sign Up</h1>
             <Form.Group className="mb-3" controlId="newUserName">
-              <Form.Label><strong>Username</strong></Form.Label>
               <Form.Control type="text" placeholder="Username" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="newUserEmail">
-              <Form.Label><strong>Email</strong></Form.Label>
               <Form.Control type="email" placeholder="Email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="newUserPassword">
-              <Form.Label><strong>Password</strong></Form.Label>
               <Form.Control type="text" placeholder="Password" />
             </Form.Group>
 
