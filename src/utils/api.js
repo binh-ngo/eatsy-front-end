@@ -44,7 +44,7 @@ const API = {
 
         // Use this when a user wants to update their profile
         updateUser: (username, userObj) => {
-                return fetch(`${URL_PREFIX}/api/users/${username}`, {
+                return fetch(`${URL_PREFIX}/api/users/getUser/${username}`, {
                         method: "PUT",
                         body: JSON.stringify(userObj),
                         headers: {
@@ -54,7 +54,7 @@ const API = {
         },
 
         deleteUser: (username) => {
-                return fetch(`${URL_PREFIX}/api/users/${username}`, {
+                return fetch(`${URL_PREFIX}/api/users/getUser/${username}`, {
                         method: "DELETE"
                 }).then(res => res.json());
         },
@@ -100,6 +100,26 @@ const API = {
                         }
                 }).then(res => res.json())
         },
+
+        updateItem: (itemObj) => {
+                return fetch(`${URL_PREFIX}/api/items`, {
+                        method: "PUT",
+                        body: JSON.stringify(itemObj),
+                        headers: {
+                                "Content-Type": "application/json"
+                        }
+                }).then(res => res.json())
+        },
+
+        deleteItem: (itemObj) => {
+                return fetch(`${URL_PREFIX}/api/items`, {
+                        method: "DELETE",
+                        body: JSON.stringify(itemObj),
+                        headers: {
+                                "Content-Type": "application/json"
+                        }
+                }).then(res => res.json())
+        }
 }
 
 export default API

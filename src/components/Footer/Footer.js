@@ -4,7 +4,7 @@ import "./style.css";
 
 function Footer() {
   return (
-    <Container fluid className="footer fixed-bottom">
+    <Container fluid className="footer">
       <Row>
         <ul className="justify-content-space-around">
           <li>Designed and Developed by </li>
