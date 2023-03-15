@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import API from "../../utils/api"
+import "./style.css";
 
 export default function SendMessage(props) {
   const [show, setShow] = useState(false);
@@ -29,13 +30,14 @@ export default function SendMessage(props) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title id='replyTitle'>REPLY TO MESSAGE</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>To</Form.Label>
-              <Form.Control
+              <Form.Label id='replyTitle'>TO</Form.Label>
+              <Form.Control 
+                id='msgTo'
                 type="text"
                 placeholder= {props.userTo}
                 readOnly
@@ -45,7 +47,7 @@ export default function SendMessage(props) {
               className="mb-3"
               controlId="msgText"
             >
-              <Form.Label>Message</Form.Label>
+              <Form.Label id="replyTitle">MESSAGE</Form.Label>
               <Form.Control as="textarea"rows={3} autoFocus />
             </Form.Group>
           </Form>
