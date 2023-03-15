@@ -1,7 +1,32 @@
 .signin {
     width: 500px;
     margin-top: 5%;
-    background-color: #00b4d8;
+    background-color: #CCDCD1;
     padding: 2% 2%;
     border-radius: 10%;
 }
+#signInTitleText{
+    text-align: center;
+    margin-top: 2rem;
+    font-family: "Bowlby One";
+}
+.btn-style-primary{
+    background-color: #D97758;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-primary:hover{
+    background-color: #BD5430;
+    color: inherit
+}
+.btn-style-secondary{
+    background-color: #CCDCD1;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-secondary:hover{
+    background-color: #d6ecdd;
+    color: inherit
+} 

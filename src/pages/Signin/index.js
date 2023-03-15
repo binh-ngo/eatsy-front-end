@@ -28,7 +28,7 @@ function Signin(props) {
     <div>
       <Container fluid>
         <Row className="justify-content-center">
-        <h1>Sign In</h1>
+        <h1 id='signInTitleText'>SIGN IN</h1>
       <Form className='signin'>
       <Form.Group className="mb-3" controlId="singInUsername">
           <Form.Label>Username</Form.Label>
