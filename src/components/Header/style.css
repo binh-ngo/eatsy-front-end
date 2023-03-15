@@ -32,11 +32,19 @@ nav img {
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
-    margin-left: 3%;
+    margin-left: 10%;
+}
+
+.header .headerTags {
+    margin-left: 80%;
 }
 
 .header li {
     margin-left: 7%;
+}
+
+.headerTags {
+    margin-right: -40%;
 }
 
 .navbar-toggler {

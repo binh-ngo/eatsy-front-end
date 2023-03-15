@@ -1,7 +1,26 @@
+.signInUpHero {
+    background-image: url("./assets/signinhero.jpg");
+    background-size: 100vw 100vh;
+}
+
 .signin {
     width: 500px;
-    margin-top: 5%;
-    background-color: #00b4d8;
-    padding: 2% 2%;
-    border-radius: 10%;
+    padding-top: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 100vh;
+    background-color: white;
+}
+
+.signin h1 {
+    font-family: 'Bowlby One', sans-serif;
+    color: #4D2D20
+}
+
+.colorBtn {
+    background-color: #CCDCD1;
+}
+
+.colorBtn:hover {
+    background-color: #caf0f8
 }

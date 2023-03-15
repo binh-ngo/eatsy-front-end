@@ -12,9 +12,10 @@ import mexican from "./assets/mexican.png";
 import italian from "./assets/italian.png";
 import seafood from "./assets/seafood.png";
 import "./style.css";
-import GalleryTile from "../GalleryTile";
 
-function IconTags(props) {
+
+
+function IconTags() {
   const [array, setArray] = useState([]);
   const tagArr = [
     {
@@ -65,28 +66,7 @@ function IconTags(props) {
   useEffect(() => {
     setArray(tagArr);
   }, []);
-
-  function getUsers() {
-    const userList = props.userData;
-    return userList;
-  }
-  function filterUserList(filter) {
-    let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
-    return returnFilteredUsers;
-  }
-  const [filteredUsers, setFilteredUsers] = useState(null);
-  useEffect(() => {
-    setFilteredUsers(getUsers());
-  }, []);
-
-  function filterUsers(e) {
-    localStorage.setItem("filter",e.currentTarget.value)
-    // let filterChosen = e.currentTarget.value;
-    // filterChosen != "all"
-    //   ? setFilteredUsers(filterUserList(filterChosen))
-    //   : setFilteredUsers(getUsers());
-  }
-
+  
   function showText(e) {
     e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
     e.currentTarget.addEventListener("mouseout", (i) => {
@@ -94,14 +74,37 @@ function IconTags(props) {
     })
   }
 
+  // // gets all users
+  // function getUsers() {
+  //   // const userList = companyData;
+  //   console.log(userList)
+  //   return userList;
+  // }
+
+  // filters list from above by tag name and returns it
+  // function filterBy(filter) {
+  //   let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
+  //   return returnFilteredUsers;
+  // }
+
+  // displays all users on page load
+  // const [filteredUsers, setFilteredUsers] = useState(null);
+  // useEffect(() => {
+  //   setFilteredUsers(getUsers());
+  // }, []);
+
+  function filterUsers(e) {
+    localStorage.setItem("filter", e.currentTarget.value)
+  }
+
   return (
     <div className="d-flex flex-row">
       <Container className="justify-content-center">
-        <Row>
+        <Row className="btnRow">
           <Col sm="1">
-            {/* <Button value="all" onClick={filterUsers}>
+            <Button variant="light" className="allBtn" value="all" onClick={filterUsers}>
               All
-            </Button> */}
+            </Button>
           </Col>
           {array.map((tag, index) => {
             return (
@@ -128,20 +131,7 @@ function IconTags(props) {
               </Col>
             );
           })}
-          {filteredUsers &&
-            filteredUsers.map((user) => (
-              <GalleryTile
-                key={user._id}
-                tags={user.company.tags}
-                username={user.username}
-                companyUserImg={user.img}
-                companyName={user.username}
-                userRatings={user.company.ratings}
-                companyMenu={user.company.menu}
-                companyfollowers={user.followers}
-              ></GalleryTile>
-            ))}
-        </Row>
+          </Row>
       </Container>
     </div>
   );
