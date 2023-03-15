@@ -25,7 +25,7 @@ function Signin(props) {
    }
 
   return (
-    <div>
+    <div className='wrapper'>
       <Container fluid>
         <Row className="justify-content-center">
         <h1 id='signInTitleText'>SIGN IN</h1>

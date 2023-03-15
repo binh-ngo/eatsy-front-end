@@ -1,6 +1,4 @@
 html {
         min-height: 100vh;
-        height: fit-content;
         position: relative;
-        border: solid red;
-      }
+}

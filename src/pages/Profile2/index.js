@@ -127,7 +127,7 @@ function Profile() {
                 <section id="profileContainer">
                         <section id="heroContainer">
                                 <img src={eatsy} id="eatsyHero"></img>
-                                <img src={demoGuy} id="userImg"></img>
+                                <img src={userData.src || demoGuy} id="userImg"></img>
                                 <div id="heroText">
                                         <h1 id="heroName">Meet: {userData.username}</h1>
                                         <p id="heroDescription">{companyData.description}</p>
