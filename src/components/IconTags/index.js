@@ -82,11 +82,13 @@ function IconTags() {
   function filterUsers(e) {
     localStorage.setItem("filter", e.currentTarget.value)
     setHidden("visible")
+    window.location.reload();
   }
 
   function removeFilters() {
     localStorage.removeItem("filter")
     setHidden("hidden")
+    window.location.reload();
   }
 
   return (
