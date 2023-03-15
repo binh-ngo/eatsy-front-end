@@ -152,7 +152,7 @@ function Profile() {
         }
 
         return (
-                <section id="profileContainer">
+                <section id="profileContainer" className="wrapper">
                         <section id="heroContainer">
                                 <img src={eatsy} id="eatsyHero"></img>
                                 <img src={userData.src || demoGuy} id="userImg"></img>

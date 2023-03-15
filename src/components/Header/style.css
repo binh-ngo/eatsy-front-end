@@ -32,21 +32,33 @@ nav img {
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
-    margin-left: 3%;
+    margin-left: 10%;
+}
+
+.header .headerTags {
+    margin-left: 80%;
 }
 
 .header li {
     margin-left: 7%;
 }
 
+.headerTags {
+    margin-right: -40%;
+}
+
 .navbar-toggler {
     margin-right: 3%;
 }
-
+#Shake{
+    transition: scale 100s ease-in-out;
+    z-index: 100;
+}
 #Shake:hover {
     animation: shake 75ms infinite;
     animation-timing-function: linear;
-    z-index: 7;
+    /* z-index: 7; */
+    scale: 100;
 }
 
 @keyframes shake {

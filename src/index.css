@@ -1,4 +1,6 @@
 html {
         min-height: 100vh;
         position: relative;
+        width: 100vw;
+        overflow-x: hidden;
 }

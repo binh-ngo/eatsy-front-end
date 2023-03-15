@@ -12,81 +12,64 @@ import mexican from "./assets/mexican.png";
 import italian from "./assets/italian.png";
 import seafood from "./assets/seafood.png";
 import "./style.css";
-import GalleryTile from "../GalleryTile";
 
-function IconTags(props) {
+
+
+function IconTags() {
   const [array, setArray] = useState([]);
   const tagArr = [
     {
-      name: "american",
+      name: "American",
       src: american,
     },
     {
-      name: "asian",
+      name: "Asian",
       src: asian,
     },
     {
-      name: "seafood",
+      name: "Seafood",
       src: seafood,
     },
     {
-      name: "breakfast",
+      name: "Breakfast",
       src: breakfast,
     },
     {
-      name: "vegetarian",
+      name: "Vegetarian",
       src: vegetarian,
     },
     {
-      name: "noodles",
+      name: "Noodles",
       src: noodles,
     },
     {
-      name: "japanese",
+      name: "Japanese",
       src: japanese,
     },
     {
-      name: "sweets",
+      name: "Sweets",
       src: sweets,
     },
     {
-      name: "vegan",
+      name: "Vegan",
       src: vegan,
     },
     {
-      name: "mexican",
+      name: "Mexican",
       src: mexican,
     },
     {
-      name: "italian",
+      name: "Italian",
       src: italian,
     },
   ];
   useEffect(() => {
     setArray(tagArr);
+    if(localStorage.getItem("filter")) {
+      setHidden("visible")
+    }
   }, []);
-
-  function getUsers() {
-    const userList = props.userData;
-    return userList;
-  }
-  function filterUserList(filter) {
-    let returnFilteredUsers = getUsers().filter((tag) => tag.name === filter);
-    return returnFilteredUsers;
-  }
-  const [filteredUsers, setFilteredUsers] = useState(null);
-  useEffect(() => {
-    setFilteredUsers(getUsers());
-  }, []);
-
-  function filterUsers(e) {
-    localStorage.setItem("filter",e.currentTarget.value)
-    // let filterChosen = e.currentTarget.value;
-    // filterChosen != "all"
-    //   ? setFilteredUsers(filterUserList(filterChosen))
-    //   : setFilteredUsers(getUsers());
-  }
-
+  
   function showText(e) {
     e.currentTarget.parentNode.children[0].setAttribute("style", "visibility: visible;")
     e.currentTarget.addEventListener("mouseout", (i) => {
@@ -94,14 +77,26 @@ function IconTags(props) {
     })
   }
 
+  const [hidden, setHidden]=useState("hidden")
+
+  function filterUsers(e) {
+    localStorage.setItem("filter", e.currentTarget.value)
+    setHidden("visible")
+  }
+
+  function removeFilters() {
+    localStorage.removeItem("filter")
+    setHidden("hidden")
+  }
+
   return (
     <div className="d-flex flex-row">
       <Container className="justify-content-center">
-        <Row>
+        <Row className="btnRow">
           <Col sm="1">
-            {/* <Button value="all" onClick={filterUsers}>
-              All
-            </Button> */}
+            <Button variant="light" className="allBtn" id={hidden} value="all" onClick={removeFilters}>
+              X
+            </Button>
           </Col>
           {array.map((tag, index) => {
             return (
@@ -128,20 +123,7 @@ function IconTags(props) {
               </Col>
             );
           })}
-          {filteredUsers &&
-            filteredUsers.map((user) => (
-              <GalleryTile
-                key={user._id}
-                tags={user.company.tags}
-                username={user.username}
-                companyUserImg={user.img}
-                companyName={user.username}
-                userRatings={user.company.ratings}
-                companyMenu={user.company.menu}
-                companyfollowers={user.followers}
-              ></GalleryTile>
-            ))}
-        </Row>
+          </Row>
       </Container>
     </div>
   );

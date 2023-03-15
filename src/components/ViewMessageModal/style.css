@@ -5,15 +5,23 @@
 .lato{
     font-family: "Lato", sans-serif;
 }
-
+.btn:first-child:active{
+        background-color: #BD5430 !important;
+}
 .btn-style-primary{
     background-color: #D97758;
     color: black;
     border-style: none;
+    border-radius: 16px;
 }
 .btn-style-primary:hover{
     background-color: #BD5430;
     color: inherit
+}
+#allMessageBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #messageCard {
@@ -27,4 +35,7 @@
     width: 140px;
     right: -3px;
     bottom: 40px;
+}
+#messagesTitle{
+    color: #D97758;
 }
