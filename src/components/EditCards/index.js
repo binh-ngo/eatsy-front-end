@@ -1,14 +1,14 @@
 import {React, useState} from "react";
 import "./style.css";
 import {Card,Form, Button, Row, Col} from 'react-bootstrap'
-import placeholder from "../../utils/placeholder.js"
+import placeholder from "../../utils/assests/placeholder.png"
 
 export default function EditCards(props) {
     const [name, setName] = useState(props.name)
     const [placeholder, setPlaceholder] = useState(props.name)
     const [description, setDescription] = useState(props.description)
     const [allergens, setAllergens] = useState(props.allergens)
-    
+    // TODO add api fetch to edit item
     const handleInputChange = (e) => {
       const {target} = e;
       const inputType = target.name;

@@ -1,4 +1,6 @@
-body #root {
-        height: 100vh;
-        overflow: hidden;
+html {
+        min-height: 100vh;
+        height: fit-content;
+        position: relative;
+        border: solid red;
       }

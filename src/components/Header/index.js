@@ -4,14 +4,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import eatsyLogo from "./assets/eatsyimage.png"
 
 function Header({ loggedIn, setLoggedIn, logout}) {
+  function rawr() {
+    document.querySelector("#Shake").setAttribute("class", "rawr")
+  }
   return (
     <div className="header">
       {/* If user is logged in, generate this html for the header
           still have to double check the styling for logged in,  */}
       {loggedIn ? (
         <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand brand" href="/">
-            Eatsy <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"/>
+          <a href='/' className="navbar-brand brand">
+            EATSY <img src={eatsyLogo}alt="eatsy-logo" width="80"height="80" id="Shake"/>
           </a>
           <button
             className="navbar-toggler"
@@ -42,7 +45,7 @@ function Header({ loggedIn, setLoggedIn, logout}) {
       ) : (
         // If we are logged out, render this:
         <nav className="navbar navbar-expand-lg navbar-light row">
-          <a className="navbar-brand col-sm-5" href="/">
+          <a href='/' className="navbar-brand col-sm-5">
             EATSY  <img src={eatsyLogo}alt="eatsy-logo" width="80" height="80" id="Shake"/>
           </a>
           <button
