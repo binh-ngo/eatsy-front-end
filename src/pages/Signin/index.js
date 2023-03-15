@@ -35,7 +35,7 @@ function Signin(props) {
         </Form.Group>
   
         <Form.Group className="mb-3" controlId="signInPassword">
-          <Form.Control type="text" placeholder="Password" /> 
+          <Form.Control type="password" placeholder="Password" /> 
         </Form.Group>
 
         <Button className="colorBtn" onClick={signInHandler} variant="light" type="submit">
