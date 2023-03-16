@@ -27,24 +27,28 @@ function IconTags() {
       src: asian,
     },
     {
-      name: "Seafood",
-      src: seafood,
-    },
-    {
       name: "Breakfast",
       src: breakfast,
     },
     {
-      name: "Vegetarian",
-      src: vegetarian,
+      name: "Italian",
+      src: italian,
+    },
+    {
+      name: "Japanese",
+      src: japanese,
+    },
+    {
+      name: "Mexican",
+      src: mexican,
     },
     {
       name: "Noodles",
       src: noodles,
     },
     {
-      name: "Japanese",
-      src: japanese,
+      name: "Seafood",
+      src: seafood,
     },
     {
       name: "Sweets",
@@ -55,12 +59,8 @@ function IconTags() {
       src: vegan,
     },
     {
-      name: "Mexican",
-      src: mexican,
-    },
-    {
-      name: "Italian",
-      src: italian,
+      name: "Vegetarian",
+      src: vegetarian,
     },
   ];
   useEffect(() => {
