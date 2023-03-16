@@ -18,19 +18,16 @@ function Signup(props) {
 
     API.createUser(userObj).then(data => {
       console.log(data);
-      if (data.err) {
-        // TODO tell the user they need to change one of their signup fields.
-        console.log(err)
-      }
+
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUsername(data.user.username)
+        localStorage.setItem("token", data.token)
+        navigate("/profile")
+      } else {
+        alert("msg: invalid sign up credentials")
       }
-      localStorage.setItem("token", data.token)
-      //  TODO add newUser localstorage item to bring new users to their profile and create a tutorial
-      // localStorage.setItem("newUser", true);
-      navigate("/profile")
     })
   }
 
@@ -50,6 +47,9 @@ function Signup(props) {
 
             <Form.Group className="mb-3 lato" controlId="newUserPassword">
               <Form.Control className="lato" type="password" placeholder="Password" />
+            <Form.Text className="text-muted" id="filterTagFormText">
+            (minmum 8 characters)
+            </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3 lato" controlId="newUserDescription">

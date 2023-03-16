@@ -14,12 +14,15 @@ function Signin(props) {
     }
     API.login(userObj).then(data => {
       console.log(data);
+
       if (data.token) {
         props.setToken(data.token);
         props.setIsLoggedIn(true);
         props.setUsername(data.user.username)
         localStorage.setItem("token", data.token)
         navigate("/profile")
+      } else {
+        alert("msg: invalid sign in credentials")
       }
     })
   }
