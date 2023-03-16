@@ -44,4 +44,5 @@
 }
 #msgText,#msgTo{
     font-family: "Lato";
+    color: inherit
 }
