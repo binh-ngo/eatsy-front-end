@@ -8,7 +8,7 @@ export default function MessageCard(props) {
         <Card id="messageCard" className="card position-relative">
             <div id="messageContainer">
                 <div id="messageInfoDiv">
-                    <Card.Title id="messageFrom">{props.from}</Card.Title>
+                    <Card.Title id="messageFrom"><a id="noDecoration" href={`https://eatsyfoods.netlify.app/users/${props.from}`}>{props.from}</a></Card.Title>
                     {/* <Card.Body className="numMessages">1</Card.Body> */}
                 </div>
                 <div id="messageContents">

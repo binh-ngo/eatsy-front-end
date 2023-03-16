@@ -15,3 +15,8 @@
     right: 0;
     top: 3px;
 }
+
+#noDecoration {
+    text-decoration: none;
+    color: #4D2D20;
+}
