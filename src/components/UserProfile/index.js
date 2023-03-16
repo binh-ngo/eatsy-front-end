@@ -4,15 +4,15 @@ import './style.css'
 import API from "../../utils/api"
 
 function UserProfile(props) {
-  const [name, setName] = useState([])
+  const [tags, setTags] = useState([])
   const [email, setEmail] = useState([])
   const [address, setAddress] = useState([])
-  const [pName, setPName] = useState([])
+  const [pTags, setPTags] = useState([])
   const [pEmail, setPEmail] = useState([])
   const [pAddress, setPAddress] = useState([])
 
   useEffect(() => {
-    setPName(props.name)
+    setPTags(props.tags)
     setPEmail(props.email)
     setPAddress(props.address)
   })
@@ -23,8 +23,8 @@ function UserProfile(props) {
     const inputValue = target.value;
     if (inputType === 'email') {
       setEmail(inputValue);
-    } else if (inputType === 'name') {
-      setName(inputValue);
+    } else if (inputType === 'tags') {
+      setTags(inputValue);
     } else if (inputType === "address") {
       setAddress(inputValue);
     }
@@ -38,8 +38,10 @@ function UserProfile(props) {
     const userInfoObj = {
       email: document.querySelector('#formBasicEmail').value || pEmail,
       address: document.querySelector('#formBasicAddress').value || pAddress,
+      tags: document.querySelector("#formBasicTags").value || pTags
     }
-    await API.updateUser(pName, userInfoObj)
+    await API.updateUser(props.name, userInfoObj);
+    await API.updateCompany(props.companyId, userInfoObj);
 
     window.location.reload()
   }
@@ -62,6 +64,11 @@ function UserProfile(props) {
           <Form.Group className="mb-3" controlId="formBasicAddress">
             <Form.Label className="profile-label bowlby">ADDRESS:</Form.Label>
             <Form.Control className="lato" value={address} name="address" onChange={handleInputChange} type="email" placeholder={pAddress} />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicTags">
+            <Form.Label className="profile-label bowlby">TAGS:</Form.Label>
+            <Form.Control className="lato" value={tags} name="tags" onChange={handleInputChange} type="tags" placeholder={pTags} />
           </Form.Group>
 
           <Button className="btn-style-secondary lato" onClick={handleFormSubmit}>

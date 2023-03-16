@@ -178,10 +178,10 @@ function Profile() {
                                                         <ul id="heroTags">
                                                                 <li><u>TAGS</u></li>
                                                                 {companyData.tags?.length
-                                                                ?(companyData.tags.map(tag => (
-                                                                        <li>{tag}</li>
-                                                                ))): <li>N/A</li>
-                                                        }
+                                                                        ? (companyData.tags.map(tag => (
+                                                                                <li>{tag}</li>
+                                                                        ))) : <li>N/A</li>
+                                                                }
                                                         </ul>
                                                 </div>
                                                 <section id="profileBtns">
@@ -198,7 +198,9 @@ function Profile() {
                                         <div className="userProfileComponent" id={profileState}>
                                                 {/* TODO make user profile edit functionality */}
                                                 <UserProfile
+                                                        companyId={companyData._id}
                                                         name={userData.username}
+                                                        tags={companyData.tags}
                                                         email={userData.email}
                                                         address={userData.address}
                                                 />
