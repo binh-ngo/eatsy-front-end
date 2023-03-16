@@ -24,6 +24,8 @@ function Home() {
       .catch((err) => console.log(err));
   }, []);
 
+  // const [filter, setFilter] = useState(null)
+  
   return (
     <section className="wrapper">
 
@@ -34,7 +36,7 @@ function Home() {
               <div id="homeFilterTitle">FIND LOCAL CHEFS</div>
               <div id="welcomeText">Here is where local chefs can showcase their <span id="welcomeTextBold"> CULTURE, CREATIVITY</span>and <span id="welcomeTextBold"> CRAFT! </span> </div>
               <div id="welcomeText">Looking to spice up your next event or party? Get in Touch with <span id="welcomeTextBold">EATSY!</span> </div>
-              <div id="welcomeText"> Find a Chef with a menu that <span id="welcomeTextBold">WOWS</span>, and <span id="welcomeTextBold">CONNECT</span> on our platform!  </div>
+              <div id="welcomeText"> Find a Chef with a menu that <span id="welcomeTextBold">WOWS,</span> and <span id="welcomeTextBold">CONNECT</span> on our platform!  </div>
             </div>
           </Container>
         </div>

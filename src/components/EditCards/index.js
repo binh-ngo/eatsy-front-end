@@ -61,29 +61,31 @@ export default function EditCards(props) {
       </div>
       <div id="editItemInfoDiv">
       <Form className="editCardForm" controlId="editMenuForm">
+
           <Form.Group className="mb-3" controlId={`${props.id}-name`}>
-            <Form.Label className="editCardLabel">Name</Form.Label>
-            <Form.Control value={name} name="name" onChange={handleInputChange} type="text" placeholder={placeholder} />
+            <Form.Label className="editCardLabel bowlby">Name</Form.Label>
+            <Form.Control className="lato" value={name} name="name" onChange={handleInputChange} type="text" placeholder={placeholder} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId={`${props.id}-description`}>
-            <Form.Label className="editCardLabel">Description</Form.Label>
-            <Form.Control value={description} name="description" onChange={handleInputChange} type="email" placeholder={description} />
+            <Form.Label className="editCardLabel bowlby">Description</Form.Label>
+            <Form.Control className="lato" value={description} name="description" onChange={handleInputChange} type="email" placeholder={description} />
           </Form.Group>
         
           <Form.Group className="mb-3" controlId={`${props.id}-allergens`}>
-            <Form.Label className="editCardLabel">Allergens</Form.Label>
-            <Form.Control value={allergens} name="allergens" onChange={handleInputChange} type="email" placeholder={allergens} />
+            <Form.Label className="editCardLabel bowlby">Allergens</Form.Label>
+            <Form.Control className="lato" value={allergens} name="allergens" onChange={handleInputChange} type="email" placeholder={allergens} />
           </Form.Group>
           <Row>
           <Col sm="5">
-          <Button className="editCardBtn" variant="primary" onClick
+          <Button className="editCardBtn lato" variant="danger" onClick
           ={editItemInfo}>
             Update
           </Button>
           </Col>
           <Col sm="6">
-          <Button className="editCardBtn" variant="danger" onClick={deleteItem}>
+
+          <Button className="editCardBtn lato" variant="primary" onClick={deleteItem}>
             Delete
           </Button>
           </Col>
