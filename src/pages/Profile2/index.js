@@ -19,6 +19,7 @@ function Profile() {
         const [companyData, setCompanyData] = useState([]);
         const [menuData, setMenuData] = useState([]);
         const [imgData, setImgData] = useState("");
+        const [isBusy, setBusy] = useState(true)
 
         // Get user data and set data for use
         useEffect(() => {
@@ -37,7 +38,7 @@ function Profile() {
                                                 setUserData(data);
                                                 setCompanyData(data.company);
                                                 setMenuData(data.company.menu);
-                                                // localStorage.setItem("user", JSON.stringify(data))
+                                                setBusy(false);
                                         } else {
                                                 localStorage.removeItem("token")
                                         }
@@ -141,182 +142,197 @@ function Profile() {
 
                 window.location.reload();
         }
-        
+
         const uploadProfilePicture = async () => {
                 const userObj = {
                         src: imgData
                 };
-                await API.updateUser(localStorage.getItem("username") ,userObj);
+                await API.updateUser(localStorage.getItem("username"), userObj);
 
                 window.location.reload();
         }
 
+        function showText() {
+                document.querySelector("#profilePictureText").setAttribute("style", "visibility: visibile;")
+        }
+
+        function hideText() {
+                document.querySelector("#profilePictureText").setAttribute("style", "visibility: hidden;")
+        }
+
         return (
                 <section id="profileContainer" className="wrapper">
-                        <section id="heroContainer">
-                                <img src={eatsy} id="eatsyHero"></img>
-                                <img src={userData.src || demoGuy} id="userImg"></img>
-                                <a onClick={handleShowPro} id='addProfilePicture'>+</a>
-                                <div id="heroText">
-                                        <h1 id="heroName">Meet: {userData.username}</h1>
-                                        <p id="heroDescription">{companyData.description}</p>
-                                        <ul id="heroTags">
-                                                <li>American</li>
-                                                <li>Japanese</li>
-                                                <li>Spicy</li>
-                                        </ul>
-                                </div>
-                                <section id="profileBtns">
-                                        <MessageModal userData={userData} />
-                                        <Button
-                                                onClick={switchButton}
-                                                className="companyProfileBtn btn-style-primary lato"
-                                                variant={variant}
-                                        >
-                                                {buttonText}
-                                        </Button>{" "}
-                                </section>
-                        </section>
-                        <div className="userProfileComponent" id={profileState}>
-                                {/* TODO make user profile edit functionality */}
-                                <UserProfile
-                                        name={userData.username}
-                                        email={userData.email}
-                                        address={userData.address}
-                                />
-                        </div>
-                        <Container>
-                        <div className="highlightCreationComponent" id={highlightState}>
-                                <Row className="highlightCreationUnderline">
-                                        <Col sm="11"></Col>
-                                        <Col sm="1">
-                                                <Button
-                                                        onClick={editHighlights}
-                                                        className="highlightCreationEditButton btn-style-secondary lato"
-                                                        // variant="success"
-                                                >
-                                                        {editBtnText}
-                                                </Button>{" "}
-                                        </Col>
-                                </Row>
-                                <div id="itemCardsContainer">
-                                        <Row className={editCard} id="bottomCardHalf">
-                                                {menuData?.length
-                                                        ? (
-                                                                menuData.map(item => (
-                                                                        <EditCards
-                                                                                id={item._id}
-                                                                                name={item.name}
-                                                                                allergens={[item.allergens]}
-                                                                                description={item.description}
-                                                                                src={item.src}
-                                                                        />
-                                                                ))
-                                                        ) : <p>No menu to display</p>
-                                                }
-                                                <>
-                                                        <Col sm="6">
-                                                                <Button className="addDishBtn" onClick={handleShow} variant="light">
-                                                                        <Card id="addDishCard" className="card col-5">
-                                                                                <Card.Title id="addDishText">Add Dish</Card.Title>
-                                                                                <Card.Text id="addDishPlus">+</Card.Text>
-                                                                        </Card>
-                                                                </Button>
-                                                        </Col>
-                                                        <Modal show={show} onHide={handleClose}>
-                                                                <Modal.Header closeButton>
-                                                                        <Modal.Title>Add Dish</Modal.Title>
-                                                                </Modal.Header>
-                                                                <Modal.Body>
-                                                                        <Form>
-                                                                                <Form.Group
-                                                                                        className="mb-3"
-                                                                                        controlId=""
-                                                                                >
-                                                                                        <Form.Label>Dish Name</Form.Label>
-                                                                                        <Form.Control
-                                                                                                type="text"
-                                                                                                placeholder="Spaghetti and Meatballs"
-                                                                                                autoFocus
-                                                                                        />
-                                                                                        <Form.Label>Allergens</Form.Label>
-                                                                                        <Form.Control
-                                                                                                type="text"
-                                                                                                placeholder="Soy, Peanuts, Gluten..."
-                                                                                                autoFocus
-                                                                                        />
-                                                                                </Form.Group>
-                                                                                <Form.Group
-                                                                                        className="mb-3"
-                                                                                        controlId="newItemDescription"
-                                                                                >
-                                                                                        <Form.Label>Dish Description</Form.Label>
-                                                                                        <Form.Control as="textarea" rows={3} />
-                                                                                </Form.Group>
-                                                                                <Form.Group
-                                                                                        className="mb-3"
-                                                                                        controlId="fileInput"
-                                                                                >
-                                                                                        <Form.Label>Upload Image</Form.Label>
-                                                                                        <Form.Control type="file" rows={3} />
-                                                                                </Form.Group>
-                                                                        </Form>
-                                                                </Modal.Body>
-                                                                <Modal.Footer>
-                                                                        <Button className="btn-style-primary" onClick={handleClose}>
-                                                                                Close
-                                                                        </Button>
-                                                                        <Button className="btn-style-seconday" onClick={createNewItem}>
-                                                                                Add Item
-                                                                        </Button>
-                                                                </Modal.Footer>
-                                                        </Modal>
-                                                </>
-                                                <Modal show={showPro} onHide={handleClosePro}>
-                                                                <Modal.Header closeButton>
-                                                                        <Modal.Title>Add Profile Picture</Modal.Title>
-                                                                </Modal.Header>
-                                                                <Modal.Body>
-                                                                        <Form>
-                                                                                <Form.Group
-                                                                                        className="mb-3"
-                                                                                        controlId="fileInputPro"
-                                                                                >
-                                                                                        <Form.Label>Upload Image</Form.Label>
-                                                                                        <Form.Control type="file" rows={3} />
-                                                                                </Form.Group>
-                                                                        </Form>
-                                                                </Modal.Body>
-                                                                <Modal.Footer>
-                                                                        <Button className="btn-style-primary" onClick={handleClosePro}>
-                                                                                Close
-                                                                        </Button>
-                                                                        <Button className="btn-style-seconday" onClick={uploadProfilePicture}>
-                                                                                Add Picture
-                                                                        </Button>
-                                                                </Modal.Footer>
-                                                        </Modal>
-                                        </Row>
-                                </div>
-                                <div id="itemCardsContainer">
-                                        <Row className={itemCard} id="bottomCardHalf">
-                                                {menuData?.length
-                                                        ? (
-                                                                menuData.map(item => (
-                                                                        <ItemCards
-                                                                                id={item._id}
-                                                                                name={item.name}
-                                                                                allergens={[item.allergens]}
-                                                                                description={item.description}
-                                                                                src={item.src}
-                                                                        />
-                                                                ))
-                                                        ) : <p>No menu to display</p>
-                                                }
-                                        </Row>
-                                </div>
-                        </div>
-                        </Container>
+                        {isBusy ? (
+                                <></>
+                        ) : (
+                                <>
+                                        <section id="heroContainer">
+                                                <img src={eatsy} id="eatsyHero"></img>
+                                                <img src={userData.src || demoGuy} id="userImg"></img>
+                                                <a onMouseOver={showText} onMouseOut={hideText} onClick={handleShowPro} id='addProfilePicture'><span id="marginUp">+</span></a>
+                                                <p id="profilePictureText" className="bowlby" onLoad={hideText}>ADD PROFILE PICTURE</p>
+                                                <div id="heroText">
+                                                        <h1 id="heroName">Meet: {userData.username}</h1>
+                                                        <p id="heroDescription">{companyData.description}</p>
+                                                        <ul id="heroTags">
+                                                                <li>American</li>
+                                                                <li>Japanese</li>
+                                                                <li>Spicy</li>
+                                                        </ul>
+                                                </div>
+                                                <section id="profileBtns">
+                                                        <MessageModal userData={userData} />
+                                                        <Button
+                                                                onClick={switchButton}
+                                                                className="companyProfileBtn btn-style-primary lato"
+                                                                variant={variant}
+                                                        >
+                                                                {buttonText}
+                                                        </Button>{" "}
+                                                </section>
+                                        </section>
+                                        <div className="userProfileComponent" id={profileState}>
+                                                {/* TODO make user profile edit functionality */}
+                                                <UserProfile
+                                                        name={userData.username}
+                                                        email={userData.email}
+                                                        address={userData.address}
+                                                />
+                                        </div>
+                                        <Container>
+                                                <div className="highlightCreationComponent" id={highlightState}>
+                                                        <Row className="highlightCreationUnderline">
+                                                                <Col sm="11"></Col>
+                                                                <Col sm="1">
+                                                                        <Button
+                                                                                onClick={editHighlights}
+                                                                                className="highlightCreationEditButton btn-style-secondary lato"
+                                                                        // variant="success"
+                                                                        >
+                                                                                {editBtnText}
+                                                                        </Button>{" "}
+                                                                </Col>
+                                                        </Row>
+                                                        <div id="itemCardsContainer">
+                                                                <Row className={editCard} id="bottomCardHalf">
+                                                                        {menuData?.length
+                                                                                ? (
+                                                                                        menuData.map(item => (
+                                                                                                <EditCards
+                                                                                                        id={item._id}
+                                                                                                        name={item.name}
+                                                                                                        allergens={[item.allergens]}
+                                                                                                        description={item.description}
+                                                                                                        src={item.src}
+                                                                                                />
+                                                                                        ))
+                                                                                ) : <p>No menu to display</p>
+                                                                        }
+                                                                        <>
+                                                                                <Col sm="6">
+                                                                                        <Button className="addDishBtn" onClick={handleShow} variant="light">
+                                                                                                <Card id="addDishCard" className="card col-5">
+                                                                                                        <Card.Title id="addDishText">Add Dish</Card.Title>
+                                                                                                        <Card.Text id="addDishPlus">+</Card.Text>
+                                                                                                </Card>
+                                                                                        </Button>
+                                                                                </Col>
+                                                                                <Modal show={show} onHide={handleClose}>
+                                                                                        <Modal.Header closeButton>
+                                                                                                <Modal.Title>Add Dish</Modal.Title>
+                                                                                        </Modal.Header>
+                                                                                        <Modal.Body>
+                                                                                                <Form>
+                                                                                                        <Form.Group
+                                                                                                                className="mb-3"
+                                                                                                                controlId=""
+                                                                                                        >
+                                                                                                                <Form.Label>Dish Name</Form.Label>
+                                                                                                                <Form.Control
+                                                                                                                        type="text"
+                                                                                                                        placeholder="Spaghetti and Meatballs"
+                                                                                                                        autoFocus
+                                                                                                                />
+                                                                                                                <Form.Label>Allergens</Form.Label>
+                                                                                                                <Form.Control
+                                                                                                                        type="text"
+                                                                                                                        placeholder="Soy, Peanuts, Gluten..."
+                                                                                                                        autoFocus
+                                                                                                                />
+                                                                                                        </Form.Group>
+                                                                                                        <Form.Group
+                                                                                                                className="mb-3"
+                                                                                                                controlId="newItemDescription"
+                                                                                                        >
+                                                                                                                <Form.Label>Dish Description</Form.Label>
+                                                                                                                <Form.Control as="textarea" rows={3} />
+                                                                                                        </Form.Group>
+                                                                                                        <Form.Group
+                                                                                                                className="mb-3"
+                                                                                                                controlId="fileInput"
+                                                                                                        >
+                                                                                                                <Form.Label>Upload Image</Form.Label>
+                                                                                                                <Form.Control type="file" rows={3} />
+                                                                                                        </Form.Group>
+                                                                                                </Form>
+                                                                                        </Modal.Body>
+                                                                                        <Modal.Footer>
+                                                                                                <Button className="btn-style-primary" onClick={handleClose}>
+                                                                                                        Close
+                                                                                                </Button>
+                                                                                                <Button className="btn-style-seconday" onClick={createNewItem}>
+                                                                                                        Add Item
+                                                                                                </Button>
+                                                                                        </Modal.Footer>
+                                                                                </Modal>
+                                                                        </>
+                                                                        <Modal show={showPro} onHide={handleClosePro}>
+                                                                                <Modal.Header closeButton>
+                                                                                        <Modal.Title>Add Profile Picture</Modal.Title>
+                                                                                </Modal.Header>
+                                                                                <Modal.Body>
+                                                                                        <Form>
+                                                                                                <Form.Group
+                                                                                                        className="mb-3"
+                                                                                                        controlId="fileInputPro"
+                                                                                                >
+                                                                                                        <Form.Label>Upload Image</Form.Label>
+                                                                                                        <Form.Control type="file" rows={3} />
+                                                                                                </Form.Group>
+                                                                                        </Form>
+                                                                                </Modal.Body>
+                                                                                <Modal.Footer>
+                                                                                        <Button className="btn-style-primary" onClick={handleClosePro}>
+                                                                                                Close
+                                                                                        </Button>
+                                                                                        <Button className="btn-style-seconday" onClick={uploadProfilePicture}>
+                                                                                                Add Picture
+                                                                                        </Button>
+                                                                                </Modal.Footer>
+                                                                        </Modal>
+                                                                </Row>
+                                                        </div>
+                                                        <div id="itemCardsContainer">
+                                                                <Row className={itemCard} id="bottomCardHalf">
+                                                                        {menuData?.length
+                                                                                ? (
+                                                                                        menuData.map(item => (
+                                                                                                <ItemCards
+                                                                                                        id={item._id}
+                                                                                                        name={item.name}
+                                                                                                        allergens={[item.allergens]}
+                                                                                                        description={item.description}
+                                                                                                        src={item.src}
+                                                                                                />
+                                                                                        ))
+                                                                                ) : <p>No menu to display</p>
+                                                                        }
+                                                                </Row>
+                                                        </div>
+                                                </div>
+                                        </Container>
+                                </>
+                        )}
                 </section>
         );
 }

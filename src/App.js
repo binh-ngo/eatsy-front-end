@@ -4,7 +4,7 @@ import SignIn from "./pages/Signin/index"
 import Profile from "./pages/Profile2/index"
 import Signup from "./pages/Signup/index"
 import Home from "./pages/Home/index.js"
-import Stores from "./pages/Stores/index.js"
+import Stores from "./pages/Store/index.js"
 import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,

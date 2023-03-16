@@ -11,18 +11,63 @@ function Home() {
   // fetch data
   const [userData, setUserData] = useState([]);
   const [companyData, setCompanyData] = useState([]);
-  const [menuData, setMenuData] = useState([]);
-  const [tagFilter, setTagFilter] = useState([]);
+  const [filteredCompanyData, setFilteredCompanyData] = useState([]);
+  const [tagFilter, setTagFilter] = useState(null);
 
   // Get user dara and set data for use
   useEffect(() => {
     API.getAllData()
       .then((res) => {
-        console.log(res)
         setCompanyData(res);
+
+        if(!tagFilter) {
+          localStorage.removeItem("filter")
+          setFilteredCompanyData(createGalleryTiles(res))
+        }
+
       })
       .catch((err) => console.log(err));
   }, []);
+
+
+  useEffect(() => {
+    setFilteredCompanyData(createGalleryTiles(companyData));
+  }, [tagFilter])
+
+  function createGalleryTiles(companyData) {
+    return (
+    <Container fluid className="allStoreCards" id="homeStoreView">
+    {companyData.map((user) => (
+      user.company.menu?.length
+        ? (localStorage?.getItem("filter")
+          ? (user.company.tags?.includes(localStorage.getItem("filter"))
+            ? (
+              <GalleryTile
+                key={user._id}
+                // tags={user.company.tags}
+                username={user.username}
+                companyUserImg={user.img}
+                companyName={user.username}
+                // userRatings={user.company.ratings}
+                companyMenu={user.company.menu}
+                companyfollowers={user.followers}
+              ></GalleryTile>
+            ) : <></>
+          ) :
+          <GalleryTile
+            key={user._id}
+            // tags={user.company.tags}
+            username={user.username}
+            companyUserImg={user.img}
+            companyName={user.username}
+            // userRatings={user.company.ratings}
+            companyMenu={user.company.menu}
+            companyfollowers={user.followers}
+          ></GalleryTile>
+        ) : <></>
+    ))}
+  </Container>
+  )}
 
   return (
     <section className="wrapper">
@@ -43,10 +88,11 @@ function Home() {
           setTagFilter={setTagFilter}
         />
         <hr></hr>
-        <Container fluid className="allStoreCards" id="homeStoreView">
+        {filteredCompanyData}
+        {/* <Container fluid className="allStoreCards" id="homeStoreView">
           {companyData.map((user) => (
             user.company.menu?.length
-              ? (localStorage?.getItem("filter")
+              ? ({tagFilter}?.length
                 ? (user.company.tags?.includes(localStorage.getItem("filter"))
                   ? (
                     <GalleryTile
@@ -73,7 +119,7 @@ function Home() {
                 ></GalleryTile>
               ) : <></>
           ))}
-        </Container>
+        </Container> */}
       </div>
     </section>
   );

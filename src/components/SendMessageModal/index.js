@@ -25,12 +25,12 @@ export default function SendMessage(props) {
   return (
     <>
       <Button variant="primary" onClick={handleShow} id={"sendMessage"}>
-        Send Message
+        {props.name}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title id='replyTitle'>REPLY TO MESSAGE</Modal.Title>
+          <Modal.Title id='replyTitle'>CREATE YOUR MESSAGE</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

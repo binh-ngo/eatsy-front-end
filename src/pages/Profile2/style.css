@@ -55,25 +55,6 @@
         min-height: 100vh;
 }
 
-#addProfilePicture {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        left: 55px;
-        bottom: -10px;
-        border: solid #BD5430;
-        border-radius: 50%;
-        background-color: #D97758;
-        height: 25px;
-        width: 25px;
-        padding: 0;
-}
-
-#addProfilePicture:hover {
-        cursor: pointer;
-}
-
 #heroContainer {
         position: relative;
         margin: 0 auto;
@@ -124,6 +105,41 @@
         bottom: -30px;
 }
 
+#addProfilePicture {
+        position: absolute;
+        left: 55px;
+        bottom: -10px;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid #BD5430;
+        background-color: #D97758;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+}
+
+#marginUp {
+        margin-bottom: 2px;
+}
+
+#profilePictureText {
+        position: absolute;
+        left: 77px;
+        bottom: -2px;
+        font-size: 10px;
+        border: solid gray 1px;
+        background-color: snow;
+        padding: 5px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        text-align: center;
+        transition: .1s ease-in-out;
+}
+
 #profileBtns {
         position: absolute;
         left: 80px;
@@ -132,6 +148,11 @@
 
 #profileBtns * {
         margin-right: 5px;
+}
+
+#bottomCardHalf{
+        justify-content: center;
+        width: 100%;
 }
 
 .userProfileComponent {

@@ -2,7 +2,16 @@
     width: 80%;
     border: solid #4D2D20 !important;
     background: #ccdcd1b4;
-
 }
 
+#messageContainer {
+    position: relative;
+}
 
+#replyBtn {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 3px;
+}

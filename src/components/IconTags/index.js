@@ -15,7 +15,7 @@ import "./style.css";
 
 
 
-function IconTags() {
+function IconTags(props) {
   const [array, setArray] = useState([]);
   const tagArr = [
     {
@@ -80,11 +80,13 @@ function IconTags() {
   const [hidden, setHidden]=useState("hidden")
 
   function filterUsers(e) {
+    props.setTagFilter(e.currentTarget.value)
     localStorage.setItem("filter", e.currentTarget.value)
     setHidden("visible")
   }
 
   function removeFilters() {
+    props.setTagFilter(null)
     localStorage.removeItem("filter")
     setHidden("hidden")
   }
