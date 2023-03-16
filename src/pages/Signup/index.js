@@ -56,10 +56,6 @@ function Signup(props) {
               <Form.Control type="text" placeholder="Tell us about your food!" />
             </Form.Group>
 
-            <Form.Group className="mb-3 lato" controlId="newUserDescription">
-              <Form.Control type="text" placeholder="Tell us about your food!" />
-            </Form.Group>
-
             <Button className="btn-style-secondary lato" onClick={signUpHandler} variant="light" type="submit">
               Sign Up
             </Button>
