@@ -50,7 +50,7 @@ function Signup(props) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="newUserPassword">
-              <Form.Control type="text" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
             <Button className="colorBtn" onClick={signUpHandler} variant="light" type="submit">
