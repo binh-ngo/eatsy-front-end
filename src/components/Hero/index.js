@@ -18,10 +18,10 @@ function Hero(props) {
               /> 
       </Col>
       <Col sm="12" className="descriptors">
-        <h1>{props.name}</h1>
+        <h1 id='heroText'>{props.name}</h1>
         <ul>
         <div className='tagArr'>
-          <li>{props.tags+' '}</li>
+          <li id='heroText'>{props.tags+' '}</li>
         </div>
           {/* <p>{props.distance}</p> */}
         </ul>

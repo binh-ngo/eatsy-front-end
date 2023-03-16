@@ -44,10 +44,10 @@
     background:transparent;
     height: 23rem;
     position: relative;
-    transform:translateY(-140%)
+    transform:translateY(-110%)
 }
 #editCard:hover #editItemInfoDiv{
-    transform: translateY(-140%);
+    transform: translateY(-110%);
 
 }
 
@@ -58,6 +58,7 @@
 
 #editCardImg{
     width: 25rem;
+    height: 23rem;
     background-color: gray;
     transition: all .4s ease-in-out ;
     opacity: 0.2;
@@ -88,7 +89,8 @@ font-style: normal;
 font-weight: 400;
 font-size: 20px;
 padding: 5px;
-
 }
+
+
 /* TODO: add Tag styling */
 

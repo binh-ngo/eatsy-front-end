@@ -1,3 +1,49 @@
-.btn-primary {
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@700&display=swap%27');
+
+.btn-primary{
+    background-color: #D97758;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+    font-family: "Lato";
+}
+.btn-primary:hover{
+    background-color: #BD5430;
+    color: inherit
+}
+.btn-secondary{
     background-color: #CCDCD1;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+    font-family: "Lato";
+}
+.btn-secondary:hover{
+    background-color: #d6ecdd;
+    color: inherit
+} 
+#replyTitle{
+    font-family: "Bowlby One";
+    color: #D97758;
+
+}
+#messageFrom{
+    font-size: 2rem;
+    margin: 5px;
+    text-transform: uppercase;
+    font-family: "Bowlby One";
+    color: #D97758;
+
+}
+#messageText{
+    font-size: 1.2rem;
+    width: 80%;
+    font-family: 'Lato';
+    color: #4D2D20;
+
+}
+#msgText,#msgTo{
+    font-family: "Lato";
+    color: inherit
+
 }

@@ -1,14 +1,24 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import "./style.css";
 import {Card,Form, Button, Row, Col} from 'react-bootstrap'
 import placeholder from "../../utils/assests/placeholder.png"
+import API from "../../utils/api"
 
 export default function EditCards(props) {
     const [name, setName] = useState(props.name)
     const [placeholder, setPlaceholder] = useState(props.name)
     const [description, setDescription] = useState(props.description)
     const [allergens, setAllergens] = useState(props.allergens)
-    // TODO add api fetch to edit item
+    const [pName, setPName] = useState("")
+    const [pDescription, setPDescription] = useState("")
+    const [pAllergens, setPAllergens] = useState([])
+
+    useEffect(() => {
+      setPName(props.name)
+      setPDescription(props.description)
+      setPAllergens(props.allergens)
+    })
+
     const handleInputChange = (e) => {
       const {target} = e;
       const inputType = target.name;
@@ -21,14 +31,29 @@ export default function EditCards(props) {
         setAllergens(inputValue);
       }
     }
-    const handleFormSubmit = (e) => {
-      e.preventDefault();
-      setName('');
-      setDescription('');
-      setAllergens('');
+
+    async function editItemInfo() {
+      const itemObj = {
+        name: document.querySelector(`#${props.id}-name`).value || pName || "",
+        description: document.querySelector(`#${props.id}-description`).value || pDescription || "",
+        allergens: [document.querySelector(`#${props.id}-allergens`).value] || pAllergens,
+        itemId: props.id
+      }
+      console.log(itemObj)
+      await API.updateItem(props.id, itemObj)
+      // window.location.reload()
     }
+
+    async function deleteItem() {
+      const itemObj = {
+        itemId: props.id
+      }
+      await API.deleteItem(itemObj);
+      window.location.reload();
+    }
+
   return (
-    <Card id="editCard" className="card col-5">
+    <Card id="editCard" className="card col-5" key={props.id}>
       <div id="imgContainer">
         <a href={props.link}>
           <Card.Img id="editCardImg" src={props.src || placeholder}alt={props.alt}></Card.Img>
@@ -36,28 +61,31 @@ export default function EditCards(props) {
       </div>
       <div id="editItemInfoDiv">
       <Form className="editCardForm" controlId="editMenuForm">
-          <Form.Group className="mb-3" controlId="formBasicName">
+
+          <Form.Group className="mb-3" controlId={`${props.id}-name`}>
             <Form.Label className="editCardLabel bowlby">Name</Form.Label>
             <Form.Control className="lato" value={name} name="name" onChange={handleInputChange} type="text" placeholder={placeholder} />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicDescription">
+          <Form.Group className="mb-3" controlId={`${props.id}-description`}>
             <Form.Label className="editCardLabel bowlby">Description</Form.Label>
-            <Form.Control className="lato" value={description} name="email" onChange={handleInputChange} type="email" placeholder={description} />
+            <Form.Control className="lato" value={description} name="description" onChange={handleInputChange} type="email" placeholder={description} />
           </Form.Group>
         
-          <Form.Group className="mb-3" controlId="formBasicAllergens">
+          <Form.Group className="mb-3" controlId={`${props.id}-allergens`}>
             <Form.Label className="editCardLabel bowlby">Allergens</Form.Label>
-            <Form.Control className="lato" value={allergens} name="address" onChange={handleInputChange} type="email" placeholder={allergens} />
+            <Form.Control className="lato" value={allergens} name="allergens" onChange={handleInputChange} type="email" placeholder={allergens} />
           </Form.Group>
           <Row>
           <Col sm="5">
-          <Button className="editCardBtn lato" variant="danger" onSubmit={handleFormSubmit}>
+          <Button className="editCardBtn lato" variant="danger" onClick
+          ={editItemInfo}>
             Update
           </Button>
           </Col>
           <Col sm="6">
-          <Button className="editCardBtn lato" variant="primary">
+
+          <Button className="editCardBtn lato" variant="primary" onClick={deleteItem}>
             Delete
           </Button>
           </Col>

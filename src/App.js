@@ -73,6 +73,7 @@ function App() {
     setIsLoggedIn(false);
     localStorage.removeItem("token")
     localStorage.removeItem("username")
+    localStorage.removeItem("filter")
   }
 
   return (

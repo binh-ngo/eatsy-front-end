@@ -50,11 +50,15 @@ nav img {
 .navbar-toggler {
     margin-right: 3%;
 }
-
+#Shake{
+    transition: scale 100s ease-in-out;
+    z-index: 100;
+}
 #Shake:hover {
     animation: shake 75ms infinite;
     animation-timing-function: linear;
-    z-index: 7;
+    /* z-index: 7; */
+    scale: 100;
 }
 
 @keyframes shake {

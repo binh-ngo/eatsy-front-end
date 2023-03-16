@@ -26,10 +26,10 @@ function MessageModal(props) {
             ))}
             <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="bowlby">Messages</Modal.Title>
+                    <Modal.Title className="bowlby"id="messagesTitle">MESSAGES</Modal.Title>
                 </Modal.Header>
 
-                <Modal.Body className="lato">
+                <Modal.Body className="lato" id="allMessageBox">
                     {props.userData.messages?.length
                         ? (
                             props.userData.messages.map(msg => {

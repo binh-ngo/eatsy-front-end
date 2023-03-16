@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@700&display=swap');
+
+.bowlby{
+    font-family: 'Bowlby One', sans-serif;
+}
+.lato{
+    font-family: "Lato", sans-serif;
+}
+
+.btn-style-primary{
+    background-color: #D97758;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-primary:hover{
+    background-color: #BD5430;
+    color: inherit
+}
+.btn-style-secondary{
+    background-color: #CCDCD1;
+    color: black;
+    border-style: none;
+    border-radius: 16px;
+}
+.btn-style-secondary:hover{
+    background-color: #d6ecdd;
+    color: inherit
+}
+
 .signup {
     width: 500px;
     padding-top: 7%;

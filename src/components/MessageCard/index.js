@@ -1,6 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
 import SendMessageModal from "../../components/SendMessageModal";
+import "./styles.css"
 
 export default function MessageCard(props) {
     return (

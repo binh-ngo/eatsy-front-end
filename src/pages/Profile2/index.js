@@ -18,7 +18,7 @@ function Profile() {
         const [userData, setUserData] = useState([]);
         const [companyData, setCompanyData] = useState([]);
         const [menuData, setMenuData] = useState([]);
-        const [imgData, setImgData] = useState([]);
+        const [imgData, setImgData] = useState("");
 
         // Get user data and set data for use
         useEffect(() => {
@@ -88,13 +88,32 @@ function Profile() {
 
         // open and close the edit card modal
         const [show, setShow] = useState(false);
+        const [showPro, setShowPro] = useState(false);
 
         const handleClose = () => setShow(false);
+        const handleClosePro = () => setShowPro(false);
+
         // show modal also adds an event listener for when a user decides to upload and image for new items
         const handleShow = async () => {
                 await setShow(true);
 
                 const fileInput = await document.getElementById("fileInput")
+
+                fileInput.addEventListener("change", e => {
+                        const file = fileInput.files[0];
+                        const reader = new FileReader();
+
+                        reader.addEventListener("load", () => {
+                                setImgData(reader.result);
+                        });
+
+                        reader.readAsDataURL(file);
+                })
+        }
+        const handleShowPro = async () => {
+                await setShowPro(true);
+
+                const fileInput = await document.getElementById("fileInputPro")
 
                 fileInput.addEventListener("change", e => {
                         const file = fileInput.files[0];
@@ -122,12 +141,22 @@ function Profile() {
 
                 window.location.reload();
         }
+        
+        const uploadProfilePicture = async () => {
+                const userObj = {
+                        src: imgData
+                };
+                await API.updateUser(localStorage.getItem("username") ,userObj);
+
+                window.location.reload();
+        }
 
         return (
-                <section id="profileContainer">
+                <section id="profileContainer" className="wrapper">
                         <section id="heroContainer">
                                 <img src={eatsy} id="eatsyHero"></img>
                                 <img src={userData.src || demoGuy} id="userImg"></img>
+                                <a onClick={handleShowPro} id='addProfilePicture'>+</a>
                                 <div id="heroText">
                                         <h1 className="bowlby" id="heroName">Meet: {userData.username}</h1>
                                         <p className="lato" id="heroDescription">{companyData.description}</p>
@@ -176,7 +205,7 @@ function Profile() {
                                                         ? (
                                                                 menuData.map(item => (
                                                                         <EditCards
-                                                                                key={item.id}
+                                                                                id={item._id}
                                                                                 name={item.name}
                                                                                 allergens={[item.allergens]}
                                                                                 description={item.description}
@@ -245,6 +274,30 @@ function Profile() {
                                                                 </Modal.Footer>
                                                         </Modal>
                                                 </>
+                                                <Modal show={showPro} onHide={handleClosePro}>
+                                                                <Modal.Header closeButton>
+                                                                        <Modal.Title>Add Profile Picture</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                        <Form>
+                                                                                <Form.Group
+                                                                                        className="mb-3"
+                                                                                        controlId="fileInputPro"
+                                                                                >
+                                                                                        <Form.Label>Upload Image</Form.Label>
+                                                                                        <Form.Control type="file" rows={3} />
+                                                                                </Form.Group>
+                                                                        </Form>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                        <Button className="btn-style-primary" onClick={handleClosePro}>
+                                                                                Close
+                                                                        </Button>
+                                                                        <Button className="btn-style-seconday" onClick={uploadProfilePicture}>
+                                                                                Add Picture
+                                                                        </Button>
+                                                                </Modal.Footer>
+                                                        </Modal>
                                         </Row>
                                 </div>
                                 <div id="itemCardsContainer">
@@ -253,7 +306,7 @@ function Profile() {
                                                         ? (
                                                                 menuData.map(item => (
                                                                         <ItemCards
-                                                                                key={item.id}
+                                                                                id={item._id}
                                                                                 name={item.name}
                                                                                 allergens={[item.allergens]}
                                                                                 description={item.description}
