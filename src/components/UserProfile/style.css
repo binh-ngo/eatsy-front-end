@@ -36,3 +36,11 @@ p{
     background-color: #d6ecdd;
     color: inherit
 }
+
+#filterTagFormText {
+    margin-left: 10px;
+}
+
+.userInfoFormGoup{
+    margin-top: 20px;
+}

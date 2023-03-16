@@ -12,8 +12,7 @@ function Signup(props) {
       username: document.querySelector("#newUserName").value,
       email: document.querySelector("#newUserEmail").value,
       password: document.querySelector("#newUserPassword").value,
-      // TODO change (add another input)
-      description:"test kitchen"
+      description: document.querySelector("#newUserDescription").value
     }
     console.log(userObj)
 
@@ -46,11 +45,15 @@ function Signup(props) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="newUserEmail">
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control type="email" placeholder="example@email.com" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="newUserPassword">
               <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="newUserDescription">
+              <Form.Control type="text" placeholder="Tell us about your food!" />
             </Form.Group>
 
             <Button className="colorBtn" onClick={signUpHandler} variant="light" type="submit">

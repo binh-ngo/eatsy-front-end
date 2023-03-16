@@ -17,6 +17,8 @@ function Profile() {
         const [menuData, setMenuData] = useState([]);
         const [imgData, setImgData] = useState("");
         const [isBusy, setBusy] = useState(true)
+        const [heroTags, setHeroTags] = useState([])
+        const [tagLi, setTagLi] = useState([])
 
         // Get user data and set data for use
         useEffect(() => {
@@ -36,6 +38,11 @@ function Profile() {
                                                 setCompanyData(data.company);
                                                 setMenuData(data.company.menu);
                                                 setBusy(false);
+                                                setHeroTags(data.company.tags)
+                                                if (data.company.tags) {
+                                                        console.log(data.company.tags)
+                                                        setTagLi(createTags(data.company.tags))
+                                                }
                                         } else {
                                                 localStorage.removeItem("token")
                                         }
@@ -47,6 +54,23 @@ function Profile() {
 
                 getUser();
         }, []);
+
+        useEffect(() => {
+                setTagLi(createTags(heroTags));
+        }, [heroTags])
+
+        function createTags(heroTags) {
+                return(
+                <ul id="heroTags">
+                        <li><u>TAGS</u></li>
+                        {heroTags?.length
+                                ? (heroTags.map(tag => (
+                                        <li>{tag}</li>
+                                ))) : <li>N/A</li>
+                        }
+                </ul>
+                )
+        }
 
         // swaps between user profile and company highlights
         const [buttonText, setButtonText] = useState("View Company Profile");
@@ -175,14 +199,7 @@ function Profile() {
                                                 <div id="heroText">
                                                         <h1 id="heroName">{userData.username}</h1>
                                                         <p id="heroDescription">{companyData.description}</p>
-                                                        <ul id="heroTags">
-                                                                <li><u>TAGS</u></li>
-                                                                {companyData.tags?.length
-                                                                        ? (companyData.tags.map(tag => (
-                                                                                <li>{tag}</li>
-                                                                        ))) : <li>N/A</li>
-                                                                }
-                                                        </ul>
+                                                        {tagLi}
                                                 </div>
                                                 <section id="profileBtns">
                                                         <MessageModal userData={userData} />
@@ -203,6 +220,8 @@ function Profile() {
                                                         tags={companyData.tags}
                                                         email={userData.email}
                                                         address={userData.address}
+                                                        description={companyData.description}
+                                                        setHeroTags={setHeroTags}
                                                 />
                                         </div>
                                         <Container>
