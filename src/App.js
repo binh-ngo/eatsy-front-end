@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header/index"
 import SignIn from "./pages/Signin/index"
-import Profile from "./pages/Profile2/index"
+import Profile from "./pages/Profile/index"
 import Signup from "./pages/Signup/index"
 import Home from "./pages/Home/index.js"
 import Stores from "./pages/Store/index.js"
