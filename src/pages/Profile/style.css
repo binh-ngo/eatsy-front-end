@@ -57,9 +57,9 @@
     color: inherit
 }
 
-.userProfileComponent {
+/* .userProfileComponent {
     margin-top: -40%;
-}
+} */
 
 .msgModal {
     margin-right: 5px;
@@ -81,13 +81,13 @@
     margin-top: -36%;
 }
 
-#contentHidden {
+/* #contentHidden {
     display: none;
 }
 
 #contentVisible {
     display: visible;
-}
+} */
 
 #testDiv {
     position: relative;

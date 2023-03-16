@@ -11,7 +11,7 @@ export default function EditCards(props) {
     const [allergens, setAllergens] = useState(props.allergens)
     const [pName, setPName] = useState("")
     const [pDescription, setPDescription] = useState("")
-    const [pAllergens, setPAllergens] = useState([])
+    const [pAllergens, setPAllergens] = useState("")
 
     useEffect(() => {
       setPName(props.name)
@@ -32,16 +32,17 @@ export default function EditCards(props) {
       }
     }
 
-    async function editItemInfo() {
+    async function editItemInfo(e) {
+      const form = e.target.parentNode.parentNode.parentNode
       const itemObj = {
-        name: document.querySelector(`#${props.id}-name`).value || pName || "",
-        description: document.querySelector(`#${props.id}-description`).value || pDescription || "",
-        allergens: [document.querySelector(`#${props.id}-allergens`).value] || pAllergens,
+        name: form.children[0].children[1].value || pName || "",
+        description: form.children[1].children[1].value || pDescription || "",
+        allergens: form.children[2].children[1].value || pAllergens,
         itemId: props.id
       }
       console.log(itemObj)
-      await API.updateItem(props.id, itemObj)
-      // window.location.reload()
+      await API.updateItem(itemObj)
+      window.location.reload()
     }
 
     async function deleteItem() {

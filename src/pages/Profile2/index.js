@@ -160,6 +160,10 @@ function Profile() {
                 document.querySelector("#profilePictureText").setAttribute("style", "visibility: hidden;")
         }
 
+        setTimeout(() => {
+                hideText()
+        }, "1000");
+
         return (
                 <section id="profileContainer" className="wrapper">
                         {isBusy ? (
@@ -172,12 +176,15 @@ function Profile() {
                                                 <a onMouseOver={showText} onMouseOut={hideText} onClick={handleShowPro} id='addProfilePicture'><span id="marginUp">+</span></a>
                                                 <p id="profilePictureText" className="bowlby" onLoad={hideText}>ADD PROFILE PICTURE</p>
                                                 <div id="heroText">
-                                                        <h1 id="heroName">Meet: {userData.username}</h1>
+                                                        <h1 id="heroName">{userData.username}</h1>
                                                         <p id="heroDescription">{companyData.description}</p>
                                                         <ul id="heroTags">
-                                                                <li>American</li>
-                                                                <li>Japanese</li>
-                                                                <li>Spicy</li>
+                                                                <li><u>TAGS</u></li>
+                                                                {companyData.tags?.length
+                                                                ?(companyData.tags.map(tag => (
+                                                                        <li>{tag}</li>
+                                                                ))): <li>N/A</li>
+                                                        }
                                                         </ul>
                                                 </div>
                                                 <section id="profileBtns">

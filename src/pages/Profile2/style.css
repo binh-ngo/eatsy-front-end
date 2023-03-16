@@ -85,12 +85,18 @@
 }
 
 #heroTags {
+        list-style-type: none;
         display: flex;
+        text-align: center;
         flex-direction: column;
         position: absolute;
-        right: 0;
+        right: 20px;
         top: 0;
         color: #CCDCD1;
+}
+
+#heroTags li {
+        display: inline-block;
 }
 
 #userImg {
@@ -137,7 +143,7 @@
         border-top-right-radius: 16px;
         border-bottom-right-radius: 16px;
         text-align: center;
-        transition: .1s ease-in-out;
+        transition: 1s;
 }
 
 #profileBtns {
@@ -150,7 +156,7 @@
         margin-right: 5px;
 }
 
-#bottomCardHalf{
+#bottomCardHalf {
         justify-content: center;
         width: 100%;
 }

@@ -49,24 +49,6 @@ function App() {
 
   }, [])
 
-//  function getToken() {
-//     const savedToken = localStorage.getItem("token");
-//     console.log(savedToken);
-//     if (savedToken) {
-//       API.isValidToken(savedToken).then(tokenData => {
-//         if (tokenData.isValid) {
-//           console.log("--------")
-//           console.log(tokenData)
-//           setToken(savedToken);
-//           setUsername(tokenData.user.username)
-//           setIsLoggedIn(true)
-//         } else {
-//           localStorage.removeItem("token")
-//         }
-//       })
-//     }
-//   }
-
   const logout = () => {
     setToken('');
     setUsername("");
