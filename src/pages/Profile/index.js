@@ -1,9 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import "./style.css";
-import Hero from "../../components/Hero/index";
-import heroImg from "../Stores/assets/heroImg.jpg";
-import userImg from "../Stores/assets/userImg.jpg";
 import UserProfile from "../../components/UserProfile";
 import { Container, Col, Row, Button, Card, Modal, Form } from "react-bootstrap";
 import ItemCards from "../../components/ItemCards/index";
