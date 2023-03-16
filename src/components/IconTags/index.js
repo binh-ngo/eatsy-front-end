@@ -83,14 +83,14 @@ function IconTags(props) {
     props.setTagFilter(e.currentTarget.value)
     localStorage.setItem("filter", e.currentTarget.value)
     setHidden("visible")
-    window.location.reload();
+    // window.location.reload();
   }
 
   function removeFilters() {
     props.setTagFilter(null)
     localStorage.removeItem("filter")
     setHidden("hidden")
-    window.location.reload();
+    // window.location.reload();
   }
 
   return (
