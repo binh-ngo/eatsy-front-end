@@ -44,11 +44,7 @@
     background:transparent;
     height: 23rem;
     position: relative;
-    transform:translateY(-110%)
-}
-#editCard:hover #editItemInfoDiv{
-    transform: translateY(-110%);
-
+    transform:translateY(-120%)
 }
 
 #imgContainer{

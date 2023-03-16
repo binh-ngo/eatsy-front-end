@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header/index"
 import SignIn from "./pages/Signin/index"
-import Profile from "./pages/Profile2/index"
+import Profile from "./pages/Profile/index"
 import Signup from "./pages/Signup/index"
 import Home from "./pages/Home/index.js"
-import Stores from "./pages/Stores/index.js"
+import Stores from "./pages/Store/index.js"
 import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,
@@ -48,24 +48,6 @@ function App() {
     getUser();
 
   }, [])
-
-//  function getToken() {
-//     const savedToken = localStorage.getItem("token");
-//     console.log(savedToken);
-//     if (savedToken) {
-//       API.isValidToken(savedToken).then(tokenData => {
-//         if (tokenData.isValid) {
-//           console.log("--------")
-//           console.log(tokenData)
-//           setToken(savedToken);
-//           setUsername(tokenData.user.username)
-//           setIsLoggedIn(true)
-//         } else {
-//           localStorage.removeItem("token")
-//         }
-//       })
-//     }
-//   }
 
   const logout = () => {
     setToken('');

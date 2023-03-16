@@ -1,212 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@700&display=swap');
-
-.bowlby{
-    font-family: 'Bowlby One', sans-serif;
-}
-.lato{
-    font-family: "Lato", sans-serif;
-}
-
-.addDishBtn {
-    margin-top: 6%;
-}
-#addDishText {
-    margin-top: 4%;
-    font-size: 3rem;
-}
-.addDishCardLabel {
-    margin-left: 2%;
-}
-#addDishPlus {
-    margin-top: -35%;
-    font-size: 20em;
-}
-#addDishCard{
-    width: 25rem;
-    height: 23rem;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
-    transition: all .3s ease-in-out ;
-    overflow: hidden;
-    position:relative;
-    background: #CCDCD1;
-    color:black}
-
-#addDishCard:hover{
-    transform: scale(1.02);
-    background: #d6ecdd;
-}
-
-.btn-style-primary{
-    background-color: #D97758;
-    color: black;
-    border-style: none;
-    border-radius: 16px;
-}
-.btn-style-primary:hover{
-    background-color: #BD5430;
-    color: inherit
-}
-.btn-style-secondary{
-    background-color: #CCDCD1;
-    color: black;
-    border-style: none;
-    border-radius: 16px;
-}
-.btn-style-secondary:hover{
-    background-color: #d6ecdd;
-    color: inherit
-}
-
-.userProfileComponent {
-    margin-top: -40%;
-}
-
-.msgModal {
-    margin-right: 5px;
-}
-
-/* .companyProfileBtn {
-    margin-top: -80%;
-    margin-left: 6%;
-    width:20%;
-    margin-right: -5%;
-} */
-
-.highlightCreationEditButton {
-    width: 200%;
-    margin-left: -86%;
-}
-
-.highlightCreationComponent {
-    margin-top: -36%;
-}
-
 #contentHidden {
-    display: none;
+        display: none;
 }
 
 #contentVisible {
-    display: visible;
+        display: visible;
 }
 
-#testDiv {
-    position: relative;
-    border: solid saddlebrown;
-}
-
-#profileBtnDiv {
-    display: inline;
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    transform: translateY(870%);
-}
-
-/* for edit Button */
 .contentHidden {
-    display: none;
+        display: none;
 }
 
 .contentVisible {
-    display: visible;
+        display: visible;
 }
 
-@media screen and (max-width: 1399px) {
-    .companyProfileBtn{
-        margin-top: -83.2%;
-        margin-left: 6.5%;
-        margin-right: -6.5%
-    }
-    .highlightCreationEditButton {
-        width: 211%;
-        margin-left: -95%;
-    }
-  }
-@media screen and (max-width: 1199px) {
-    .companyProfileBtn{
-        margin-top: -85.9%;
-        margin-left: 8%;
-        margin-right: -8%;
-    }
-    .addDishBtn {
-        margin-left:-15%
-    }
-    .highlightCreationEditButton {
-        width: 268%;
-        margin-left: -145%;
-    }
-  }
-@media screen and (max-width: 991px) {
-    .companyProfileBtn{
-        margin-top: -90.7%;
-        margin-left: 12%;
-        margin-right: -12%;
-        width: 185px;
-    }
-    .addDishBtn {
-        margin-left:-43%
-    }
-    .highlightCreationEditButton {
-        width: 416%;
-        margin-left: -280%;
-    }
-  }
-@media screen and (max-width: 767px) {
-    .companyProfileBtn{
-        margin-top: -84%;
-        margin-left: 17%;
-    }
-    .addDishBtn {
-        margin-left:-85%
-    }
-    .highlightCreationEditButton {
-        width: 713%;
-        margin-left: -555%;
-    }
+.addDishBtn {
+        margin-top: 6%;
 }
 
-@media screen and (max-width: 575px) {
-    .highlightCreationEditButton {
-        width: 28%;
-        margin-left: 70%;
-    }
-    .addDishBtn {
-        margin-left:-10%
-    }
-  }
-@media screen and (max-width: 573px) {
-    .highlightCreationEditButton {
-        width: 30%;
-        margin-left: 70%;
-    }
-  }
-@media screen and (max-width: 537px) {
-    .highlightCreationEditButton {
-        width: 31%;
-        margin-left: 70%;
-    }
-  }
-@media screen and (max-width: 521px) {
-    .companyProfileBtn{
-        margin-top: -81%;
-        margin-left: 19%;
-    }
-    .highlightCreationEditButton {
-        width: 32%;
-        margin-left: 68%;
-    }
-  }
-@media screen and (max-width: 521px) {
-    .highlightCreationEditButton {
-        width: 33%;
-        margin-left: 66%;
-    }
-    .addDishBtn {
-        margin-left:-24%
-    }
-  }
+#addDishText {
+        margin-top: 4%;
+        font-size: 3rem;
+}
 
-  body #root {
-    height: 100vh;
-    overflow: hidden;
-  }
+.addDishCardLabel {
+        margin-left: 2%;
+}
+
+#addDishPlus {
+        margin-top: -35%;
+        font-size: 20em;
+}
+
+#addDishCard {
+        width: 25rem;
+        height: 23rem;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+        position: relative;
+        background: #CCDCD1;
+        color: black
+}
+
+#addDishCard:hover {
+        transform: scale(1.02);
+        background: #d6ecdd;
+}
+
+#profileContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        min-height: 100vh;
+}
+
+#heroContainer {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 100px;
+        margin-top: 30px;
+        padding: 0;
+}
+
+#eatsyHero {
+        border: solid #A4B8AA;
+        border-radius: 6px;
+}
+
+#heroText {
+        position: absolute;
+        top: 30px;
+        left: 60px;
+        width: 580px;
+}
+
+#heroName {
+        color: #D97758;
+}
+
+#heroDescription {
+        margin-left: 20px;
+        color: #CCDCD1;
+}
+
+#heroTags {
+        list-style-type: none;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        position: absolute;
+        right: 20px;
+        top: 0;
+        color: #CCDCD1;
+}
+
+#heroTags li {
+        display: inline-block;
+}
+
+#userImg {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: solid #A4B8AA;
+        border-radius: 50%;
+        padding: 5px;
+        background-color: #CCDCD1;
+        left: -30px;
+        bottom: -30px;
+}
+
+#addProfilePicture {
+        position: absolute;
+        left: 55px;
+        bottom: -10px;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid #BD5430;
+        background-color: #D97758;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+}
+
+#marginUp {
+        margin-bottom: 2px;
+}
+
+#profilePictureText {
+        position: absolute;
+        left: 77px;
+        bottom: -2px;
+        font-size: 10px;
+        border: solid gray 1px;
+        background-color: snow;
+        padding: 5px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        text-align: center;
+        transition: 1s;
+}
+
+#profileBtns {
+        position: absolute;
+        left: 80px;
+        margin-top: 10px;
+}
+
+#profileBtns * {
+        margin-right: 5px;
+}
+
+#bottomCardHalf {
+        justify-content: center;
+        width: 100%;
+}
+
+.userProfileComponent {
+        margin-bottom: 50px;
+}
