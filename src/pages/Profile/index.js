@@ -127,11 +127,11 @@ function Profile() {
 
         const createNewItem = async () => {
                 // const localUser = JSON.parse(localStorage.getItem("user"))
-                // TODO make itemObj pull from the inputs
                 const itemObj = {
                         companyId: companyData._id,
-                        name: "TEST",
-                        description: "testing image upload",
+                        name: document.querySelector("#newItemName").value,
+                        description: document.querySelector("#newItemDescription").value,
+                        allergens: document.querySelector("#newItemAllergens").value,
                         src: imgData
                 };
                 console.log(itemObj)
@@ -256,12 +256,14 @@ function Profile() {
                                                                                                                         type="text"
                                                                                                                         placeholder="Spaghetti and Meatballs"
                                                                                                                         autoFocus
+                                                                                                                        id="newItemName"
                                                                                                                 />
                                                                                                                 <Form.Label>Allergens</Form.Label>
                                                                                                                 <Form.Control
                                                                                                                         type="text"
                                                                                                                         placeholder="Soy, Peanuts, Gluten..."
                                                                                                                         autoFocus
+                                                                                                                        id="newItemAllergens"
                                                                                                                 />
                                                                                                         </Form.Group>
                                                                                                         <Form.Group
