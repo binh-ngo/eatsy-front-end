@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import API from "../../utils/api"
+import './style.css'
 
 export default function SendMessage(props) {
   const [show, setShow] = useState(false);
@@ -51,11 +52,11 @@ export default function SendMessage(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="primary" className="btn-primary lato" onClick={handleClose}>
             Cancel
           </Button>
           {/* TODO add a function on click that fetches the send message api route, and then handles close afterwards (with a banner that says your message was successfully sent) */}
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button variant="danger" className="btn-seconday lato"onClick={handleFormSubmit}>
             Send
           </Button>
         </Modal.Footer>

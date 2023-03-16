@@ -37,27 +37,27 @@ export default function EditCards(props) {
       <div id="editItemInfoDiv">
       <Form className="editCardForm" controlId="editMenuForm">
           <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label className="editCardLabel">Name</Form.Label>
-            <Form.Control value={name} name="name" onChange={handleInputChange} type="text" placeholder={placeholder} />
+            <Form.Label className="editCardLabel bowlby">Name</Form.Label>
+            <Form.Control className="lato" value={name} name="name" onChange={handleInputChange} type="text" placeholder={placeholder} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicDescription">
-            <Form.Label className="editCardLabel">Description</Form.Label>
-            <Form.Control value={description} name="email" onChange={handleInputChange} type="email" placeholder={description} />
+            <Form.Label className="editCardLabel bowlby">Description</Form.Label>
+            <Form.Control className="lato" value={description} name="email" onChange={handleInputChange} type="email" placeholder={description} />
           </Form.Group>
         
           <Form.Group className="mb-3" controlId="formBasicAllergens">
-            <Form.Label className="editCardLabel">Allergens</Form.Label>
-            <Form.Control value={allergens} name="address" onChange={handleInputChange} type="email" placeholder={allergens} />
+            <Form.Label className="editCardLabel bowlby">Allergens</Form.Label>
+            <Form.Control className="lato" value={allergens} name="address" onChange={handleInputChange} type="email" placeholder={allergens} />
           </Form.Group>
           <Row>
           <Col sm="5">
-          <Button className="editCardBtn" variant="primary" onSubmit={handleFormSubmit}>
+          <Button className="editCardBtn lato" variant="danger" onSubmit={handleFormSubmit}>
             Update
           </Button>
           </Col>
           <Col sm="6">
-          <Button className="editCardBtn" variant="danger">
+          <Button className="editCardBtn lato" variant="primary">
             Delete
           </Button>
           </Col>
