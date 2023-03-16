@@ -158,9 +158,9 @@ function Profile() {
                                 <img src={userData.src || demoGuy} id="userImg"></img>
                                 <a onClick={handleShowPro} id='addProfilePicture'>+</a>
                                 <div id="heroText">
-                                        <h1 id="heroName">Meet: {userData.username}</h1>
-                                        <p id="heroDescription">{companyData.description}</p>
-                                        <ul id="heroTags">
+                                        <h1 className="bowlby" id="heroName">Meet: {userData.username}</h1>
+                                        <p className="lato" id="heroDescription">{companyData.description}</p>
+                                        <ul className="lato" id="heroTags">
                                                 <li>American</li>
                                                 <li>Japanese</li>
                                                 <li>Spicy</li>
@@ -218,14 +218,14 @@ function Profile() {
                                                         <Col sm="6">
                                                                 <Button className="addDishBtn" onClick={handleShow} variant="light">
                                                                         <Card id="addDishCard" className="card col-5">
-                                                                                <Card.Title id="addDishText">Add Dish</Card.Title>
-                                                                                <Card.Text id="addDishPlus">+</Card.Text>
+                                                                                <Card.Title className="bowlby" id="addDishText">ADD DISH</Card.Title>
+                                                                                <Card.Text className="bowlby" id="addDishPlus">+</Card.Text>
                                                                         </Card>
                                                                 </Button>
                                                         </Col>
                                                         <Modal show={show} onHide={handleClose}>
                                                                 <Modal.Header closeButton>
-                                                                        <Modal.Title>Add Dish</Modal.Title>
+                                                                        <Modal.Title className="bowlby">ADD DISH</Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
                                                                         <Form>
@@ -233,14 +233,16 @@ function Profile() {
                                                                                         className="mb-3"
                                                                                         controlId=""
                                                                                 >
-                                                                                        <Form.Label>Dish Name</Form.Label>
+                                                                                        <Form.Label className="bowlby">Dish Name</Form.Label>
                                                                                         <Form.Control
+                                                                                                className="lato"
                                                                                                 type="text"
                                                                                                 placeholder="Spaghetti and Meatballs"
                                                                                                 autoFocus
                                                                                         />
-                                                                                        <Form.Label>Allergens</Form.Label>
+                                                                                        <Form.Label className="bowlby">Allergens</Form.Label>
                                                                                         <Form.Control
+                                                                                                className="lato"
                                                                                                 type="text"
                                                                                                 placeholder="Soy, Peanuts, Gluten..."
                                                                                                 autoFocus
@@ -250,23 +252,23 @@ function Profile() {
                                                                                         className="mb-3"
                                                                                         controlId="newItemDescription"
                                                                                 >
-                                                                                        <Form.Label>Dish Description</Form.Label>
-                                                                                        <Form.Control as="textarea" rows={3} />
+                                                                                        <Form.Label className="bowlby">Dish Description</Form.Label>
+                                                                                        <Form.Control className="lato" as="textarea" rows={3} />
                                                                                 </Form.Group>
                                                                                 <Form.Group
                                                                                         className="mb-3"
                                                                                         controlId="fileInput"
                                                                                 >
-                                                                                        <Form.Label>Upload Image</Form.Label>
-                                                                                        <Form.Control type="file" rows={3} />
+                                                                                        <Form.Label className="bowlby">Upload Image</Form.Label>
+                                                                                        <Form.Control className="lato" type="file" rows={3} />
                                                                                 </Form.Group>
                                                                         </Form>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
-                                                                        <Button className="btn-style-primary" onClick={handleClose}>
+                                                                        <Button className="btn-primary lato" onClick={handleClose}>
                                                                                 Close
                                                                         </Button>
-                                                                        <Button className="btn-style-seconday" onClick={createNewItem}>
+                                                                        <Button  className="btn-seconday lato" onClick={createNewItem}>
                                                                                 Add Item
                                                                         </Button>
                                                                 </Modal.Footer>

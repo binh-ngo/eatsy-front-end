@@ -199,7 +199,7 @@ function Profile() {
                 <Col sm="6">
                   <Button className="addDishBtn" onClick={handleShow} variant="light">
                     <Card id="addDishCard" className="card col-5">
-                      <Card.Title id="addDishText">Add Dish</Card.Title>
+                      <Card.Title className="bowlby" id="addDishText">ADD DISH</Card.Title>
                       <Card.Text id="addDishPlus">+</Card.Text>
                     </Card>
                   </Button>
