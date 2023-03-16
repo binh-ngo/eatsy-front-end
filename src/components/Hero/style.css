@@ -32,6 +32,9 @@
     color: white;
     text-shadow: -1px -1px 0 black;
 }
+#heroText{
+    font-family: "Lato";
+}
 
 @media screen and (max-width: 1199px) {
     .descriptors{

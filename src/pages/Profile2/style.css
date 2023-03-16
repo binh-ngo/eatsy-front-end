@@ -99,17 +99,19 @@
 }
 
 #heroDescription {
+        font-family: "Lato";
         margin-left: 20px;
-        color: #CCDCD1;
+        color: #4D2D20;
 }
 
 #heroTags {
+        font-family: "Lato";
         display: flex;
         flex-direction: column;
         position: absolute;
         right: 0;
         top: 0;
-        color: #CCDCD1;
+        color: #4D2D20;
 }
 
 #userImg {
