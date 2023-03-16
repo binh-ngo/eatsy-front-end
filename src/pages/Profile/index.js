@@ -18,6 +18,7 @@ function Profile() {
         const [imgData, setImgData] = useState("");
         const [isBusy, setBusy] = useState(true)
         const [heroTags, setHeroTags] = useState([])
+        const [heroDescription, setHeroDescription] = useState([])
         const [tagLi, setTagLi] = useState([])
 
         // Get user data and set data for use
@@ -39,6 +40,7 @@ function Profile() {
                                                 setMenuData(data.company.menu);
                                                 setBusy(false);
                                                 setHeroTags(data.company.tags)
+                                                setHeroDescription(data.company.description)
                                                 if (data.company.tags) {
                                                         console.log(data.company.tags)
                                                         setTagLi(createTags(data.company.tags))
@@ -64,8 +66,8 @@ function Profile() {
                 <ul id="heroTags">
                         <li><u>TAGS</u></li>
                         {heroTags?.length
-                                ? (heroTags.map(tag => (
-                                        <li>{tag}</li>
+                                ? (heroTags.map((tag,i) => (
+                                        <li key={i}>{tag}</li>
                                 ))) : <li>N/A</li>
                         }
                 </ul>
@@ -198,7 +200,7 @@ function Profile() {
                                                 <p id="profilePictureText" className="bowlby" onLoad={hideText}>ADD PROFILE PICTURE</p>
                                                 <div id="heroText">
                                                         <h1 id="heroName">{userData.username}</h1>
-                                                        <p id="heroDescription">{companyData.description}</p>
+                                                        <p id="heroDescription">{heroDescription}</p>
                                                         {tagLi}
                                                 </div>
                                                 <section id="profileBtns">
@@ -222,6 +224,7 @@ function Profile() {
                                                         address={userData.address}
                                                         description={companyData.description}
                                                         setHeroTags={setHeroTags}
+                                                        setHeroDescription={setHeroDescription}
                                                 />
                                         </div>
                                         <Container>
@@ -245,6 +248,7 @@ function Profile() {
                                                                                         menuData.map(item => (
                                                                                                 <EditCards
                                                                                                         id={item._id}
+                                                                                                        key={item._id}
                                                                                                         name={item.name}
                                                                                                         allergens={[item.allergens]}
                                                                                                         description={item.description}
@@ -289,7 +293,7 @@ function Profile() {
                                                                                                         </Form.Group>
                                                                                                         <Form.Group
                                                                                                                 className="mb-3"
-                                                                                                                controlId="newItemDescription"
+                                                                                                                id="newItemDescription"
                                                                                                         >
                                                                                                                 <Form.Label>Dish Description</Form.Label>
                                                                                                                 <Form.Control as="textarea" rows={3} />
@@ -343,9 +347,10 @@ function Profile() {
                                                                 <Row className={itemCard} id="bottomCardHalf">
                                                                         {menuData?.length
                                                                                 ? (
-                                                                                        menuData.map(item => (
+                                                                                        menuData.map((item) => (
                                                                                                 <ItemCards
                                                                                                         id={item._id}
+                                                                                                        key={item._id}
                                                                                                         name={item.name}
                                                                                                         allergens={[item.allergens]}
                                                                                                         description={item.description}

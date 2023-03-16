@@ -27,24 +27,28 @@ function IconTags(props) {
       src: asian,
     },
     {
-      name: "Seafood",
-      src: seafood,
-    },
-    {
       name: "Breakfast",
       src: breakfast,
     },
     {
-      name: "Vegetarian",
-      src: vegetarian,
+      name: "Italian",
+      src: italian,
+    },
+    {
+      name: "Japanese",
+      src: japanese,
+    },
+    {
+      name: "Mexican",
+      src: mexican,
     },
     {
       name: "Noodles",
       src: noodles,
     },
     {
-      name: "Japanese",
-      src: japanese,
+      name: "Seafood",
+      src: seafood,
     },
     {
       name: "Sweets",
@@ -55,12 +59,8 @@ function IconTags(props) {
       src: vegan,
     },
     {
-      name: "Mexican",
-      src: mexican,
-    },
-    {
-      name: "Italian",
-      src: italian,
+      name: "Vegetarian",
+      src: vegetarian,
     },
   ];
   useEffect(() => {
@@ -83,12 +83,14 @@ function IconTags(props) {
     props.setTagFilter(e.currentTarget.value)
     localStorage.setItem("filter", e.currentTarget.value)
     setHidden("visible")
+    window.location.reload();
   }
 
   function removeFilters() {
     props.setTagFilter(null)
     localStorage.removeItem("filter")
     setHidden("hidden")
+    window.location.reload();
   }
 
   return (

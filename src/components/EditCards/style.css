@@ -54,6 +54,7 @@
 
 #editCardImg{
     width: 25rem;
+    height: 23rem;
     background-color: gray;
     transition: all .4s ease-in-out ;
     opacity: 0.2;

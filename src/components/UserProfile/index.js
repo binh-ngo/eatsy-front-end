@@ -53,6 +53,7 @@ function UserProfile(props) {
     setPTags(userInfoObj.tags)
     props.setHeroTags(userInfoObj.tags)
     setPDescription(userInfoObj.description)
+    props.setHeroDescription(userInfoObj.description)
     setPEmail(userInfoObj.email)
     setPAddress(userInfoObj.address)
 

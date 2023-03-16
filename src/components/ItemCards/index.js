@@ -5,7 +5,7 @@ import placeholder from "../../utils/assests/placeholder.png"
 
 export default function ItemCards(props) {
   return (
-    <Card id="itemCard" className="card col-5" key={props.key}>
+    <Card id="itemCard" className="card col-5" key={props.id}>
       <div id="imgContainer">
         <a href={props.link}>
         <Card.Img id="cardImg" src={props.src || placeholder} alt={props.alt}></Card.Img>
