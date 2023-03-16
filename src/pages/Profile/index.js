@@ -75,19 +75,19 @@ function Profile() {
         }
 
         // swaps between user profile and company highlights
-        const [buttonText, setButtonText] = useState("View Company Profile");
+        const [buttonText, setButtonText] = useState("View Menu");
         const [variant, setVariant] = useState("danger");
         const [highlightState, setHighlightState] = useState("contentHidden");
         const [profileState, setProfileState] = useState("contentVisible");
 
         function switchButton() {
-                if (buttonText === "View Company Profile") {
+                if (buttonText === "View Menu") {
                         setButtonText("View User Profile");
                         setVariant("primary");
                         setProfileState("contentHidden");
                         setHighlightState("contentVisible");
                 } else {
-                        setButtonText("View Company Profile");
+                        setButtonText("View Menu");
                         setVariant("danger");
                         setProfileState("contentVisible");
                         setHighlightState("contentHidden");
