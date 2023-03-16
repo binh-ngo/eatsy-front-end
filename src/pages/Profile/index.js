@@ -163,7 +163,7 @@ function Profile() {
                 console.log(itemObj)
                 await API.createItem(itemObj);
 
-                window.location.reload();
+                // window.location.reload();
         }
 
         const uploadProfilePicture = async () => {
@@ -293,7 +293,7 @@ function Profile() {
                                                                                                         </Form.Group>
                                                                                                         <Form.Group
                                                                                                                 className="mb-3"
-                                                                                                                id="newItemDescription"
+                                                                                                                controlId="newItemDescription"
                                                                                                         >
                                                                                                                 <Form.Label>Dish Description</Form.Label>
                                                                                                                 <Form.Control as="textarea" rows={3} />
