@@ -24,6 +24,8 @@ function Home() {
       .catch((err) => console.log(err));
   }, []);
 
+  // const [filter, setFilter] = useState(null)
+  
   return (
     <section className="wrapper">
 
