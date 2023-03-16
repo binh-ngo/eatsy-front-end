@@ -43,7 +43,12 @@ function UserProfile(props) {
     const userInfoObj = {
       email: document.querySelector('#formBasicEmail').value || pEmail,
       address: document.querySelector('#formBasicAddress').value || pAddress,
-      tags: document.querySelector("#formBasicTags").value.split(",").map(tag => tag.trim()) || pTags,
+      tags: document.querySelector("#formBasicTags").value.split(",").map(tag => {
+        const word = tag.trim();
+        const wordToUpper = word.charAt(0).toUpperCase() + word.slice(1);
+        console.log(wordToUpper)
+        return wordToUpper;
+      }) || pTags,
       description: document.querySelector("#formBasicDescription").value || pDescription
     }
 
