@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Eatsy Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## DESCRIPTION
+Eatsy is a social media platform for home cooks, foodies, and chefs, where you can discover new recipes, connect with other home cooks, and share your culinary creations with the world. We provide a space for talented cooks to display a variety of dishes that are both satisfying and healthy. From classic comfort foods to international cuisine, we offer something for every palate. Whether you're a beginner or a seasoned chef, Eatsy makes it easy to find inspiration, learn new techniques, and take your cooking to the next level.
+![Logo](./images/pasted%20image%200.png)
+## TABLE OF CONTENTS
+<details> 
+<summary> Table of Contents  </summary>
 
-## Available Scripts
+[DESCRIPTION](https://github.com/binh-ngo/eatsy-front-end#DESCRIPTION)
+    
+[CONTRIBUTERS](https://github.com/binh-ngo/eatsy-front-end#CONTRIBUERS)
+    
+[QUESTIONS](https://github.com/binh-ngo/eatsy-front-end#QUESTIONS)
+    
+[INSTALLATION](https://github.com/binh-ngo/eatsy-front-end#INSTALLATION)
+    
+[USAGE](https://github.com/binh-ngo/eatsy-front-end#USAGE)
+    
+[LICENSE](https://github.com/binh-ngo/eatsy-front-end#LICENSE)
+</details>    
+    
+## CONTRIBUTERS
+Bram Gibson, Binh-Nguyen Ngo, Jason Nguyen, Lukas MacMillen
+       
+## Questions
+If you have any questions about this project, reach out to us on our github
 
-In the project directory, you can run:
+https://github.com/binh-ngo
 
-### `npm start`
+https://github.com/agtTwilight
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://github.com/Bram-G
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://github.com/jhnwoo-dev
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    
+## INSTALLATION
+No installation needed, follow this link to the deployed site!
 
-### `npm run build`
+https://eatsyfoods.netlify.app/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here is a link to our back end repo!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://github.com/agtTwilight/Eatsy-db
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Screenshot of deployed application!
+![Screenshot of deployed Application](./images/Screenshot%202023-03-16%20131958.jpg)
 
-### `npm run eject`
+    
+## USAGE
+Use this app to share your favorite dishes and connect with other chefs!
+    
+## LICENSE
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+            Copyright  2023 Bram Gibson, Binh-Nguyen Ngo, Jason Nguyen, Lukas MacMillen
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+            
+            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+            
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
