@@ -36,10 +36,10 @@ export default function SendMessage(props) {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label id='replyTitle'>TO</Form.Label>
-              <Form.Control 
+              <Form.Control
                 id='msgTo'
                 type="text"
-                placeholder= {props.userTo}
+                placeholder={props.userTo}
                 readOnly
               />
             </Form.Group>
@@ -48,7 +48,7 @@ export default function SendMessage(props) {
               controlId="msgText"
             >
               <Form.Label id="replyTitle">MESSAGE</Form.Label>
-              <Form.Control as="textarea"rows={3} autoFocus />
+              <Form.Control as="textarea" rows={3} autoFocus />
             </Form.Group>
           </Form>
         </Modal.Body>
